@@ -1,0 +1,30 @@
+{
+  "name": "desafiotripulaciones_sept23_grupo2_fullstack",
+  "version": "1.0.0",
+  "description": "● Crear la arquitectura de la solución, y encargarse de la implementación de la misma.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBridge-DesafioTripulaciones-Grupo2/DesafioTripulaciones_Sept23_Grupo2_fullstack.git"
+  },
+  "author": "Alejandro Sanchez, Miguel Barbero, Maria Diana Noaghiul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheBridge-DesafioTripulaciones-Grupo2/DesafioTripulaciones_Sept23_Grupo2_fullstack/issues"
+  },
+  "homepage": "https://github.com/TheBridge-DesafioTripulaciones-Grupo2/DesafioTripulaciones_Sept23_Grupo2_fullstack#readme",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2",
+    "path": "^0.12.7"
+  }
+}

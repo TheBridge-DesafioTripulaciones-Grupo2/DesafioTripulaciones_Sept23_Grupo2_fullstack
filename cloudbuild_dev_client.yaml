@@ -23,6 +23,6 @@ steps:
     --allow-unauthenticated 
     --port=5173" 
   ]
-
+  
 images:
 - 'europe-west1-docker.pkg.dev/desafio-tripulaciones-2/repodesafio-dev/client-dev:1.0'

@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('./database'); // Reemplaza './database' con la ruta correcta de tu archivo de configuración de la base de datos
+const { db } = require('../config/db_pgsql'); 
 const CUPS = require('./CUPS'); // Asumiendo que tienes un modelo CUPS definido
 
-const Factura = sequelize.define('facturas', {
+const Factura = db.define('facturas', {
     factura_id: {
         type: DataTypes.BIGINT,
         allowNull: false,

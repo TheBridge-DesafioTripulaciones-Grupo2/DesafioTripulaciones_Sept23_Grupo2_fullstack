@@ -1,5 +1,6 @@
 const { Bill } = require("../schemas/Bills");
 
+
 const getBillById = async (req, res) => {
     try {
         const id = req.params.id
@@ -16,7 +17,7 @@ const getBillById = async (req, res) => {
 const createBill = async (req, res) => {
     const newBill = req.body; 
     // console.log(req.body);
-    const response = await Bill.createBill(newBill);
+    const response = await Bill.create(newBill);
     res.status(201).json({
         "bill_created": response,
         data: newBill

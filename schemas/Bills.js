@@ -229,6 +229,8 @@ const Bill = db.define('facturas', {
     timestamps: false
 });
 
-Bill.belongsTo(CUPS, { foreignKey: 'CUPS', targetKey: 'CUPS' }); // Asumiendo que ya tienes un modelo CUPS definido
+Factura.belongsTo(CUPS, { foreignKey: 'CUPS', targetKey: 'CUPS' }); // Asumiendo que ya tienes un modelo CUPS definido
 
-module.exports = Bill;
+// Factura.sync();
+
+module.exports = Factura;

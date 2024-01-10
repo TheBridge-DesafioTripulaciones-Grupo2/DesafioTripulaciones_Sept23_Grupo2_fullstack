@@ -51,7 +51,7 @@ const User = db.define(
   {
     modelName: "User",
     tableName: "users",
-    timestamps: true,
+    timestamps: false,
   }
 );
 

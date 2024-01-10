@@ -7,7 +7,7 @@ const CUPS = db.define("CUPS", {
     type: DataTypes.STRING,
     primaryKey: true,
   },
-  clientId: {
+  client_id: {
     field: 'client_id',
     type: DataTypes.BIGINT,
     references: {
@@ -23,7 +23,7 @@ const CUPS = db.define("CUPS", {
 }, {
   modelName: 'CUPS',
   tableName: 'CUPS',
-  timestamps: true,
+  timestamps: false,
 });
 
 // CUPS.sync();

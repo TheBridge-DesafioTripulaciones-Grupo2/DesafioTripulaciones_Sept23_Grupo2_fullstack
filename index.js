@@ -6,6 +6,10 @@ var cors = require("cors");
 const morgan = require("morgan");
 //helmet
 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -14,8 +18,10 @@ app.use(morgan(":method :host :status :url :response-time ms :body"));
 
 //Routes
 const userRoutes = require("./routes/user.routes.js");
+const billsRoutes = require("./routes/bills.routes.js");
 
 app.use("/user", userRoutes);
+app.use("/bills", billsRoutes);
 
 //Server
 app.listen(PORT, () => {

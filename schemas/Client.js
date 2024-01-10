@@ -27,7 +27,7 @@ const Client = db.define("Client", {
   timestamps: true,
 });
 
-Client.sync();
+// Client.sync();
 
 module.exports = Client;
 

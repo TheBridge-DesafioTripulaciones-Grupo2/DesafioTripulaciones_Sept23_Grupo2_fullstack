@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql'); 
 const CUPS = require('./CUPS'); // Asumiendo que tienes un modelo CUPS definido
 
-const Factura = db.define('facturas', {
+const Bill = db.define('facturas', {
     factura_id: {
         type: DataTypes.BIGINT,
         allowNull: false,
@@ -229,6 +229,6 @@ const Factura = db.define('facturas', {
     timestamps: false
 });
 
-Factura.belongsTo(CUPS, { foreignKey: 'CUPS', targetKey: 'CUPS' }); // Asumiendo que ya tienes un modelo CUPS definido
+Bill.belongsTo(CUPS, { foreignKey: 'CUPS', targetKey: 'CUPS' }); // Asumiendo que ya tienes un modelo CUPS definido
 
-module.exports = Factura;
+module.exports = Bill;

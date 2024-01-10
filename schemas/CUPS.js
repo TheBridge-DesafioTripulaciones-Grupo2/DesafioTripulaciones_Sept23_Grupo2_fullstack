@@ -1,13 +1,13 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
 
-const CUP = db.define("CUP", {
+const CUPS = db.define("CUPS", {
   CUPS: {
     field: 'CUPS',
     type: DataTypes.STRING,
     primaryKey: true,
   },
-  clientId: {
+  client_id: {
     field: 'client_id',
     type: DataTypes.BIGINT,
     references: {
@@ -21,11 +21,11 @@ const CUP = db.define("CUP", {
     allowNull: false,
   }
 }, {
-  modelName: 'CUP',
+  modelName: 'CUPS',
   tableName: 'CUPS',
-  timestamps: true,
+  timestamps: false,
 });
 
-CUP.sync();
+// CUPS.sync();
 
-module.exports = CUP;
+module.exports = CUPS;

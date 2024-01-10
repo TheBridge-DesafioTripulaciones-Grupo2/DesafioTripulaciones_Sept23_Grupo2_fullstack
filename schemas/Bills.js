@@ -231,4 +231,6 @@ const Factura = db.define('facturas', {
 
 Factura.belongsTo(CUPS, { foreignKey: 'CUPS', targetKey: 'CUPS' }); // Asumiendo que ya tienes un modelo CUPS definido
 
+// Factura.sync();
+
 module.exports = Factura;

@@ -51,10 +51,10 @@ const User = db.define(
   {
     modelName: "User",
     tableName: "users",
-    timestamps: true,
+    timestamps: false,
   }
 );
 
-User.sync();
+// User.sync();
 
 module.exports = { User };

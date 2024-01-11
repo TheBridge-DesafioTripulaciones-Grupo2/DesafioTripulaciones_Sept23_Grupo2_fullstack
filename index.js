@@ -10,6 +10,10 @@ const helmet = require('helmet');
 
 const secret = process.env.ULTRA_SECRET_KEY;
 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public", { index: false, redirect: false }));
@@ -32,9 +36,11 @@ app.use(morgan(":method :host :status :url :response-time ms :body"));
 //Routes
 const userRoutes = require("./routes/user.routes.js");
 const propuestaRoutes = require("./routes/propuesta.routes.js");
+const billsRoutes = require("./routes/bills.routes.js");
 
 app.use("/user", userRoutes);
 app.use("/propuesta", propuestaRoutes);
+app.use("/bills", billsRoutes);
 
 //Server
 app.listen(PORT, () => {

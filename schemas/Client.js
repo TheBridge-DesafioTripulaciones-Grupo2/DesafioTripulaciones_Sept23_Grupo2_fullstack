@@ -24,10 +24,10 @@ const Client = db.define("Client", {
 }, {
   modelName: 'Client',
   tableName: 'clients',
-  timestamps: true,
+  timestamps: false,
 });
 
-Client.sync();
+// Client.sync();
 
 module.exports = Client;
 

@@ -1,19 +1,12 @@
-const { User } = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const regex = require("../utils/auth_regex");
 const jwt_secret = process.env.ULTRA_SECRET_KEY;
 const saltRounds = 10;
+const userModel= require("../models/UserModel");
+const passport = require("../config/passport-config");
+const { User } = require("../schemas/User");
 
-// Get user by email
-const getUserByEmail = async (req, res) => {
-  try {
-    const user = await User.findOne({ where: { email: req.params.email } });
-    res.status(200).json(user);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
 
 // Create a new user (admin dashboard)
 const createUser = async (req, res) => {
@@ -21,16 +14,12 @@ const createUser = async (req, res) => {
     const { email, password, admin, acceso, contacto, delegacion, asesor } =
       req.body;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const newUser = await User.create({
-      email,
-      password: hashedPassword,
-      admin,
-      acceso,
-      contacto,
-      delegacion,
-      asesor,
-    });
-    res.status(201).json({ message: "User Created!", newUser });
+    const userCreated = await userModel.createUser(email, hashedPassword, admin, acceso, contacto, delegacion, asesor);
+    if (userCreated == "error") {
+      res.status(500).json({ message: "no se ha podido crear usuario" });
+    } else {
+      res.status(201).json({ message: "User Created!", userCreated });
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -39,65 +28,58 @@ const createUser = async (req, res) => {
 // Login user
 const loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ where: { email: email } });
-    if (!user) {
-      return res.status(401).json({ message: "Incorrect email or password" });
-    }
-    const match = await bcrypt.compare(password, user.password);
-    if (match) {
-      const userForToken = {
-        userId: user.userId,
-        email: user.email,
+    const payload = {
+      name: req.user.userId,
+      email: req.user.email
       };
-      const token = jwt.sign(userForToken, jwt_secret);
-      res.status(200).json({ message: "Logged in", token });
-    } else {
-      res.status(401).json({ message: "Incorrect email or password" });
-    }
+    const token = jwt.sign(payload, jwt_secret);
+    res.status(200).json({ message: "Logged in", token, user: req.user});
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// // Register a new user
-// const signUpUser = async (req, res) => {
-//   try {
-//     const { email, password, admin, acceso, contacto, delegacion, asesor } = req.body;
-//     if (regex.validateEmail(email) && regex.validatePassword(password)) {
-//       const hashedPassword = await bcrypt.hash(password, saltRounds);
-//       const newUser = await User.create({
-//         email,
-//         password: hashedPassword,
-//         admin,
-//         acceso,
-//         contacto,
-//         delegacion,
-//         asesor
-//       });
-//       res.status(201).json({ message: "User registered successfully", newUser });
-//     } else {
-//       res.status(400).json({ message: "Invalid email or password" });
-//     }
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
+const loginMiddleware = async function (req, res, next) {
+  try {
+    const hashedPassword = await bcrypt.hash("123abcABC!", saltRounds);
+    console.log(hashedPassword);
+      passport.authenticate('local', (err, user, info) => {
+          if (err) {
+            console.log(err);
+            res.status(500).json("error");
+          } else if (!user) {
+            console.log("noUser");
+            res.status(200).json("error");
+          } else {
+              req.login(user, (err) => {
+                  if (err) {
+                    console.log(err);
+                      return res.status(500).json("error");
+                  }
+                  return next();
+              });
+          }
+      })(req, res, next); 
+  } catch (error) {
+      console.log('Error en loginMiddleware:', error);
+      res.status(500).send('Error interno del servidor');
+  }
+}
 
 // Logout user
 const logoutUser = async (req, res) => {
     try {
-      const decoded = jwt.verify(req.headers['authorization'].split(' ')[1], jwt_secret);
-      const user = await User.findOne({ where: { email: decoded.email } });
-  
+      const user = await User.findOne({ where: { email: req.user.email } });
       if (!user) {
         return res.status(401).json({ message: "User not found" });
       }
-  
       user.logged = false;
       await user.save();
-  
-      res.status(200).json({ message: "Successfully logged out" });
+      req.logout(function (err) {
+        if (err) { return res.status(401).json({ message: "error" }); }
+        req.session.destroy();
+        res.status(200).json({ message: "Successfully logged out" });
+    });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
@@ -108,43 +90,19 @@ const logoutUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const { userId } = req.params;
+    if (!/^[0-9]+$/.test(userId)) {
+      return res.status(500).json({ message: "el id no es un numero" });
+    } 
     const { email, password, admin, acceso, contacto, delegacion, asesor } =
       req.body;
-    const user = await User.findByPk(userId);
-    if (user) {
-      const hashedPassword = password
-        ? await bcrypt.hash(password, saltRounds)
-        : user.password;
-      const updatedUser = await user.update({
-        email,
-        password: hashedPassword,
-        admin,
-        acceso,
-        contacto,
-        delegacion,
-        asesor,
-      });
-      res
-        .status(200)
-        .json({ message: "User updated successfully", updatedUser });
-    } else {
+    const hashedPassword = bcrypt.hash(password, saltRounds);
+    let userUpdated = await userModel.updateUser(userId, email, hashedPassword, admin, acceso, contacto, delegacion, asesor)
+    if (userUpdated == "error") {
+      res.status(404).json({ message: "User not updated" });
+    } else if (userUpdated == "error User") {
       res.status(404).json({ message: "User not found" });
-    }
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-// Delete a user
-const deleteUser = async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const user = await User.findByPk(userId);
-    if (user) {
-      await user.destroy();
-      res.status(200).json({ message: "User deleted successfully" });
     } else {
-      res.status(404).json({ message: "User not found" });
+      res.status(200).json({ message: "User updated successfully", user: userUpdated });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -152,11 +110,9 @@ const deleteUser = async (req, res) => {
 };
 
 module.exports = {
-  getUserByEmail,
   createUser,
   loginUser,
-//   signUpUser,
+  loginMiddleware,
   logoutUser,
-  updateUser,
-  deleteUser,
+  updateUser
 };

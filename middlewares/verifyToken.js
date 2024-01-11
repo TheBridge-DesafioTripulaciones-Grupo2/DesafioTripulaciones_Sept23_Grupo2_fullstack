@@ -1,6 +1,6 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const User = require("../schemas/User");
 const jwt_secret = process.env.ULTRA_SECRET_KEY;
 
 const verifyToken = express.Router();

@@ -1,48 +1,41 @@
-const { User } = require("../schemas/User");
+//const { Propuesta } = require("../schemas/Propuesta");
 
-const createUser = async (email, hashedPassword, admin, acceso, contacto, delegacion, asesor) => {
+const getPropuesta = async (id) => {
     try {
-        const newUser = await User.create({
-            email,
-            password: hashedPassword,
-            admin,
-            acceso,
-            contacto,
-            delegacion,
-            asesor,
-          });
-        return newUser;
+        // Propuesta.findAll({
+        //     include: [
+        //       {
+        //         model: Bill
+        //       },
+        //       {
+        //         model: OtraTablaRelacionada2
+        //       },
+        //     ],
+        //   })
+        //     .then(resultados => {
+        //       console.log(resultados);
+        //     })
+        //     .catch(error => {
+        //       console.error(error);
+        //     });
+        return ;
     } catch (err) {
         console.log(err);
         return "error";
     } 
 }
 
-const updateUser = async (userId, email, hashedPassword, admin, acceso, contacto, delegacion, asesor) => {
+const postPropuesta = async (userId, email, hashedPassword, admin, acceso, contacto, delegacion, asesor) => {
     try {
-        const user = await User.findByPk(userId);
-        if (user) {
-        const updatedUser = await user.update({
-            email,
-            password: hashedPassword,
-            admin,
-            acceso,
-            contacto,
-            delegacion,
-            asesor,
-          });
-        return updatedUser;
-        } else {
-            return "error User"
-        }
+        
     } catch {
         return "error"
     }
 }
 
-const userModel = {
-    createUser,
-    updateUser
+const PropuestaModel = {
+    getPropuesta,
+    postPropuesta
 }
 
-module.exports = userModel;
+module.exports = PropuestaModel;

@@ -18,9 +18,13 @@ app.use(morgan(":method :host :status :url :response-time ms :body"));
 
 //Routes
 const userRoutes = require("./routes/user.routes.js");
+const clientsRoutes = require("./routes/clients.routes.js");
+const CUPSRoutes = require("./routes/CUPS.routes.js");
 const billsRoutes = require("./routes/bills.routes.js");
 
 app.use("/user", userRoutes);
+app.use("/clients", clientsRoutes);
+app.use("/CUPS", CUPSRoutes);
 app.use("/bills", billsRoutes);
 
 //Server

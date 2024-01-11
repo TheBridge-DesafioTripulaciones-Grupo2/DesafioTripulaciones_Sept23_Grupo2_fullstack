@@ -1,18 +1,19 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
+const { User } = require('./User');
 
 const Client = db.define("Client", {
-  clientId: {
+  client_id: {
     field: 'client_id',
     type: DataTypes.BIGINT,
     primaryKey: true,
     autoIncrement: true,
   },
-  userId: {
+  user_id: {
     field: 'user_id',
     type: DataTypes.BIGINT,
     references: {
-      model: 'User', // This should match the model name given in User model definition
+      model: User, // This should match the model name given in User model definition
       key: 'user_id',
     }
   },
@@ -24,11 +25,11 @@ const Client = db.define("Client", {
 }, {
   modelName: 'Client',
   tableName: 'clients',
-  timestamps: true,
+  timestamps: false,
 });
 
 Client.sync();
 
-module.exports = Client;
+module.exports = {Client};
 
   

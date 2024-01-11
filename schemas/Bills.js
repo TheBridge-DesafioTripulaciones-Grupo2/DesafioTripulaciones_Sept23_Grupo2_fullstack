@@ -1,12 +1,13 @@
 const { DataTypes } = require('sequelize');
-const { db } = require('../config/db_pgsql'); 
-const CUPS = require('./CUPS'); // Asumiendo que tienes un modelo CUPS definido
+const { db } = require('../config/db_pgsql');
+const { CUPS } = require('./CUPS');
 
-const Factura = db.define('facturas', {
+const Bill = db.define('facturas', {
     factura_id: {
+        field: 'factura_id',
         type: DataTypes.BIGINT,
-        allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true,
     },
     tarifa: {
         type: DataTypes.STRING(255),
@@ -188,12 +189,12 @@ const Factura = db.define('facturas', {
         type: DataTypes.BIGINT,
         allowNull: false
     },
-    CUPS: {
-        type: DataTypes.STRING(255),
+    CUPS_id: {
+        type: DataTypes.BIGINT,
         allowNull: false,
         references: {
             model: CUPS,
-            key: 'CUPS'
+            key: 'CUPS_id'
         }
     },
     fecha_indexada: {
@@ -225,10 +226,13 @@ const Factura = db.define('facturas', {
         allowNull: true
     }
 }, {
+    modelName: 'Bill',
     tableName: 'facturas',
-    timestamps: false
+    timestamps: false,
 });
 
-Factura.belongsTo(CUPS, { foreignKey: 'CUPS', targetKey: 'CUPS' }); // Asumiendo que ya tienes un modelo CUPS definido
+// Bill.belongsTo(CUPS, { foreignKey: 'CUPS_id', targetKey: 'CUPS_id' }); // Asumiendo que ya tienes un modelo CUPS definido
 
-module.exports = Factura;
+Bill.sync();
+
+module.exports = { Bill };

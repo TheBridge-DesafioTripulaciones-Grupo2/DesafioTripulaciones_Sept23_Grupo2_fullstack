@@ -1,10 +1,11 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
 
+
 const User = db.define(
   "User",
   {
-    userId: {
+    user_id: {
       field: "user_id",
       type: DataTypes.BIGINT,
       primaryKey: true,
@@ -45,10 +46,10 @@ const User = db.define(
   {
     modelName: "User",
     tableName: "users",
-    timestamps: true,
+    timestamps: false,
   }
 );
 
-User.sync();
+User.sync({alter:true});
 
 module.exports = { User };

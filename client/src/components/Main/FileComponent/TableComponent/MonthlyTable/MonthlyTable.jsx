@@ -39,7 +39,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P1_precio_mes_descuento"></td>
-              <td id="P1_precio_total_energia">-- €</td>
+              <td id="P1_precio_total_energia"></td>
             </tr>
             <tr>
               <td>P2</td>
@@ -61,7 +61,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P2_precio_mes_descuento"></td>
-              <td id="P2_precio_total_energia">-- €</td>
+              <td id="P2_precio_total_energia"></td>
             </tr>
             <tr>
               <td>P3</td>
@@ -83,7 +83,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P3_precio_mes_descuento"></td>
-              <td id="P3_precio_total_energia">-- €</td>
+              <td id="P3_precio_total_energia"></td>
             </tr>
             <tr>
               <td>P4</td>
@@ -105,7 +105,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P4_precio_mes_descuento"></td>
-              <td id="P4_precio_total_energia">-- €</td>
+              <td id="P4_precio_total_energia"></td>
             </tr>
             <tr>
               <td>P5</td>
@@ -127,7 +127,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P5_precio_mes_descuento"></td>
-              <td id="P5_precio_total_energia">-- €</td>
+              <td id="P5_precio_total_energia"></td>
             </tr>
             <tr>
               <td>P6</td>
@@ -149,7 +149,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P6_precio_mes_descuento"></td>
-              <td id="P6_precio_total_energia">-- €</td>
+              <td id="P6_precio_total_energia"></td>
             </tr>
           </tbody>
         </table>
@@ -159,7 +159,7 @@ const MonthlyTable = ({ display }) => {
               <th className="table-header" colSpan={6}>POTENCIA</th>
             </tr>
             <tr className="table-subheaders">
-    <th className="table-subheader"><p>Potencia <br />contratada (KWh)</p></th>
+    <th className="table-subheader"><p>Potencia <br />contratada <br />(KWh)</p></th>
     <th className="table-subheader"><p>Precios potencia <br /> (€)</p></th>
     <th className="table-subheader"><p>Descuentos <br />(%)</p></th>
     <th className="table-subheader"><p>Precios con <br />descuentos <br />(€)</p></th>
@@ -190,7 +190,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P1_precio_mes_descuento"></td>
-              <td id="P6_precio_total_potencia">-- €</td>
+              <td id="P6_precio_total_potencia"></td>
             </tr>
             <tr>
               <td>
@@ -215,7 +215,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P2_precio_mes_descuento_potencia"></td>
-              <td id="P2_precio_total_potencia">-- €</td>
+              <td id="P2_precio_total_potencia"></td>
             </tr>
             <tr>
               <td>
@@ -240,7 +240,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P3_precio_mes_descuento_potencia"></td>
-              <td id="P3_precio_total_potencia">-- €</td>
+              <td id="P3_precio_total_potencia"></td>
             </tr>
             <tr>
               <td>
@@ -265,7 +265,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P4_precio_mes_descuento_potencia"></td>
-              <td id="P4_precio_total_potencia">-- €</td>
+              <td id="P4_precio_total_potencia"></td>
             </tr>
             <tr>
               <td>
@@ -290,7 +290,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P5_precio_mes_descuento_potencia"></td>
-              <td id="P5_precio_total_potencia">-- €</td>
+              <td id="P5_precio_total_potencia"></td>
             </tr>
             <tr>
               <td>
@@ -315,7 +315,7 @@ const MonthlyTable = ({ display }) => {
                 />
               </td>
               <td id="P6_precio_mes_descuento_potencia"></td>
-              <td id="P6_precio_total_potencia">-- €</td>
+              <td id="P6_precio_total_potencia"></td>
             </tr>
           </tbody>
         </table>

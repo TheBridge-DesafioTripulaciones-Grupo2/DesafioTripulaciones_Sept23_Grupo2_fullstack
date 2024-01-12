@@ -18,8 +18,9 @@
       font-family: inherit; /* Inherits font from parent element */
       font-size: inherit; /* Inherits font size from parent element */
       color: inherit;
-        min-width: 57px;
+        // min-width: 57px;
         max-width: 120px;
+        max-height: 20px;
 
       //   display: flex;
       //   height: 40px;
@@ -30,7 +31,7 @@
 
       border: 1px solid $gray2;
       //   border-bottom: 1px solid $gray2;
-      background: #fff;
+      background: $primary-100;
       > input {
         background: none; /* Removes the default background */
         border: none; /* Removes the default border */
@@ -47,6 +48,7 @@
         align-items: center;
         gap: 8px;
         align-self: stretch;
+        height: 20px;
 
         // border-right: 1px solid $gray2;
         // border-bottom: 1px solid $gray2;

@@ -7,16 +7,44 @@ const MonthlyTable = ({ display }) => {
         <table id="monthly-energy" className="monthly-table">
           <thead>
             <tr>
-              <th className="table-header" colSpan={6}>ENERGÍA</th>
+              <th className="table-header" colSpan={6}>
+                ENERGÍA
+              </th>
             </tr>
             <tr className="table-subheaders">
-    <th className="table-subheader"><p>Franja</p></th>
-    <th className="table-subheader"><p>Consumo factura <br />actual (€/KWh)</p></th>
-    <th className="table-subheader"><p>Precios energía activa <br />mes de facturación <br />(€/KWh)</p></th>
-    <th className="table-subheader"><p>Descuento <br /> (%)</p></th>
-    <th className="table-subheader"><p>Precio con <br /> descuento (€)</p></th>
-    <th className="table-subheader"><p>Total pago <br />factura (€)</p></th>
-</tr>
+              <th className="table-subheader">
+                <p>Franja</p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Consumo factura <br />
+                  actual (€/KWh)
+                </p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Precios energía activa <br />
+                  mes de facturación <br />
+                  (€/KWh)
+                </p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Descuento <br /> (%)
+                </p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Precio con <br /> descuento (€)
+                </p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Total pago <br />
+                  factura (€)
+                </p>
+              </th>
+            </tr>
           </thead>
           <tbody>
             <tr>
@@ -151,20 +179,56 @@ const MonthlyTable = ({ display }) => {
               <td id="P6_precio_mes_descuento"></td>
               <td id="P6_precio_total_energia"></td>
             </tr>
+            <tr className="final-row">
+              <td>Total</td>
+              <td id="consumo_actual_total"></td>
+              <td id="precio_mes_total"></td>
+              <td className="empty-cell"></td>
+              <td className="empty-cell"></td>
+              <td id="precio_total_energia"></td>
+            </tr>
           </tbody>
         </table>
         <table id="monthly-power" className="monthly-table">
           <thead>
             <tr>
-              <th className="table-header" colSpan={6}>POTENCIA</th>
+              <th className="table-header" colSpan={6}>
+                POTENCIA
+              </th>
             </tr>
             <tr className="table-subheaders">
-    <th className="table-subheader"><p>Potencia <br />contratada <br />(KWh)</p></th>
-    <th className="table-subheader"><p>Precios potencia <br /> (€)</p></th>
-    <th className="table-subheader"><p>Descuentos <br />(%)</p></th>
-    <th className="table-subheader"><p>Precios con <br />descuentos <br />(€)</p></th>
-    <th className="table-subheader"><p>Total pago <br />factura (€)</p></th>
-</tr>
+              <th className="table-subheader">
+                <p>
+                  Potencia <br />
+                  contratada <br />
+                  (KWh)
+                </p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Precios potencia <br /> (€)
+                </p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Descuentos <br />
+                  (%)
+                </p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Precios con <br />
+                  descuentos <br />
+                  (€)
+                </p>
+              </th>
+              <th className="table-subheader">
+                <p>
+                  Total pago <br />
+                  factura (€)
+                </p>
+              </th>
+            </tr>
           </thead>
           <tbody>
             <tr>
@@ -316,6 +380,13 @@ const MonthlyTable = ({ display }) => {
               </td>
               <td id="P6_precio_mes_descuento_potencia"></td>
               <td id="P6_precio_total_potencia"></td>
+            </tr>
+            <tr className="final-row">
+              <td className="empty-cell"></td>
+              <td className="empty-cell"></td>
+              <td className="empty-cell"></td>
+              <td className="empty-cell"></td>
+              <td id="precio_total_potencia"></td>
             </tr>
           </tbody>
         </table>

@@ -5,10 +5,11 @@
   display: inline-flex;
   align-items: flex-start;
   gap: 10px;
-    min-width: 1340px;
+  min-width: 1340px;
   margin: 0px 50px;
   .monthly-table {
     width: 50%;
+    border-left: 1px solid $gray2;
     td {
       background: none; /* Removes the default background */
       border: none; /* Removes the default border */
@@ -18,9 +19,10 @@
       font-family: inherit; /* Inherits font from parent element */
       font-size: inherit; /* Inherits font size from parent element */
       color: inherit;
-        // min-width: 57px;
-        max-width: 120px;
-        max-height: 20px;
+      // min-width: 57px;
+      max-width: 120px;
+      min-height: 20px;
+      max-height: 20px;
 
       //   display: flex;
       //   height: 40px;
@@ -29,7 +31,8 @@
       //   gap: 8px;
       //   align-self: stretch;
 
-      border: 1px solid $gray2;
+      border-right: 1px solid $gray2;
+      border-bottom: 1px solid $gray2;
       //   border-bottom: 1px solid $gray2;
       background: $primary-100;
       > input {
@@ -43,13 +46,18 @@
         color: inherit;
 
         display: flex;
+        width: calc(100% - 8px);
         height: 40px;
-        padding: 10px 8px;
+        // padding: 10px 8px;
+        padding: 10px 0px;
+        padding-left: 8px;
         align-items: center;
         gap: 8px;
         align-self: stretch;
         height: 20px;
 
+        border-right: 1px solid $gray2;
+        // border-bottom: 1px solid $gray2;
         // border-right: 1px solid $gray2;
         // border-bottom: 1px solid $gray2;
         background: #fff;
@@ -74,6 +82,7 @@
 }
 .table-subheaders {
   height: 21px;
+
   //   overflow: hidden;
 }
 .table-subheader {
@@ -102,7 +111,9 @@
   color: #1d2433;
   text-align: center;
 
-  border: 1px solid $gray2;
+  border-right: 1px solid $gray2;
+  border-bottom: 1px solid $gray2;
+
   //   border-bottom: 1px solid $gray2;
   p {
     flex: 1 0 0;
@@ -120,7 +131,17 @@
     letter-spacing: 0.035px;
   }
 }
+.final-row {
+  width: calc(100% - 8px);
+  height: 40px;
+  // padding: 10px 8px;
+  padding: 10px 0px;
+  padding-left: 8px;
+}
+.empty-cell {
+    visibility: hidden;
+}
 
 .hidden-table {
-    display: none;
-  }
+  display: none;
+}

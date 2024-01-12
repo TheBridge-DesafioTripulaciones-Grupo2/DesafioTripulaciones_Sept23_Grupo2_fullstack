@@ -11,6 +11,9 @@ const TableComponent = () => {
   const [direccion, setDireccion] = useState("placeholder");
   const [cups, setCups] = useState("placeholder");
 
+//Track if the bill is filled
+  const [isBillFilled, setIsBillFilled] = useState(true); ///CAMBIAR A FALSE CUANDO PODAMOS RELLENAR DATOS
+
   //Track if the bill is submitted or not (show the proposals section or not)
   const [billSubmitted, setBillSubmitted] = useState(false);
 
@@ -50,10 +53,18 @@ const TableComponent = () => {
       </div>
       <div id="table-buttons">
         <div id="table-buttons-toggle">
-          <button id="monthly-button" className={yearlyChecked ? "button" : "highlighted-button"} onClick={hideYearlyTable}>
+          <button
+            id="monthly-button"
+            className={yearlyChecked ? "button" : "highlighted-button"}
+            onClick={hideYearlyTable}
+          >
             Consumo mensual
           </button>
-          <button id="yearly-button" className={yearlyChecked ? "highlighted-button" : "button"} onClick={showYearlyTable}>
+          <button
+            id="yearly-button"
+            className={yearlyChecked ? "highlighted-button" : "button"}
+            onClick={showYearlyTable}
+          >
             Consumo anual
           </button>
         </div>
@@ -75,10 +86,14 @@ const TableComponent = () => {
       <form>
         <MonthlyTable display={yearlyChecked ? hiddenTable : shownTable} />
         <YearlyTable display={yearlyChecked ? shownTable : hiddenTable} />
-        <ExtraTable />
-        <OthersTable />
-        <BillCost />
-        <button type="submit">Continuar</button>
+        <section id="bottom-tables-section">
+          <ExtraTable />
+          <OthersTable />
+        </section>
+        <section id="confirm-section">
+          <BillCost />
+          <button type="submit" disabled={!isBillFilled}>Continuar</button>
+        </section>
       </form>
     </section>
   );

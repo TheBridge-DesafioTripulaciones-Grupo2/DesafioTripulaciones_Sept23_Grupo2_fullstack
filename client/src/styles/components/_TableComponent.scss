@@ -100,6 +100,129 @@ td {
   }
 }
 
+#bottom-tables-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 50px;
+  th,
+  td {
+    width: 163px;
+    height: 40px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  input {
+  }
+}
+
 .hidden-table {
   display: none;
+}
+
+#confirm-section {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  margin-top: 68px;
+  margin-right: 50px;
+
+  button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+    font: inherit;
+    border-radius: 0;
+    appearance: none;
+    width: 453px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    background: var(--primario-naranja, #ff8523);
+
+    color: #fcfdfd;
+    text-align: center;
+
+    /* Botón/Botón */
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 24px; /* 120% */
+    letter-spacing: 0.05px;
+  }
+  button:hover {
+    background-color: $primary-400;
+  }
+  button:disabled {
+    background-color: $gray3;
+  }
+}
+
+#bill-total-cost {
+  > div {
+    margin-right: 155px;
+    display: inline-flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 4px 4px 10px 0px rgba(212, 212, 212, 0.9),
+      -4px -4px 8px 0px rgba(255, 255, 255, 0.9),
+      4px -4px 8px 0px rgba(212, 212, 212, 0.2),
+      -4px 4px 8px 0px rgba(212, 212, 212, 0.2),
+      -1px -1px 2px 0px rgba(212, 212, 212, 0.5) inset,
+      1px 1px 2px 0px rgba(255, 255, 255, 0.3) inset;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      > div {
+        display: flex;
+        align-items: center;
+        gap: -58px;
+        > .price {
+          width: 197px;
+          margin: 0;
+          color: #ff8523;
+
+          /* Heading/H2 */
+          font-family: Lato;
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 40px; /* 100% */
+          letter-spacing: -0.6px;
+        }
+        > div {
+          display: flex;
+          padding: 4px;
+          align-items: flex-start;
+          gap: 8.06px;
+
+          border-radius: 100.752px;
+          background: var(--neutros-gris300, #ada4a2);
+          > svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.caption {
+  width: 193px;
+  
+  color: var(--neutros-gris400, #877F7D);
+
+  @include caption;
 }

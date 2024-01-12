@@ -12,7 +12,7 @@ const MonthlyTable = ({ display }) => {
               </th>
             </tr>
             <tr className="table-subheaders">
-              <th className="table-subheader">
+              <th className="table-subheader first-column">
                 <p>Franja</p>
               </th>
               <th className="table-subheader">
@@ -48,7 +48,7 @@ const MonthlyTable = ({ display }) => {
           </thead>
           <tbody>
             <tr>
-              <td>P1</td>
+              <td className="first-column">P1</td>
               <td>
                 <input
                   type="text"
@@ -70,7 +70,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P1_precio_total_energia"></td>
             </tr>
             <tr>
-              <td>P2</td>
+              <td className="first-column">P2</td>
               <td>
                 <input
                   type="text"
@@ -92,7 +92,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P2_precio_total_energia"></td>
             </tr>
             <tr>
-              <td>P3</td>
+              <td className="first-column">P3</td>
               <td>
                 <input
                   type="text"
@@ -114,7 +114,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P3_precio_total_energia"></td>
             </tr>
             <tr>
-              <td>P4</td>
+              <td className="first-column">P4</td>
               <td>
                 <input
                   type="text"
@@ -136,7 +136,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P4_precio_total_energia"></td>
             </tr>
             <tr>
-              <td>P5</td>
+              <td className="first-column">P5</td>
               <td>
                 <input
                   type="text"
@@ -158,7 +158,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P5_precio_total_energia"></td>
             </tr>
             <tr>
-              <td>P6</td>
+              <td className="first-column">P6</td>
               <td>
                 <input
                   type="text"
@@ -176,16 +176,16 @@ const MonthlyTable = ({ display }) => {
                   id="P6_descuento_energia"
                 />
               </td>
-              <td id="P6_precio_mes_descuento"></td>
-              <td id="P6_precio_total_energia"></td>
+              <td id="P6_precio_mensual_descuento"></td>
+              <td id="P6_precio_mensual_total"></td>
             </tr>
             <tr className="final-row">
-              <td>Total</td>
-              <td id="consumo_actual_total"></td>
-              <td id="precio_mes_total"></td>
+              <td className="first-column colored-cell">Total</td>
+              <td id="consumo_actual_total" className="colored-cell"></td>
+              <td id="precio_mes_total" className="colored-cell"></td>
               <td className="empty-cell"></td>
               <td className="empty-cell"></td>
-              <td id="precio_total_energia"></td>
+              <td id="precio_total_energia" className="last-cell colored-cell"></td>
             </tr>
           </tbody>
         </table>
@@ -232,7 +232,7 @@ const MonthlyTable = ({ display }) => {
           </thead>
           <tbody>
             <tr>
-              <td>
+              <td className="first-column">
                 <input
                   type="text"
                   name="P1_potencia_contratada"
@@ -257,7 +257,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P6_precio_total_potencia"></td>
             </tr>
             <tr>
-              <td>
+              <td className="first-column">
                 <input
                   type="text"
                   name="P2_potencia_contratada"
@@ -282,7 +282,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P2_precio_total_potencia"></td>
             </tr>
             <tr>
-              <td>
+              <td className="first-column">
                 <input
                   type="text"
                   name="P3_potencia_contratada"
@@ -307,7 +307,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P3_precio_total_potencia"></td>
             </tr>
             <tr>
-              <td>
+              <td className="first-column">
                 <input
                   type="text"
                   name="P4_potencia_contratada"
@@ -332,7 +332,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P4_precio_total_potencia"></td>
             </tr>
             <tr>
-              <td>
+              <td className="first-column">
                 <input
                   type="text"
                   name="P5_potencia_contratada"
@@ -357,7 +357,7 @@ const MonthlyTable = ({ display }) => {
               <td id="P5_precio_total_potencia"></td>
             </tr>
             <tr>
-              <td>
+              <td className="first-column">
                 <input
                   type="text"
                   name="P6_potencia_contratada"
@@ -386,7 +386,7 @@ const MonthlyTable = ({ display }) => {
               <td className="empty-cell"></td>
               <td className="empty-cell"></td>
               <td className="empty-cell"></td>
-              <td id="precio_total_potencia"></td>
+              <td id="precio_total_potencia" className="last-cell colored-cell"></td>
             </tr>
           </tbody>
         </table>

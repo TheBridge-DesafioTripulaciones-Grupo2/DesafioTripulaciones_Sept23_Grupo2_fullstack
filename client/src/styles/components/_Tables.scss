@@ -1,15 +1,26 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
-.monthly-tables {
+.monthly-tables,
+.anual-tables {
   display: inline-flex;
   align-items: flex-start;
   gap: 10px;
   min-width: 1340px;
   margin: 0px 50px;
-  .monthly-table {
+  .monthly-table,
+  .anual-table, #extra-table {
     width: 50%;
-    border-left: 1px solid $gray2;
+    // border-left: 1px solid $gray2;
+    .first-column {
+      border-left: 1px solid $gray2;
+    }
+    .last-cell {
+      border-left: 1px solid $gray2;
+    }
+    .colored-cell {
+      background-color: $primary-100;
+    }
     td {
       background: none; /* Removes the default background */
       border: none; /* Removes the default border */
@@ -19,7 +30,7 @@
       font-family: inherit; /* Inherits font from parent element */
       font-size: inherit; /* Inherits font size from parent element */
       color: inherit;
-      // min-width: 57px;
+      min-width: 57px;
       max-width: 120px;
       min-height: 20px;
       max-height: 20px;
@@ -34,7 +45,7 @@
       border-right: 1px solid $gray2;
       border-bottom: 1px solid $gray2;
       //   border-bottom: 1px solid $gray2;
-      background: $primary-100;
+      // background: $primary-100;
       > input {
         background: none; /* Removes the default background */
         border: none; /* Removes the default border */
@@ -131,6 +142,9 @@
     letter-spacing: 0.035px;
   }
 }
+.first-column {
+  border-left: 1px solid $gray2;
+}
 .final-row {
   width: calc(100% - 8px);
   height: 40px;
@@ -139,9 +153,46 @@
   padding-left: 8px;
 }
 .empty-cell {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .hidden-table {
   display: none;
+}
+// #extra-table {
+//   // margin-top: 24px;
+//   th {
+// width: 168px;
+// height: 40px;
+// padding: 8px;
+// justify-content: center;
+// align-items: center;
+// gap: 8px;
+// flex-shrink: 0;
+// p {
+//   color: #1F1D1C;
+// text-align: center;
+
+// /* Caption/caption */
+// font-family: Lato;
+// font-size: 14px;
+// font-style: normal;
+// font-weight: 600;
+// line-height: 16px; /* 114.286% */
+// letter-spacing: 0.035px;
+// }
+//   }
+// }
+.others-checkbox {
+  height: 41px;
+  padding: 9px 8px 8px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+
+  width: 223px;
+  border-top: 1px solid #c2c2c2;
+  border-right: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
 }

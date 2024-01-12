@@ -9,6 +9,10 @@ const Bill = db.define('facturas', {
         primaryKey: true,
         autoIncrement: true,
     },
+    CIA: {
+        type: DataTypes.STRING(255),
+        allowNull: false
+    },
     tarifa: {
         type: DataTypes.STRING(255),
         allowNull: false
@@ -228,11 +232,11 @@ const Bill = db.define('facturas', {
 }, {
     modelName: 'Bill',
     tableName: 'facturas',
-    timestamps: false,
+    timestamps: true,
 });
 
 // Bill.belongsTo(CUPS, { foreignKey: 'CUPS_id', targetKey: 'CUPS_id' }); // Asumiendo que ya tienes un modelo CUPS definido
 
-Bill.sync();
+Bill.sync({alter:true});
 
 module.exports = { Bill };

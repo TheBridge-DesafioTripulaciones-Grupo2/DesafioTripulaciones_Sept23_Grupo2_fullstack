@@ -1,12 +1,38 @@
 const { Client } = require("../schemas/Client");
+const { Propuesta } = require("../schemas/Propuesta");
+const { CUPS } = require("../schemas/CUPS");
+const { Bill } = require("../schemas/Bills");
 
 const getClientById = async (req, res) => {
     try {
         const id = req.params.id
         const regexId = /^\d+$/ //Para comprobar que sea un número entero
         if (regexId.test(id)) {
-            const client = await Client.findOne({ where: { client_id: req.params.id } });
+            const client = await Client.findAll({
+                where: { Client_id: id },
+                include: [
+                    {
+                      model: CUPS,
+                      required: true, 
+                      include: [
+                        {
+                          model: Bill,
+                          attributes: ['factura_id', 'createdAt'], 
+                          required: true, 
+                          include: [
+                            {
+                              model: Propuesta,
+                              attributes: ['Propuesta_id', 'createdAt', 'CIA'], 
+                              required: true, 
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ], });
             res.status(200).json(client);
+        } else {
+            res.status(400).json({error: "el id no es un numero"});
         }
     } catch (error) {
         res.status(500).json({ message: error.message });

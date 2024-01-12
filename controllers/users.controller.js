@@ -6,6 +6,8 @@ const saltRounds = 10;
 const userModel= require("../models/UserModel");
 const passport = require("../config/passport-config");
 const { User } = require("../schemas/User");
+const { Client } = require("../schemas/Client");
+const { CUPS } = require("../schemas/CUPS");
 
 
 // Create a new user (admin dashboard)
@@ -109,8 +111,37 @@ const updateUser = async (req, res) => {
   }
 };
 
+const getUserbyId = async (req, res) => {
+  try {
+    const id = req.params.id
+    const regexId = /^\d+$/ 
+    if (regexId.test(id)) {
+        const user = await User.findAll({
+          where: { User_id: id },
+          include: [
+              {
+                model: Client,
+                required: true, 
+                include: [
+                  {
+                    model: CUPS,
+                    required: true, 
+                  },
+                ],
+              },
+            ], });
+      res.status(200).json(user);
+    } else {
+      res.status(400).json({error: "el id no es un numero"});
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   createUser,
+  getUserbyId,
   loginUser,
   loginMiddleware,
   logoutUser,

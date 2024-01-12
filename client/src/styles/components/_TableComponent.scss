@@ -1,0 +1,105 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+/* Reset styles for table and its elements */
+table {
+  // border-collapse: ; /* Removes spacing between the borders of the cells */
+  border-style: none;
+  border-spacing: 0; /* Removes the spacing between cells */
+  // width: 100%; /* Optional: fits the table width to its container */
+  // background-color: #e0e0e0;
+  border-radius: 8px 8px 0px 0px;
+}
+
+table,
+th,
+td {
+  // border: 1px solid #e0e0e0; /* Removes borders */
+  margin: 0; /* Removes margins */
+  padding: 0; /* Removes padding */
+  // background-color: #e0e0e0;
+}
+
+th,
+td {
+  text-align: center; /* Aligns text to the left, change as needed */
+  vertical-align: middle; /* Aligns content to the top, change as needed */
+}
+
+/* Optionally, if you want to remove cell borders that are sometimes added by user-agent stylesheets */
+th,
+td {
+  border-style: hidden;
+}
+
+#file-details {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-left: 49px;
+}
+.file-detail {
+  display: flex;
+  gap: 6px; //
+  .file-detail-title {
+    font-weight: 700;
+  }
+  p {
+    color: $gray4;
+    padding: 0px;
+    margin: 0px;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+  }
+}
+
+#table-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 50px;
+  margin-top: 23px;
+  margin-bottom: 27px;
+  #table-buttons-toggle {
+    display: flex;
+    button {
+      display: flex;
+      width: 198px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background-color: $white;
+      border: none;
+
+      color: $secondary1;
+      text-align: center;
+      @include body2;
+    }
+    .highlighted-button {
+      border-radius: 8px 0px 0px 0px;
+      border-bottom: 2px solid $primary-200;
+    }
+  }
+  #rate-select {
+    display: flex;
+    width: 244px;
+    padding: 8px 24px;
+    align-items: center;
+    gap: 55px;
+    border-radius: 8px;
+    border: 2px solid $primary-200;
+    @include caption;
+    option {
+      @include caption;
+    }
+  }
+}
+
+.hidden-table {
+  display: none;
+}

@@ -1,0 +1,80 @@
+@mixin h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 800; 
+    font-size: 46px;
+    line-height: calc(1em - 1px); 
+    letter-spacing: 0.02em;
+  }
+  
+  @mixin h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 800; 
+    font-size: 40px;
+    line-height: calc(1em - 1.5px); 
+    letter-spacing: 0.02em; 
+  }
+  
+  @mixin h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 800; 
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: 0.025em; 
+  }
+  
+  @mixin h4 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600; 
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+  }
+  
+  @mixin h5 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600; 
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: 0.02em; 
+  }
+  
+  @mixin h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.25;
+    letter-spacing: 0.02em; 
+  }
+  
+  @mixin body1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400; 
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: 0.02em; 
+  }
+  
+  @mixin body2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700; 
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: 0.02em; 
+  }
+  
+  @mixin caption {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600; 
+    font-size: 14px;
+    line-height: 1.25;
+    letter-spacing: 0.02em; 
+  }
+  
+  @mixin legal {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700; 
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.02em; 
+  }
+  

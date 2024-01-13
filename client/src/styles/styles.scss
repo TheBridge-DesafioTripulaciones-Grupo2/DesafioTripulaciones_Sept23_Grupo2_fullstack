@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+body {
+  background-color: #fafafa;
+  font-family: "Lato", sans-serif;
+}
+header,
+main {
+  width: 1440px;
+  margin: auto;
+  // position: relative;
+}
+
+
+@import "./views/App.scss";
+@import "./components/CreateFileComponent";
+@import "./components/CreateFileForm";
+@import "./components/TableComponent";
+@import "./components/Tables";
+@import "./components/ExtraTable";
+@import "./components/OthersTable";

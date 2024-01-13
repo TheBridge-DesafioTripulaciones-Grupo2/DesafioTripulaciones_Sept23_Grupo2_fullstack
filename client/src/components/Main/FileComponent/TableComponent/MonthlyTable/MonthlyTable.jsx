@@ -17,30 +17,30 @@ const MonthlyTable = ({ display }) => {
               </th>
               <th className="table-subheader">
                 <p>
-                  Consumo factura <br />
+                  Consumo factura 
                   actual (€/KWh)
                 </p>
               </th>
               <th className="table-subheader">
                 <p>
-                  Precios energía activa <br />
-                  mes de facturación <br />
+                  Precios energía activa 
+                  mes de facturación 
                   (€/KWh)
                 </p>
               </th>
               <th className="table-subheader">
                 <p>
-                  Descuento <br /> (%)
+                  Descuento  (%)
                 </p>
               </th>
               <th className="table-subheader">
                 <p>
-                  Precio con <br /> descuento (€)
+                  Precio con  descuento (€)
                 </p>
               </th>
               <th className="table-subheader">
                 <p>
-                  Total pago <br />
+                  Total pago 
                   factura (€)
                 </p>
               </th>
@@ -199,32 +199,32 @@ const MonthlyTable = ({ display }) => {
             <tr className="table-subheaders">
               <th className="table-subheader">
                 <p>
-                  Potencia <br />
-                  contratada <br />
+                  Potencia 
+                  contratada 
                   (KWh)
                 </p>
               </th>
               <th className="table-subheader">
                 <p>
-                  Precios potencia <br /> (€)
+                  Precios potencia  (€)
                 </p>
               </th>
               <th className="table-subheader">
                 <p>
-                  Descuentos <br />
+                  Descuentos 
                   (%)
                 </p>
               </th>
               <th className="table-subheader">
                 <p>
-                  Precios con <br />
-                  descuentos <br />
+                  Precios con 
+                  descuentos 
                   (€)
                 </p>
               </th>
               <th className="table-subheader">
                 <p>
-                  Total pago <br />
+                  Total pago 
                   factura (€)
                 </p>
               </th>

@@ -3,10 +3,10 @@ import React from "react";
 const OthersTable = () => {
   return (
     <>
-      <table>
+      <table id="others-table">
         <thead>
           <tr>
-            <th>Otros presupuestos (€)</th>
+            <th className="others-header">Otros presupuestos (€)</th>
           </tr>
         </thead>
         <tbody>

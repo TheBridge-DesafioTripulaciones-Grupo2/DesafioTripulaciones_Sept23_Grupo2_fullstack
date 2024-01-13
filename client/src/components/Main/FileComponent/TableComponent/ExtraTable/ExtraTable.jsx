@@ -5,19 +5,19 @@ const ExtraTable = () => {
     <table id="extra-table">
       <thead>
         <tr>
-          <th>
+          <th className="table-subheaders">
             <p>Días de facturación (€)</p>
           </th>
-          <th>
+          <th className="table-subheaders">
             <p>Impuesto eléctrico (€)</p>
           </th>
-          <th>
+          <th className="table-subheaders">
             <p>Alquiler de equipo (€)</p>
           </th>
-          <th>
+          <th className="table-subheaders">
             <p>Energía reactiva</p>
           </th>
-          <th>
+          <th className="table-subheaders iva-input">
             <p>IVA (%)</p>
           </th>
         </tr>
@@ -40,7 +40,7 @@ const ExtraTable = () => {
           <td>
             <input type="text" name="energia_reactiva" id="energia_reactiva" />
           </td>
-          <td>
+          <td className="iva-input">
             <select name="IVA" id="IVA">
               <option value="5">5%</option>
               <option value="10">10%</option>

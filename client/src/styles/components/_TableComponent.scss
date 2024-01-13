@@ -103,19 +103,8 @@ td {
 #bottom-tables-section {
   display: flex;
   justify-content: space-between;
+  gap: 32px;
   margin: 24px 50px;
-  th,
-  td {
-    width: 163px;
-    height: 40px;
-    padding: 8px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-  input {
-  }
 }
 
 .hidden-table {
@@ -125,8 +114,8 @@ td {
 #confirm-section {
   display: flex;
   justify-content: end;
-  align-items: end;
-  margin-top: 68px;
+  align-items: center;
+  // margin-top: calc(68px - 58px);
   margin-right: 50px;
 
   button {

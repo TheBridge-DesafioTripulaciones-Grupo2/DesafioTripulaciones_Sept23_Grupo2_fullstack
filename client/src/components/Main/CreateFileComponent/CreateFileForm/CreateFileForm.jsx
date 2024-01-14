@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ClientContext } from "../../../../context/clientContext";
 
 const CreateFileForm = () => {
+  const { clientData, setClientData } = useContext(ClientContext);
   const [titular, setTitular] = useState("");
   const [direccion, setDireccion] = useState("");
   const [cups, setCups] = useState("");
 
   const isFormFilled = titular && direccion && cups;
 
+  const navigate = useNavigate(); // For navigation
+
+  const handlesubmit = (event) => {
+    event.preventDefault();
+    setClientData({
+      titular,
+      direccion,
+      cups,
+    });
+    navigate("/file");
+  };
   return (
     <form id="create-file-form">
       <input
@@ -33,7 +47,9 @@ const CreateFileForm = () => {
         value={cups}
         onChange={(e) => setCups(e.target.value)}
       />
-      <button type="submit" disabled={!isFormFilled}>Continuar</button>
+      <button type="submit" onClick={handlesubmit} disabled={!isFormFilled}>
+        Continuar
+      </button>
     </form>
   );
 };

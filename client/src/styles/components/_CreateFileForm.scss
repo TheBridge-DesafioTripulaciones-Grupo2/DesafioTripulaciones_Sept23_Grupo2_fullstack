@@ -51,8 +51,10 @@
   }
   button:hover {
     background-color: $primary-400;
+    cursor: pointer;
   }
   button:disabled {
     background-color: $gray3;
+    cursor: not-allowed;
   }
 }

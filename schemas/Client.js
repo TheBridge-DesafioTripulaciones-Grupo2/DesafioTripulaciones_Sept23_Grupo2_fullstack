@@ -26,7 +26,7 @@ const Client = db.define("Client", {
   imagen: {
     field: 'imagen',
     type: DataTypes.TEXT,
-    allowNull: false,
+    allowNull: true,
   }
 }, {
   modelName: 'Client',

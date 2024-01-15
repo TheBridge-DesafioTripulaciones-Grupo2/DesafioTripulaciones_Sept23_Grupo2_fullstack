@@ -27,7 +27,7 @@ const CUPS = db.define("CUPS", {
   },
   direccionSuministro: {
     field: 'direccion_suministro',
-    type: DataTypes.BIGINT,
+    type: DataTypes.STRING,
     allowNull: false,
   }
 }, {

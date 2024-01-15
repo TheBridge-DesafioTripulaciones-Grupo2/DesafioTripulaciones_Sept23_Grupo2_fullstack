@@ -8,6 +8,7 @@ import PropuestaCard from "./PropuestaCard/PropuestaCard";
 const Profile = () => {
     const { userstate } = useContext(userContext);
     const [data, setData] = useState(null);
+    const [hayFacturas, setHayFacturas] = useState(false);
 
     const Token = Cookies.get('Token');
 
@@ -50,27 +51,28 @@ const Profile = () => {
 
     const paintPropuestas = () => {
         if (data != null && data != undefined) {
-          return data.Clients?.map(client => (
-            Array.isArray(client.CUPs) && client.CUPs[0]?.facturas?.[0]?.map(factura => (
-                <PropuestaCard
+          return (<>
+          {data.Clients?.map(client => (
+            Array.isArray(client.CUPS) && client.CUPS[0]?.facturas?.length > 0 && (<>
+                {setHayFacturas(true)} 
+                {client.CUPS[0].facturas.map(factura => (
+                  <PropuestaCard
+                    key={factura.id}  
+                    Titular={client.titular}
+                    propuesta={factura.CIA}
+                    fecha={factura.createdAt}
+                  />
+                ))}
+            </>)
+          ))}
+          {!hayFacturas && <PropuestaCard
                 key={1}
-                Titular={client.titular}
-                propuesta={factura.CIA}
-                fecha={factura.cretedAt}
-                />
-            ))
-          ));
-        } else {
-            return (
-            <PropuestaCard
-                key={1}
-                Titular={"Restaurante Name"}
-                propuesta={"CIberdrola, S.A."}
-                fecha={"23 Junio, 2023"}
-                />
-            );
-        }
-      }
+                Titular={"Tilapia Fish"}
+                propuesta={"Endesa Energia, S.A."}
+                fecha={"19 Junio, 2023"}
+                />} </>);
+        } 
+    }
 
 
   return (
@@ -99,7 +101,7 @@ const Profile = () => {
                     <PropuestaCard
                         key={101}
                         Titular={"Restaurante Name"}
-                        propuesta={"CIberdrola, S.A."}
+                        propuesta={"Iberdrola, S.A."}
                         fecha={"23 Junio, 2023"}
                         />
                 </section>
@@ -109,15 +111,15 @@ const Profile = () => {
                     <h6>Propuestas pendientes</h6>
                     <PropuestaCard
                         key={200}
-                        Titular={"Rame Slogan"}
+                        Titular={"AB Creativa"}
                         propuesta={"Candela Energía, S.A."}
-                        fecha={"19 Junio, 2023"}
+                        fecha={"4 Junio, 2023"}
                         />
                     <PropuestaCard
                         key={201}
-                        Titular={"Restaurante Name"}
-                        propuesta={"CIberdrola, S.A."}
-                        fecha={"23 Junio, 2023"}
+                        Titular={"Trust and Co."}
+                        propuesta={"Acciona, S.A."}
+                        fecha={"8 Junio, 2023"}
                         />
                 </section>
             </section>

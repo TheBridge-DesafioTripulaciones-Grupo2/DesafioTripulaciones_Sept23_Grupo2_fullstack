@@ -18,7 +18,8 @@
     "react-slick": "^0.29.0",
     "sass": "^1.69.7",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^11.10.3"
+    "sweetalert2": "^11.10.3",
+    "js-cookie": "^3.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

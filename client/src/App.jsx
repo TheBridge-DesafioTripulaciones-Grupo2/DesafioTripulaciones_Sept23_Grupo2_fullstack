@@ -18,8 +18,8 @@ function App() {
       <Routes>
         <Route path="*" element={<Router />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/mensual/:id" element={<Login />} />
-        <Route path="/anual/:id" element={<Login />} />
+        {/* <Route path="/mensual/:id" element={<Login />} />
+        <Route path="/anual/:id" element={<Login />} /> */}
         <Route path="/completa/:id" element={<Login />} />
 
       </Routes>

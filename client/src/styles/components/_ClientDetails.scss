@@ -25,6 +25,20 @@
     position: relative;
     bottom: 25px;
   }
+
+}
+#client-info {
+    h1{
+        margin-bottom: 13px;
+    }
+    article{
+        margin-bottom: 8px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 6px;
+    }
 }
 #client-lists {
   display: flex;

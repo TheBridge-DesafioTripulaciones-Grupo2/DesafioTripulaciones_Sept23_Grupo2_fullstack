@@ -6,9 +6,12 @@ body {
 header,
 main {
   width: 1440px;
-  height: 1024px;
+  // height: 1024px;
   margin: auto;
   // position: relative;
+}
+main{
+ min-height: 100vh;
 }
 #root {
   padding: 0;
@@ -26,3 +29,4 @@ main {
 @import "./components//ProposalComponent";
 @import "./components/Login";
 @import "./components/Header";
+@import "./components/ClientDetails";

@@ -64,16 +64,16 @@ const Header = () => {
 
   return (
     <>
-    {Token != undefined && userstate != null && userstate.acceso ? (
-      <section id="header">
-      <Link to='/home'><img src="/Several.png" alt="Several" /></Link>
+    {/* {Token != undefined && userstate != null && userstate.acceso ? (
+      <header id="header">
+      <Link to='/home'><img src="/Several.svg" alt="Several" /></Link>
       <Nav> </Nav>
-    </section>
-    ) : ("")} 
-    <section id="header">
-      <Link to='/home'><img src="/Several.png" alt="Several" /></Link>
+    </header>
+    ) : ("")}  */}
+    <header id="header">
+      <Link to='/home'><img src="/Several.svg" alt="Several" /></Link>
       <Nav> </Nav>
-    </section>
+    </header>
     </>
   );
 };

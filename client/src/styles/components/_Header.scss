@@ -1,23 +1,24 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
-
-#header {
-  position: absolute;
-  top: 0;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 612px;
+  margin: auto;
+  // margin: 0px 50px;
+  // margin-top: 29px;
+  width: 1440px;
   & img {
-    position: relative;
-    top: 68px;
-    left: 50px;
-    width: 338px;
-    height: 77px;
+    // position: relative;
+    width: 233.043px;
+    height: 134px;
+    flex-shrink: 0;
   }
   & nav {
     display: flex;
     flex-wrap: nowrap;
-    position: absolute;
-    top: 97px;
-    left: 896px;
     & a {
       text-decoration: none;
       white-space: nowrap;
@@ -33,6 +34,3 @@
 .active {
   color: $primary;
 }
-
-
-

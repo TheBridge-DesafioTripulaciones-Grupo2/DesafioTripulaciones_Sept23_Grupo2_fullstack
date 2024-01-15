@@ -18,9 +18,10 @@ const createUser = async (email, hashedPassword, admin, acceso, contacto, delega
     } 
 }
 
-const updateUser = async (userId, email, hashedPassword, admin, acceso, contacto, delegacion, asesor) => {
+const updateUser = async (user_id, email, hashedPassword, admin, acceso, contacto, delegacion, asesor) => {
     try {
-        const user = await User.findByPk(userId);
+        console.log(hashedPassword);
+        const user = await User.findByPk(user_id);
         if (user) {
         const updatedUser = await user.update({
             email,
@@ -35,7 +36,8 @@ const updateUser = async (userId, email, hashedPassword, admin, acceso, contacto
         } else {
             return "error User"
         }
-    } catch {
+    } catch (error) {
+        console.log(error);
         return "error"
     }
 }

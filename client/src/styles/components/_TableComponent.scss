@@ -1,6 +1,11 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
+#fileComponent {
+  position: relative;
+  top: 195px;
+}
+
 /* Reset styles for table and its elements */
 table {
   // border-collapse: ; /* Removes spacing between the borders of the cells */

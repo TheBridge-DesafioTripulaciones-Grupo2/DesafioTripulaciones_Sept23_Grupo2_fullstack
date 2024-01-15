@@ -8,6 +8,7 @@ const passport = require("../config/passport-config");
 const { User } = require("../schemas/User");
 const { Client } = require("../schemas/Client");
 const { CUPS } = require("../schemas/CUPS");
+const { Propuesta } = require("../schemas/Propuesta");
 
 
 // Create a new user (admin dashboard)
@@ -31,7 +32,7 @@ const createUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const payload = {
-      name: req.user.userId,
+      name: req.user.user_id,
       email: req.user.email
       };
     const token = jwt.sign(payload, jwt_secret);
@@ -97,8 +98,9 @@ const updateUser = async (req, res) => {
     } 
     const { email, password, admin, acceso, contacto, delegacion, asesor } =
       req.body;
-    const hashedPassword = bcrypt.hash(password, saltRounds);
-    let userUpdated = await userModel.updateUser(userId, email, hashedPassword, admin, acceso, contacto, delegacion, asesor)
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const user_id = userId;
+    let userUpdated = await userModel.updateUser(user_id, email, hashedPassword, admin, acceso, contacto, delegacion, asesor)
     if (userUpdated == "error") {
       res.status(404).json({ message: "User not updated" });
     } else if (userUpdated == "error User") {
@@ -117,7 +119,7 @@ const getUserbyId = async (req, res) => {
     const regexId = /^\d+$/ 
     if (regexId.test(id)) {
         const user = await User.findAll({
-          where: { User_id: id },
+          where: { user_id: id },
           include: [
               {
                 model: Client,
@@ -126,6 +128,12 @@ const getUserbyId = async (req, res) => {
                   {
                     model: CUPS,
                     required: true, 
+                    include: [
+                      {
+                        model: Propuesta,
+                        required: true, 
+                      },
+                    ],
                   },
                 ],
               },

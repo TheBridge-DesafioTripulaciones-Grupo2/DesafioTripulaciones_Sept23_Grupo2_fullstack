@@ -6,8 +6,13 @@ body {
 header,
 main {
   width: 1440px;
+  height: 1024px;
   margin: auto;
   // position: relative;
+}
+#root {
+  padding: 0;
+  margin: 0;
 }
 
 
@@ -18,3 +23,5 @@ main {
 @import "./components/Tables";
 @import "./components/ExtraTable";
 @import "./components/OthersTable";
+@import "./components/Login";
+@import "./components/Header";

@@ -2,7 +2,7 @@
 @import "../utils/mixins.scss";
 
 #create-file-section {
-  // position: relative;
+  //position: relative;
   display: flex;
   width: 100%;
 }
@@ -12,6 +12,6 @@
   flex-shrink: 0;
   position: absolute;
   left: 0px;
-  bottom: 0;
+  top: 474px;
   margin-right: 226px;
 }

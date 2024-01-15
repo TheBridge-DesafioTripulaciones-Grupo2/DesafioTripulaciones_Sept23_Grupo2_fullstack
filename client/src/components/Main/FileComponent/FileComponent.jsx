@@ -4,7 +4,7 @@ import ProposalComponent from "./ProposalComponent";
 
 const FileComponent = () => {
   return (
-    <section>
+    <section id="fileComponent">
       <TableComponent />
       <ProposalComponent />
     </section>

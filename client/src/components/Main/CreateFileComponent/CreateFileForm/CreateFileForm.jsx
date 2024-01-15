@@ -4,6 +4,7 @@ import { ClientContext } from "../../../../context/clientContext";
 import { createClient } from "../../../../services/clients.services.js";
 import { userContext } from "../../../../context/authContext.js";
 import Swal from "sweetalert2";
+import { createCUPS } from "../../../../services/CUPS.services.js";
 
 const CreateFileForm = () => {
   const { clientData, setClientData } = useContext(ClientContext);
@@ -55,10 +56,16 @@ const CreateFileForm = () => {
     event.preventDefault();
     console.log(clientData);
     try {
-      await createClient(clientData);
+      let clientRes = await createClient(clientData);
+      console.log(clientRes);
+      await createCUPS({
+        CUPS: cups,
+        client_id: clientRes.object.client_created.client_id,
+        direccion_suministro: clientRes.object.data.direccion,
+      });
       navigate("/file");
     } catch (error) {
-      console.log("Error creating client:", error);
+      // console.log("Error creating client:", error);
       Swal.fire({
         icon: "error",
         title: error.message,

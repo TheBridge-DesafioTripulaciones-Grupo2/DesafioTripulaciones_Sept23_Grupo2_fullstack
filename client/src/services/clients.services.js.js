@@ -65,7 +65,7 @@ async function createClient(clientData) {
         clientData
       );
       const json = response;
-      resolve(json.data.data);
+      resolve({ object: json.data, message: "User created." });
     } catch (error) {
       console.error("Ha ocurrido un error al registrar el cliente: ", error);
       Swal.fire({

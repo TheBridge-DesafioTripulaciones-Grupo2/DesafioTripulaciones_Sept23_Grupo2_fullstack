@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import bannerImage from "../../../assets/client-details.svg";
 import { useParams } from "react-router";
 import { getClientById } from "../../../services/clients.services.js";
-import Swal from "sweetalert2";
+
 
 const ClientDetails = () => {
   const [clientName, setClientName] = useState("Nombre del cliente");
@@ -20,8 +20,8 @@ const ClientDetails = () => {
         console.log(clientData);
         // Update state with the fetched data
         setClientName(clientData.titular); // Assuming the response has a 'name' field
-        setClientPhone(clientData.phone_number); // Assuming the response has a 'phone' field
-        setClientEmail(clientData.email); // Assuming the response has an 'email' field
+        setClientPhone(clientData.phone_number || "Teléfono no proporcionado"); // Assuming the response has a 'phone' field
+        setClientEmail(clientData.email || "Email no proporcionado"); // Assuming the response has an 'email' field
         setClientCups(clientData.CUPs[0].CUPS); // Assuming the response has a 'cups' field
         setClientAddress(clientData.CUPs[0].direccionSuministro); // Assuming the response has an 'address' field
       } catch (error) {

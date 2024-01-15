@@ -1,21 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import YearlyTable from "./YearlyTable/YearlyTable";
 import MonthlyTable from "./MonthlyTable/MonthlyTable";
 import ExtraTable from "./ExtraTable/ExtraTable";
 import OthersTable from "./OthersTable/OthersTable";
 import BillCost from "./BillCost/BillCost";
+import { ClientContext } from "../../../../context/clientContext";
 
-const TableComponent = () => {
+const TableComponent = ({ onBillSubmit }) => {
+  const { clientData } = useContext(ClientContext);
   //File Details
-  const [titular, setTitular] = useState("placeholder");
-  const [direccion, setDireccion] = useState("placeholder");
-  const [cups, setCups] = useState("placeholder");
+  const titular = clientData.titular;
+  const direccion = clientData.direccion;
+  const cups = clientData.cups;
 
-//Track if the bill is filled
-  const [isBillFilled, setIsBillFilled] = useState(true); ///CAMBIAR A FALSE CUANDO PODAMOS RELLENAR DATOS
-
-  //Track if the bill is submitted or not (show the proposals section or not)
-  const [billSubmitted, setBillSubmitted] = useState(false);
+  //Track if the bill is filled
+  const [isBillFilled, setIsBillFilled] = useState(true); ///CAMBIAR A FALSE CUANDO PODAMOS RELLENAR DATOS, cambiaria a true al rellenar lo que haga falta con useEffect
 
   //Track if the table should show month or year
   const [yearlyChecked, setYearlyChecked] = useState(false);
@@ -33,6 +32,8 @@ const TableComponent = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Process form data here
+    //Finally, show the Proposal section:
+    onBillSubmit(true);
   };
 
   return (
@@ -92,7 +93,9 @@ const TableComponent = () => {
         </section>
         <section id="confirm-section">
           <BillCost />
-          <button type="submit" disabled={!isBillFilled}>Continuar</button>
+          <button type="submit" onClick={handleSubmit} disabled={!isBillFilled}>
+            Continuar
+          </button>
         </section>
       </form>
     </section>

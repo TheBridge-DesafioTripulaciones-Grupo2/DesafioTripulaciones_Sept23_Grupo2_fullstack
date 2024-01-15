@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
 const { Client } = require('./Client');
+const { Bill } = require("../schemas/Bills");
+const { Propuesta } = require("../schemas/Propuesta");
 
 
 const CUPS = db.define("CUPS", {
@@ -34,6 +36,9 @@ const CUPS = db.define("CUPS", {
   timestamps: false,
 });
 
-CUPS.sync();
+CUPS.hasMany(Bill, { foreignKey: 'CUPS_id' });
+CUPS.hasMany(Propuesta, { foreignKey: 'CUPS_id' });
+
+CUPS.sync({alter: true});
 
 module.exports = {CUPS};

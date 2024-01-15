@@ -2,6 +2,7 @@ const { Propuesta } = require("../schemas/Propuesta");
 const { Bill } = require("../schemas/Bills");
 const { CUPS } = require("../schemas/CUPS");
 const { Client } = require("../schemas/Client");
+const { db } = require('../config/db_pgsql');
 
 const getPropuesta = async (id) => {
     try {
@@ -10,19 +11,19 @@ const getPropuesta = async (id) => {
             include: [
               {
                 model: Bill,
-                where: Sequelize.literal('Bill.Factura_id = Propuesta.Factura_id'),
+                where: db.literal('Bill.Factura_id = Propuesta.Factura_id'),
                 include: [
                   {
                     model: CUPS,
-                    where: Sequelize.literal('CUPS.CUPS_id = Bill.CUPS_id'),
+                    where: db.literal('CUPS.CUPS_id = Bill.CUPS_id'),
                     include: [
                         {
                           model: Client,
-                          where: Sequelize.literal('Client.Client_id = CUPS.Client_id'),
+                          where: db.literal('Client.Client_id = CUPS.Client_id'),
                           include: [
                             {
                               model: User,
-                              where: Sequelize.literal('User.User_id = Client.User_id'),
+                              where: db.literal('User.User_id = Client.User_id'),
                             },
                           ],
                         },

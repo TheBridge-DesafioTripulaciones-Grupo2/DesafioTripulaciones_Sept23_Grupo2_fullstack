@@ -11,7 +11,7 @@ const Propuesta = db.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    CUPS: {
+    CUPS_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
       references: {
@@ -159,6 +159,6 @@ const Propuesta = db.define(
   }
 );
 
-Propuesta.sync({alter:true});
+Propuesta.sync();
 
 module.exports = { Propuesta };

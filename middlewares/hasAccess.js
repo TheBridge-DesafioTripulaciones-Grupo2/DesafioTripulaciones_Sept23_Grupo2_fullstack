@@ -1,4 +1,5 @@
 function checkAccess(req, res, next) {
+    console.log("prueba5");
     if (req.user.acceso == true) {
       return next();
     }

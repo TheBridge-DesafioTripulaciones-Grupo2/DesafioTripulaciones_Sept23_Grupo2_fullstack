@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
 const { User } = require('./User');
+const { CUPS } = require("../schemas/CUPS");
 
 const Client = db.define("Client", {
   client_id: {
@@ -21,6 +22,11 @@ const Client = db.define("Client", {
     field: 'titular',
     type: DataTypes.TEXT,
     allowNull: false,
+  },
+  imagen: {
+    field: 'imagen',
+    type: DataTypes.TEXT,
+    allowNull: false,
   }
 }, {
   modelName: 'Client',
@@ -28,7 +34,9 @@ const Client = db.define("Client", {
   timestamps: false,
 });
 
-Client.sync();
+Client.hasMany(CUPS, { foreignKey: 'client_id' });
+
+Client.sync({alter: true});
 
 module.exports = {Client};
 

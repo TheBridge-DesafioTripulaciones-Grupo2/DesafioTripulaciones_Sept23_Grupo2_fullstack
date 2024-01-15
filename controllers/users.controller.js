@@ -115,34 +115,33 @@ const updateUser = async (req, res) => {
 
 const getUserbyId = async (req, res) => {
   try {
+    console.log("prueba4");
     const id = req.params.id
     const regexId = /^\d+$/ 
     if (regexId.test(id)) {
-        const user = await User.findAll({
-          where: { user_id: id },
-          include: [
+      const user = await User.findByPk(id, {
+        include: [
+          {
+            model: Client,
+            include: [
               {
-                model: Client,
-                required: true, 
+                model: CUPS,
                 include: [
                   {
-                    model: CUPS,
-                    required: true, 
-                    include: [
-                      {
-                        model: Propuesta,
-                        required: true, 
-                      },
-                    ],
+                    model: Propuesta,
                   },
                 ],
               },
-            ], });
+            ],
+          },
+        ],
+      });
       res.status(200).json(user);
     } else {
       res.status(400).json({error: "el id no es un numero"});
     }
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: error.message });
   }
 };

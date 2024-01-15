@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
 const { CUPS } = require('./CUPS');
+const { Propuesta } = require("../schemas/Propuesta");
 
 const Bill = db.define('facturas', {
     factura_id: {
@@ -235,8 +236,11 @@ const Bill = db.define('facturas', {
     timestamps: true,
 });
 
+Bill.hasMany(Propuesta, { foreignKey: 'factura_id' });
+
 // Bill.belongsTo(CUPS, { foreignKey: 'CUPS_id', targetKey: 'CUPS_id' }); // Asumiendo que ya tienes un modelo CUPS definido
 
-Bill.sync({alter:true});
+Bill.sync({alter: true});
 
 module.exports = { Bill };
+

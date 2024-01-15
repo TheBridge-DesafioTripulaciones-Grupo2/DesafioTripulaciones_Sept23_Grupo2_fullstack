@@ -10,6 +10,7 @@ const loginToken = async function (req, res) {
       const userSigned = await User.findOne({ where: { email: decoded.email } });
     if (userSigned != null) {
         const user = userSigned;
+        console.log("final1");
         return res.status(200).json(user);
     } else {
       return res.status(400).json('error');

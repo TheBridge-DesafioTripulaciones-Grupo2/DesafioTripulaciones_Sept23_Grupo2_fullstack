@@ -20,7 +20,7 @@ const Nav = () => {
         </NavLink>
 
         <NavLink
-          to="/perfil"
+          to="/profile"
           className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           Perfil

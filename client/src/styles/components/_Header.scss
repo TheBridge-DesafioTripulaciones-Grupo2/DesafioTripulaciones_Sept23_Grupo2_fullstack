@@ -4,13 +4,14 @@
 
 #header {
   position: absolute;
+  width: 1440px;
+  margin: auto;
   top: 0;
   & img {
+    width: 233px;
     position: relative;
-    top: 68px;
+    top: 29px;
     left: 50px;
-    width: 338px;
-    height: 77px;
   }
   & nav {
     display: flex;

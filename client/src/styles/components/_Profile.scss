@@ -1,0 +1,61 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+
+#ProfileContainer {
+  width: 1440px;
+  margin: auto;
+  top: 0;
+  &>img {
+    z-index: 1;
+    width: 348px;
+    position: relative;
+    top: 171px;
+    left: 145px;
+  }
+  & #datosPerfil {
+    position: absolute;
+    top: 246px;
+    left: 50px;
+    width: 1340px;
+    height: 244px;
+    background-color: $primary-100;
+    border-radius: 24px;
+    &>section {
+      z-index: 1;
+      position: relative;
+      top: 52px;
+      left: 541px;
+      height: 136px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      & h1 {
+        @include h1;
+      }
+      & h4 {
+        @include h4;
+      }
+      & section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &>img {
+          height: 24px;
+          margin-right: 6px;
+        }
+        h5 {
+          @include h5;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  color: $primary;
+}
+
+
+

@@ -2,6 +2,7 @@ import React from "react";
 import Cookies from 'js-cookie';
 import { useContext, useState, useEffect } from 'react';
 import { userContext } from "../../context/authContext";
+import authService from '../../services/services';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -22,26 +23,15 @@ const Login = () => {
               icon: "success",
               text: "Se está iniciando sesión"
             })
-            const datos = {
-              token: Token,
-            };
-            const opciones = {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(datos),
-            };
-            const response = await fetch(`http://localhost:5000/user/loginToken`, opciones);
-            const result = await response.json();
-            if (result == "error") {
+            const response = await authService.loginToken(Token);
+            if (response == "error") {
               Swal.fire({
                 icon: "error",
                 title: "No se ha podido iniciar sesión",
                 text: "Por favor procede a iniciar sesión manualmente"
               });
             } else {
-              updateUser(result);
+              updateUser(response);
               navigate("/home")
             }
           } catch (error) {
@@ -72,20 +62,7 @@ const Login = () => {
         });
       } else {
         try {
-          const datos = {
-            email: Usuario,
-            password: Contraseña,
-          };
-          const opciones = {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(datos),
-          };
-          let emailSignedIn = await fetch("http://localhost:5000/user/login", opciones).then(
-            (response) => response.json()
-          );
+          let emailSignedIn = await authService.login(Usuario, Contraseña);
           console.log(emailSignedIn);
           if (emailSignedIn == "error") {
             Swal.fire({

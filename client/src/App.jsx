@@ -1,17 +1,36 @@
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
-import { BrowserRouter } from "react-router-dom";
+import { useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { ClientContext } from "./context/clientContext";
+import { userContext } from "./context/authContext";
+
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+import Router from "./Router";
+import Login from "./components/Login/Login";
 
 function App() {
+  const [clientData, setClientData] = useState({});
+  const [userstate, setUser] = useState(null);
+
+  const updateUser = (newUser) => {
+    setUser(newUser);
+  };
+  const userData = { userstate, updateUser };
 
   return (
     <>
-      <BrowserRouter>
-        <Header></Header>
-        <Main></Main>
-        {/* <Footer></Footer> */}
-      </BrowserRouter>
+      <userContext.Provider value={userData}>
+        <ClientContext.Provider value={{ clientData, setClientData }}>
+          <Routes>
+            <Route path="*" element={<Router />} />
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/mensual/:id" element={<Login />} />
+        <Route path="/anual/:id" element={<Login />} /> */}
+            <Route path="/completa/:id" element={<Login />} />
+          </Routes>
+        </ClientContext.Provider>
+      </userContext.Provider>
     </>
   );
 }

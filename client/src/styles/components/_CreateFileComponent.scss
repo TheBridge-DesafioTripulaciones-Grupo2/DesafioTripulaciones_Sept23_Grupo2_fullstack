@@ -1,0 +1,17 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#create-file-section {
+  //position: relative;
+  display: flex;
+  width: 100%;
+}
+#create-file-image {
+  width: 532.14px;
+  height: 599.032px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 0px;
+  top: 474px;
+  margin-right: 226px;
+}

@@ -1,0 +1,40 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+
+#header {
+  position: absolute;
+  width: 1440px;
+  margin: auto;
+  top: 0;
+  & img {
+    width: 233px;
+    height: 134px;
+    position: absolute;
+    top: 29px;
+    left: 50px;
+  }
+  & nav {
+    display: flex;
+    flex-wrap: nowrap;
+    position: absolute;
+    top: 97px;
+    left: 896px;
+    & a {
+      text-decoration: none;
+      white-space: nowrap;
+      @include h5;
+      margin-right: 34px;
+    }
+    & a:not(.active) {
+      color: black;
+    }
+  }
+}
+
+.active {
+  color: $primary;
+}
+
+
+

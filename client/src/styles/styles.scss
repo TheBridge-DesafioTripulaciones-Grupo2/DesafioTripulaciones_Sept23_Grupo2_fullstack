@@ -1,5 +1,17 @@
 @import "./views/App.scss";
+@import "./components/CreateFileComponent";
+@import "./components/CreateFileForm";
+@import "./components/TableComponent";
+@import "./components/Tables";
+@import "./components/ExtraTable";
+@import "./components/OthersTable";
+@import "./components//ProposalComponent";
+@import "./components/Login";
+@import "./components/Header";
+@import "./components/Profile";
 @import "./components//ClientsList";
+
+
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 body {
@@ -9,7 +21,14 @@ body {
 header,
 main {
   width: 1440px;
+  height: 1024px;
   margin: auto;
   // position: relative;
 }
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+
 

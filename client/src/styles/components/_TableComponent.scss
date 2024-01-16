@@ -1,0 +1,224 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#fileComponent {
+  position: relative;
+  top: 195px;
+}
+
+/* Reset styles for table and its elements */
+table {
+  // border-collapse: ; /* Removes spacing between the borders of the cells */
+  border-style: none;
+  border-spacing: 0; /* Removes the spacing between cells */
+  // width: 100%; /* Optional: fits the table width to its container */
+  // background-color: #e0e0e0;
+  border-radius: 8px 8px 0px 0px;
+}
+
+table,
+th,
+td {
+  // border: 1px solid #e0e0e0; /* Removes borders */
+  margin: 0; /* Removes margins */
+  padding: 0; /* Removes padding */
+  // background-color: #e0e0e0;
+}
+
+th,
+td {
+  text-align: center; /* Aligns text to the left, change as needed */
+  vertical-align: middle; /* Aligns content to the top, change as needed */
+}
+
+/* Optionally, if you want to remove cell borders that are sometimes added by user-agent stylesheets */
+th,
+td {
+  border-style: hidden;
+}
+
+#file-details {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-left: 49px;
+}
+.file-detail {
+  display: flex;
+  gap: 6px; //
+  .file-detail-title {
+    font-weight: 700;
+  }
+  p {
+    color: $gray4;
+    padding: 0px;
+    margin: 0px;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+  }
+}
+
+#table-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 50px;
+  margin-top: 23px;
+  margin-bottom: 27px;
+  #table-buttons-toggle {
+    display: flex;
+    button {
+      display: flex;
+      width: 198px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      background-color: $white;
+      border: none;
+
+      color: $secondary1;
+      text-align: center;
+      @include body2;
+    }
+    .highlighted-button {
+      border-radius: 8px 0px 0px 0px;
+      border-bottom: 2px solid $primary-200;
+    }
+  }
+  #rate-select {
+    display: flex;
+    width: 244px;
+    padding: 8px 24px;
+    align-items: center;
+    gap: 55px;
+    border-radius: 8px;
+    border: 2px solid $primary-200;
+    @include caption;
+    option {
+      @include caption;
+    }
+  }
+}
+
+#bottom-tables-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  margin: 24px 50px;
+}
+
+.hidden-table {
+  display: none;
+}
+
+#confirm-section {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  // margin-top: calc(68px - 58px);
+  margin-right: 50px;
+
+  button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+    font: inherit;
+    border-radius: 0;
+    appearance: none;
+    width: 453px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    background: var(--primario-naranja, #ff8523);
+
+    color: #fcfdfd;
+    text-align: center;
+
+    /* Botón/Botón */
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 24px; /* 120% */
+    letter-spacing: 0.05px;
+  }
+  button:hover {
+    background-color: $primary-400;
+    cursor: pointer;
+  }
+  button:disabled {
+    background-color: $gray3;
+    cursor: not-allowed;
+  }
+}
+
+#bill-total-cost {
+  > div {
+    margin-right: 155px;
+    display: inline-flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 4px 4px 10px 0px rgba(212, 212, 212, 0.9),
+      -4px -4px 8px 0px rgba(255, 255, 255, 0.9),
+      4px -4px 8px 0px rgba(212, 212, 212, 0.2),
+      -4px 4px 8px 0px rgba(212, 212, 212, 0.2),
+      -1px -1px 2px 0px rgba(212, 212, 212, 0.5) inset,
+      1px 1px 2px 0px rgba(255, 255, 255, 0.3) inset;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      > div {
+        display: flex;
+        align-items: center;
+        gap: -58px;
+        > .price {
+          width: 197px;
+          margin: 0;
+          color: #ff8523;
+
+          /* Heading/H2 */
+          font-family: Lato;
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 40px; /* 100% */
+          letter-spacing: -0.6px;
+        }
+        > div {
+          display: flex;
+          padding: 4px;
+          align-items: flex-start;
+          gap: 8.06px;
+
+          border-radius: 100.752px;
+          background: var(--neutros-gris300, #ada4a2);
+          > svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.caption {
+  width: 193px;
+  
+  color: var(--neutros-gris400, #877F7D);
+
+  @include caption;
+}

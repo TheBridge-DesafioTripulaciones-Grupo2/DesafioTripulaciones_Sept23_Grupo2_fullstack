@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
+const { Client } = require("../schemas/Client");
 
 
 const User = db.define(
@@ -50,6 +51,8 @@ const User = db.define(
   }
 );
 
-User.sync();
+User.hasMany(Client, { foreignKey: 'user_id' });
+
+User.sync({alter: true});
 
 module.exports = { User };

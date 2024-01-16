@@ -1,0 +1,166 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+#proposal-options {
+  display: flex;
+  margin-top: 48px;
+  margin-left: 49px;
+  gap: 10px;
+  select {
+    display: flex;
+    min-width: 184px;
+    padding: 8px 24px;
+    align-items: center;
+    gap: 21px;
+    border-radius: 8px;
+    border: 2px solid $primary-200;
+    @include caption;
+    option {
+      @include caption;
+    }
+  }
+  .fourth-select {
+    width: 244px;
+  }
+  .fifth-select {
+    width: 299px;
+  }
+  .sixth-select {
+    width: 195px;
+  }
+}
+
+#proposal-results {
+  display: flex;
+  margin-top: 69px;
+  gap: 180px;
+}
+#proposal-graph,
+img {
+  width: 743px;
+  height: 602px;
+  flex-shrink: 0;
+}
+#proposal-savings {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  width: 380px;
+  //   background-color: aqua;
+}
+#proposal-savings-month,
+#proposal-savings-year {
+position: relative;
+left: 36px;
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+//   margin-left: 20px;
+
+  border-radius: 24px;
+  background: var(--BLANCO, #fff);
+  box-shadow: 4px 4px 10px 0px rgba(212, 212, 212, 0.9),
+    -4px -4px 8px 0px rgba(255, 255, 255, 0.9),
+    4px -4px 8px 0px rgba(212, 212, 212, 0.2),
+    -4px 4px 8px 0px rgba(212, 212, 212, 0.2),
+    -1px -1px 2px 0px rgba(212, 212, 212, 0.5) inset,
+    1px 1px 2px 0px rgba(255, 255, 255, 0.3) inset;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    // gap: 24px;
+    width: 300px;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 38px;
+        > p {
+          width: 197px;
+          margin: 0px;
+
+          color: var(--primario-naranja, #ff8523);
+          font-family: Lato;
+          font-size: 78px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 48px; /* 50% */
+          letter-spacing: -0.96px;
+        }
+        > div {
+          display: flex;
+          padding: 12.182px;
+          align-items: flex-start;
+          gap: 12.182px;
+
+          border-radius: 152.273px;
+          background: var(--neutros-gris300, #ada4a2);
+          > svg {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+    p {
+      width: 259px;
+
+      color: var(--neutros-gris400, #877f7d);
+
+      /* Heading/H6 */
+      font-family: Lato;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px; /* 120% */
+      letter-spacing: 0.05px;
+    }
+  }
+}
+#proposal-savings-month {
+  margin-bottom: 22px;
+}
+#proposal-savings-year {
+  margin-bottom: 90px;
+}
+
+#generate-proposal-button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font: inherit;
+  border-radius: 0;
+  appearance: none;
+  width: 453px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 32px;
+  background: var(--primario-naranja, #ff8523);
+
+  color: #fcfdfd;
+  text-align: center;
+
+  /* Botón/Botón */
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 120% */
+  letter-spacing: 0.05px;
+}
+#generate-proposal-button:hover {
+  background-color: $primary-400;
+  cursor: pointer;
+}
+#generate-proposal-button:disabled {
+  background-color: $gray3;
+  cursor: not-allowed;
+}

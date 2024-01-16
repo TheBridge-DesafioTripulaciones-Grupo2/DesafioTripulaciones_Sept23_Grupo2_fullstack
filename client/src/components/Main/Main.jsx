@@ -1,19 +1,26 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import ClientsList from "./ClientsList/ClientsList";
+import CreateFileComponent from "./CreateFileComponent";
+import FileComponent from "./FileComponent";
+import Profile from "./Profile/Profile";
 
 const Main = () => {
   return (
     <main>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/createfile" element={<CreateFileComponent />} />
+        <Route path="/file" element={<FileComponent />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/clients/:userId" element={<ClientsList />} />
 
-        <Route path="/*" element={<Navigate to={"/clients/:userId"} />} />
+        <Route path="/*" element={<Navigate to={"/login"} />} />
+        {/* <Route path="/" element={<Home />} /> */}
+
+   
       </Routes>
     </main>
   );
-  //crear rutas
 };
 
 export default Main;

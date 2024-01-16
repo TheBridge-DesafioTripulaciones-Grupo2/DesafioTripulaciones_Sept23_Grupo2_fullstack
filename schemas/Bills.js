@@ -13,8 +13,8 @@ const Bill = db.define(
       autoIncrement: true,
     },
     CIA: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
+        type: DataTypes.STRING(255),
+        allowNull: false
     },
     tarifa: {
       type: DataTypes.STRING(255),
@@ -241,7 +241,7 @@ const Bill = db.define(
 );
 
 Bill.hasMany(Propuesta, { foreignKey: "factura_id" });
-Propuesta.belongsTo(Bill, { foreignKey: "factura_id" });
+// Propuesta.belongsTo(Bill, { foreignKey: "factura_id" });
 
 // Bill.sync({ alter: true });
 

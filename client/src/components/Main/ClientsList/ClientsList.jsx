@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; // Importa useParams
+import { Link, useParams } from 'react-router-dom'; // Importa useParams
 import { getAllClientsByUserId } from '../../../services/clients.services';
 import ClientCard from './ClientCard/ClientCard';
 
@@ -26,9 +26,9 @@ const ClientsList = () => {
       <ul id='clientsList'>
         {clients.map(client => (
           <li className='clientCard' key={client.client_id}>
-            {/* Renderiza tu componente ClientCard aquí con los datos del cliente */}
-            {/* TODO: Sacar direccion_suministro y CUPS de la tabla CUPS para cada cliente */}
-            <ClientCard titular={client.titular} imagen={client.imagen} direccion={client.direccion_suministro} cups={client.CUPs[0]}/>
+            <Link style={{textDecoration:"none"}} to={`/client-details/${client.client_id}`}>
+              <ClientCard titular={client.titular} imagen={client.imagen} direccion={client.direccion_suministro} cups={client.CUPs[0]} />
+            </Link>
           </li>
         ))}
       </ul>

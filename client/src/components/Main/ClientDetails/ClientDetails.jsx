@@ -23,7 +23,7 @@ const ClientDetails = () => {
         setClientPhone(clientData.phone_number || "Teléfono no proporcionado"); // Assuming the response has a 'phone' field
         setClientEmail(clientData.email || "Email no proporcionado"); // Assuming the response has an 'email' field
         setClientCups(clientData.CUPs[0].CUPS); // Assuming the response has a 'cups' field
-        setClientAddress(clientData.CUPs[0].direccionSuministro); // Assuming the response has an 'address' field
+        setClientAddress(clientData.CUPs[0].direccion_suministro); // Assuming the response has an 'address' field
       } catch (error) {
         console.error("Error fetching client data:", error);
       }

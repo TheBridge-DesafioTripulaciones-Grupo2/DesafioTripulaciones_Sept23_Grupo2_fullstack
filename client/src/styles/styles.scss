@@ -10,6 +10,7 @@
 @import "./components/Header";
 @import "./components/Profile";
 @import "./components//ClientsList";
+@import "./components//ClientCard";
 @import "./components/ClientDetails";
 
 
@@ -17,27 +18,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import "./utils/variables.scss";
 @import "./utils/mixins.scss";
+
 body {
-  background-color: #fafafa;
-  font-family: "Lato", sans-serif;
+    background-color: #fafafa;
+    font-family: "Lato", sans-serif;
 }
+
 header,
 main {
-  width: 1440px;
-  // height: 1024px;
-  margin: auto;
-  // position: relative;
+    width: 1440px;
+    // height: 1024px;
+    margin: auto;
+    // position: relative;
 }
-main{
- min-height: 100vh;
+
+main {
+    min-height: 100vh;
 }
+
 #root {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
+
 h1 {
-  @include h1
+    @include h1
 }
 
-
-
+a * {
+    text-decoration: none;
+    color: inherit;
+}

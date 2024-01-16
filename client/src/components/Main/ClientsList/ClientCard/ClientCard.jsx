@@ -4,11 +4,13 @@ const ClientCard = (props) => {
   console.log(props);
   return (
     <>
-      <section>
-        <img src={props.imagen} alt="imagen de cliente" />
-        <h5>{props.titular}</h5>
-        <p>{props.cups.direccion_suministro}</p>
-        <p>{props.cups.CUPS}</p>
+      <section id="card_section">
+        <img id="card_image" src={props.imagen} alt="imagen de cliente" />
+        <article id="card_info">
+          <h5 id="card_titular">{props.titular}</h5>
+          <p id="card_direccion">{props.cups.direccion_suministro}</p>
+          <p id="card_cups">{props.cups.CUPS}</p>
+        </article>
       </section>
     </>
   );

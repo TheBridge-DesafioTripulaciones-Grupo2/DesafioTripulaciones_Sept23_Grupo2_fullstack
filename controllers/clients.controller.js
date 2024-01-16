@@ -13,7 +13,7 @@ const getClientById = async (req, res) => {
         include: [
           {
             model: CUPS,
-            attributes: ["CUPS", "direccionSuministro"],
+            attributes: ["CUPS", "direccion_suministro"],
             include: [
               {
                 model: Bill,

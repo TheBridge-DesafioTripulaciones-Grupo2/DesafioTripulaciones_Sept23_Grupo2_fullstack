@@ -38,32 +38,234 @@
     flex-direction: row;
     justify-content: space-around;
     & .headerSection {
+      position: relative;
       width: 275px;
       height: 52px;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      & p {
+        @include body3;
+      }
       & img {
         width: 100%;
         height: 2px;
       }
       & .img1 {
-        position: relative;
+        position: absolute;
         top: 18px;
         left: 0;
       }
       & .img2 {
-        position: relative;
+        position: absolute;
         top: 36px;
         left: 0;
       }
       & .img3 {
-        position: relative;
+        position: absolute;
         top: 52px;
         left: 0;
       }
     }
   }
+  & #separador1, #separador2, #separador3 {
+    width: 595px;
+    height: 17px;
+    background-color: $primary-200;
+    & p {
+      @include caption;
+      text-align: center;
+    }
+  }
+  & #separador1 {
+    margin-top: 21px;
+    margin-bottom: 23px;
+  }
+  & #separador2 {
+    margin-bottom: 22px;
+  }
+  & #tarifasPDF, #tarifasOfertaPDF {
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & thead th:not(.vacia) {
+      width: 84px;
+      height: 10px;
+      background-color: $primary-100;
+    }
+    & thead th {
+      border-bottom: 1px solid $gray2;
+    }
+    & tbody th {
+      width: 147px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+    & tbody td {
+      width: 84px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & #otrosActualPDF {
+    position: absolute;
+    top: 197px;
+    left: 433px;
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & td {
+      width: 74px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & #otrosOfertaPDF {
+    position: absolute;
+    top: 517px;
+    left: 432px;
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & td {
+      width: 74px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & #totalActualPDF {
+    position: absolute;
+    top: 307px;
+    left: 432px;
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & thead th:not(.vacia) {
+      width: 40px;
+      height: 15px;
+      background-color: $primary-100;
+    }
+    & thead th {
+      border-bottom: 1px solid $gray2;
+    }
+    & tbody th {
+      width: 67px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+    & tbody td {
+      width: 40px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & #totalOfertaPDF {
+    position: absolute;
+    top: 627px;
+    left: 431px;
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & thead th:not(.vacia) {
+      width: 40px;
+      height: 15px;
+      background-color: $primary-100;
+    }
+    & thead th {
+      border-bottom: 1px solid $gray2;
+    }
+    & tbody th {
+      width: 67px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+    & tbody td {
+      width: 40px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & .TotalCard {
+    > div {
+      margin-right: 21px;
+      display: inline-flex;
+      flex-direction: column;
+      padding: 10px;
+      align-items: flex-start;
+      gap: 10px;
+      width: 127px;
+      height: 44px;
+  
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 4px 4px 10px 0px rgba(212, 212, 212, 0.9),
+        -4px -4px 8px 0px rgba(255, 255, 255, 0.9),
+        4px -4px 8px 0px rgba(212, 212, 212, 0.2),
+        -4px 4px 8px 0px rgba(212, 212, 212, 0.2),
+        -1px -1px 2px 0px rgba(212, 212, 212, 0.5) inset,
+        1px 1px 2px 0px rgba(255, 255, 255, 0.3) inset;
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        > div {
+          display: flex;
+          align-items: center;
+          gap: -58px;
+          > .price {
+            width: 97px;
+            margin: 0;
+            color: $primary;
+            @include h5;
+          }
+          > div {
+            display: flex;
+            padding: 4px;
+            align-items: flex-start;
+            gap: 8.06px;
+  
+            border-radius: 100.752px;
+            background: var(--neutros-gris300, #ada4a2);
+            > svg {
+              width: 21px;
+              height: 21px;
+            }
+          }
+        }
+      }
+    }
+  }
+  & .CardContainerPDF {
+    margin-top: 35px;
+    margin-left: 16px;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  & #porcentajesPDF {
+    margin-top: 21px;
+  }
+  & #imgCIAPDF {
+    position: absolute;
+    top: 746px;
+    left: 421px;
+    width: 147px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+      width: 147px;
+      height: auto;
+    }
+  }
+}
+
+.labelPDF {
+  @include body3;
+  color: $gray4;
+  width: 125px;
 }
 
 #descargarPDF {
@@ -99,177 +301,3 @@
   background-color: $primary-600;
 }
 
-.monthly-tables,
-.anual-tables {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 10px;
-  min-width: 1340px;
-  margin: 0px 50px;
-  .monthly-table,
-  .anual-table, #extra-table {
-    width: 50%;
-    // height: 400px;
-    // border-left: 1px solid $gray2;
-    .first-column {
-      border-left: 1px solid $gray2;
-      max-width: 56px;
-    }
-    .last-cell {
-      border-left: 1px solid $gray2;
-    }
-    .colored-cell {
-      background-color: $primary-100;
-    }
-    td {
-      background: none; /* Removes the default background */
-      border: none; /* Removes the default border */
-      outline: none; /* Removes the focus outline */
-      padding: 0; /* Resets padding */
-      margin: 0; /* Resets margin */
-      font-family: inherit; /* Inherits font from parent element */
-      font-size: inherit; /* Inherits font size from parent element */
-      color: inherit;
-      // min-width: 120px;
-      width: 120px;
-      min-height: 20px;
-      max-height: 20px;
-
-      //   display: flex;
-      //   height: 40px;
-      //   padding: 10px 8px;
-      //   align-items: center;
-      //   gap: 8px;
-      //   align-self: stretch;
-
-      border-right: 1px solid $gray2;
-      border-bottom: 1px solid $gray2;
-      //   border-bottom: 1px solid $gray2;
-      // background: $primary-100;
-      > input {
-        background: none; /* Removes the default background */
-        border: none; /* Removes the default border */
-        outline: none; /* Removes the focus outline */
-        padding: 0; /* Resets padding */
-        margin: 0; /* Resets margin */
-        font-family: inherit; /* Inherits font from parent element */
-        font-size: inherit; /* Inherits font size from parent element */
-        color: inherit;
-
-        display: flex;
-        width: calc(100% - 8px);
-        height: 40px;
-        // padding: 10px 8px;
-        padding: 10px 0px;
-        padding-left: 8px;
-        align-items: center;
-        gap: 8px;
-        align-self: stretch;
-        height: 20px;
-
-        border-right: 1px solid $gray2;
-        // border-bottom: 1px solid $gray2;
-        // border-right: 1px solid $gray2;
-        // border-bottom: 1px solid $gray2;
-        background: #fff;
-      }
-    }
-  }
-}
-.table-header {
-  padding: 13px 8px;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-
-  border-radius: 8px 8px 0px 0px;
-  background-color: $primary-200;
-  font-family: Lato;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 18px; /* 112.5% */
-  letter-spacing: 0.2px;
-}
-.table-subheaders {
-  height: 70px;
-  // padding: 13px 8px;
-
-  //   overflow: hidden;
-}
-.table-subheader {
-  min-height: 47px ;
-  // padding: 13px 8px;
-  //   padding: 0px 8px;
-  padding: 0px;
-  text-align: center;
-  align-items: center;
-  // gap: 8px;
-  align-self: stretch;
-
-  //   border-right: 1px solid #c2c2c2;
-  //   border-bottom: 1px solid #c2c2c2;
-  background: $primary-100;
-  height: fit-content;
-  text-align: center;
-  font-family: Lato;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 16px; /* 114.286% */
-  letter-spacing: 0.035px;
-
-  flex: 1 0 0;
-  color: #1d2433;
-  text-align: center;
-
-  border-right: 1px solid $gray2;
-  border-bottom: 1px solid $gray2;
-
-  //   border-bottom: 1px solid $gray2;
-  p {
-    flex: 1 0 0;
-    padding: 0;
-    margin: 0;
-    color: var(--text-icon-primary-black, #1d2433);
-    text-align: center;
-
-    /* Caption/caption */
-    font-family: Lato;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px; /* 114.286% */
-    letter-spacing: 0.035px;
-  }
-}
-.first-column {
-  border-left: 1px solid $gray2;
-}
-.final-row {
-  width: calc(100% - 8px);
-  height: 40px;
-  // padding: 10px 8px;
-  padding: 10px 0px;
-  padding-left: 8px;
-}
-.empty-cell {
-  visibility: hidden;
-}
-
-.hidden-table {
-  display: none;
-}
-.others-checkbox {
-  height: 41px;
-  padding: 9px 8px 8px 8px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  flex-shrink: 0;
-
-  width: 223px;
-  border-top: 1px solid #c2c2c2;
-  border-right: 1px solid #c2c2c2;
-  border-bottom: 1px solid #c2c2c2;
-}

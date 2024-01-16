@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import bannerImage from "../../../assets/client-details.svg";
 import { useParams } from "react-router";
 import { getClientById } from "../../../services/clients.services.js";
+import PropuestaCard from "../Profile/PropuestaCard/PropuestaCard.jsx";
 
 
 const ClientDetails = () => {
@@ -106,6 +107,7 @@ const ClientDetails = () => {
         </section>
         <section id="client-proposals">
           <h3>Propuestas Several</h3>
+          <PropuestaCard></PropuestaCard>
         </section>
       </section>
     </section>

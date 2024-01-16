@@ -3,6 +3,7 @@ const { db } = require("../config/db_pgsql");
 const { CUPS } = require("./CUPS");
 const { Propuesta } = require("./Propuesta");
 
+
 const Bill = db.define(
   "facturas",
   {
@@ -11,60 +12,90 @@ const Bill = db.define(
       type: DataTypes.BIGINT,
       primaryKey: true,
       autoIncrement: true,
+      field: "factura_id",
+      type: DataTypes.BIGINT,
+      primaryKey: true,
+      autoIncrement: true,
     },
     CIA: {
-        type: DataTypes.STRING(255),
-        allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: false,
     },
     tarifa: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
       type: DataTypes.STRING(255),
       allowNull: false,
     },
     P1_consumo_actual: {
       type: DataTypes.BIGINT,
       allowNull: false,
+      type: DataTypes.BIGINT,
+      allowNull: false,
     },
     P2_consumo_actual: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
       type: DataTypes.BIGINT,
       allowNull: false,
     },
     P3_consumo_actual: {
       type: DataTypes.BIGINT,
       allowNull: false,
+      type: DataTypes.BIGINT,
+      allowNull: false,
     },
     P4_consumo_actual: {
+      type: DataTypes.BIGINT,
+      allowNull: true,
       type: DataTypes.BIGINT,
       allowNull: true,
     },
     P5_consumo_actual: {
       type: DataTypes.BIGINT,
       allowNull: true,
+      type: DataTypes.BIGINT,
+      allowNull: true,
     },
     P6_consumo_actual: {
+      type: DataTypes.BIGINT,
+      allowNull: true,
       type: DataTypes.BIGINT,
       allowNull: true,
     },
     P1_precio_mes: {
       type: DataTypes.BIGINT,
       allowNull: false,
+      type: DataTypes.BIGINT,
+      allowNull: false,
     },
     P2_precio_mes: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
       type: DataTypes.BIGINT,
       allowNull: false,
     },
     P3_precio_mes: {
       type: DataTypes.BIGINT,
       allowNull: false,
+      type: DataTypes.BIGINT,
+      allowNull: false,
     },
     P4_precio_mes: {
+      type: DataTypes.BIGINT,
+      allowNull: true,
       type: DataTypes.BIGINT,
       allowNull: true,
     },
     P5_precio_mes: {
       type: DataTypes.BIGINT,
       allowNull: true,
+      type: DataTypes.BIGINT,
+      allowNull: true,
     },
     P6_precio_mes: {
+      type: DataTypes.BIGINT,
+      allowNull: true,
       type: DataTypes.BIGINT,
       allowNull: true,
     },

@@ -1,5 +1,5 @@
 import React from "react";
-import createFileImage from "../../../assets/createfile-image.png";
+import createFileImage from "../../../assets/createfile-image.svg";
 import CreateFileForm from "./CreateFileForm/CreateFileForm";
 
 const CreateFileComponent = () => {

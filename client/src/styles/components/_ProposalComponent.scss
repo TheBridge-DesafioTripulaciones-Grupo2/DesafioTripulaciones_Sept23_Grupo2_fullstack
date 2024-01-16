@@ -85,9 +85,9 @@ left: 36px;
           width: 197px;
           margin: 0px;
 
-          color: var(--primario-naranja, #ff8523);
+          color: $primary;
           font-family: Lato;
-          font-size: 78px;
+          font-size: 65px;
           font-style: normal;
           font-weight: 800;
           line-height: 48px; /* 50% */
@@ -143,7 +143,7 @@ left: 36px;
   height: 64px;
   flex-shrink: 0;
   border-radius: 32px;
-  background: var(--primario-naranja, #ff8523);
+  background: $primary;
 
   color: #fcfdfd;
   text-align: center;

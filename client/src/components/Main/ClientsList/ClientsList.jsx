@@ -8,18 +8,24 @@ const ClientsList = () => {
   const [clients, setClients] = useState([]);
   const [search, setSearch] = useState("");
 
+  const [sortOrder, setSortOrder] = useState("oldest");
+
+  const sortClients = (clients, order) => {
+    return order === "oldest" ? [...clients] : [...clients].reverse();
+  };
+
   useEffect(() => {
     getAllClientsByUserId(userId)
       .then((data) => {
         console.log(data);
-        setClients(data);
+        const sortedData = sortClients(data, sortOrder);
+        setClients(sortedData);
       })
       .catch((error) => {
         console.error("Error al obtener los clientes:", error);
       });
-  }, [userId]);
+  }, [userId, sortOrder]);
 
-  // Add useEffect for handling search
   const [filteredClients, setFilteredClients] = useState([]);
 
   useEffect(() => {
@@ -36,12 +42,23 @@ const ClientsList = () => {
   return (
     <section id="clientsList_section">
       <h2 id="h2_input">Encuentra a tus clientes</h2>
-      <input
-        id="searchClients"
-        type="text"
-        placeholder="Buscar cliente"
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <section id="list-filters">
+        <input
+          id="searchClients"
+          type="text"
+          placeholder="Buscar cliente"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <select
+          id="sort-clients"
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="oldest">Más antiguos</option>
+          <option value="newest">Más recientes</option>
+        </select>
+      </section>
+
       <ul id="clientsList">
         {filteredClients.map((client) => (
           <li className="clientCard" key={client.client_id}>

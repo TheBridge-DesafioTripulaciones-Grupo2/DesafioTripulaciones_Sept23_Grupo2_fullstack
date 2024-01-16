@@ -3,13 +3,16 @@ import { useContext, useState, useEffect } from 'react';
 import { userContext } from "../../../context/authContext";
 import authService from '../../../services/services';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 import PropuestaCard from "./PropuestaCard/PropuestaCard";
+import Swal from 'sweetalert2';
 
 const Profile = () => {
-    const { userstate } = useContext(userContext);
+    const { userstate, updateUser } = useContext(userContext);
     const [data, setData] = useState(null);
     const [hayFacturas, setHayFacturas] = useState(false);
 
+    const navigate = useNavigate();
     const Token = Cookies.get('Token');
 
     useEffect(() => {
@@ -49,6 +52,50 @@ const Profile = () => {
       }
     }
 
+    const cerrarSesion = async () => {
+      Swal.fire({
+        title: "¿Seguro que quieres cerrar sesión?",
+        showDenyButton: true,
+        confirmButtonText: "Si",
+        denyButtonText: `No`
+      }).then((result) => {
+        if (result.isConfirmed) {
+          try {
+            const logout = async () => {
+              const result = await authService.logout(Token, userstate.email);
+              console.log(result);
+              if (result.error) {
+                Swal.fire({
+                  icon: "error",
+                  title: `No se ha podido cerrar sesión ${result.error}`,
+                });
+              } else if (result.message == "User not found") {
+                Cookies.remove("Token");
+                updateUser(null);
+                navigate("/login");
+              } else {
+                Swal.fire({
+                  icon: "success",
+                  title: `Se ha cerrado sesión con éxito`,
+                }).then((result) => {
+                  Cookies.remove("Token");
+                  updateUser(null);
+                  navigate("/login");
+                });
+              }
+            }
+            logout();
+          } catch (error) {
+            console.log(error);
+            Swal.fire({
+              icon: "error",
+              title: "No se ha podido cerrar sesión",
+            });
+          }
+        }
+      });
+    }
+
     const paintPropuestas = () => {
         if (data != null && data != undefined) {
           return (<>
@@ -70,7 +117,8 @@ const Profile = () => {
                 Titular={"Tilapia Fish"}
                 propuesta={"Endesa Energia, S.A."}
                 fecha={"19 Junio, 2023"}
-                />} </>);
+                />} 
+            </>);
         } 
     }
 
@@ -82,6 +130,7 @@ const Profile = () => {
             <img src="/perfil.png" alt="perfil" />
             <section id="datosPerfil">
                 {paintDatos()}
+                <p onClick={cerrarSesion} id="logout">Cerrar Sesión</p>
             </section>
             <section id="Propuestas" className="PropuestaSection">
                 <section>

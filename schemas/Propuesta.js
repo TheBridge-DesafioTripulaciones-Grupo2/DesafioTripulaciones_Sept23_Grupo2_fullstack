@@ -159,6 +159,6 @@ const Propuesta = db.define(
   }
 );
 
-Propuesta.sync();
+Propuesta.sync({alter:true});
 
 module.exports = { Propuesta };

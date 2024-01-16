@@ -77,7 +77,7 @@ const Login = () => {
               icon: "success",
               text: "Se ha iniciado sesión con éxito"
             }).then((result) => {
-              navigate("/createfile")
+              navigate("/home")
             });
           } else {
             Swal.fire({

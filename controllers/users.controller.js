@@ -72,19 +72,21 @@ const loginMiddleware = async function (req, res, next) {
 // Logout user
 const logoutUser = async (req, res) => {
     try {
-      const user = await User.findOne({ where: { email: req.user.email } });
+      const {email} = req.body;
+      const user = await User.findOne({ where: { email: email } });
       if (!user) {
         return res.status(401).json({ message: "User not found" });
       }
       user.logged = false;
       await user.save();
       req.logout(function (err) {
-        if (err) { return res.status(401).json({ message: "error" }); }
+        if (err) { console.log(err); return res.status(401).json({ message: "error" }); }
         req.session.destroy();
         res.status(200).json({ message: "Successfully logged out" });
     });
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      console.log(error);
+      res.status(500).json({ error: error.message });
     }
   };
   

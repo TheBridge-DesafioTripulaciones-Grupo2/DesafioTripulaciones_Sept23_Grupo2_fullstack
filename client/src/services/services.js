@@ -24,7 +24,15 @@ const authService = {
     } catch (error) {
       throw error;
     }
-  }
+  },
+  logout: async(Token, email) => {
+    try {
+      const response = await api.post(`/user/logout`, { token: Token, email: email });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
   
 };
 

@@ -100,6 +100,8 @@ li {
         font-weight: 400;
         line-height: 24px; /* 150% */
         letter-spacing: 0.2px;
+
+        text-align: center;
       }
       .card-cups-text {
         font-size: 12px;
@@ -130,19 +132,20 @@ li {
 
 #card_titular {
   @include h5;
-  width: 193px;
+  width: auto;
   margin: 0 auto;
 }
 
 #card_direccion {
   @include body1;
-  width: 131px;
-  margin: 0 auto;
+  width: auto;
+  margin: 0;
+  
 }
 
 #card_cups {
   @include body1;
-  width: 154px;
+  width: auto;
   margin: 0 auto;
   overflow-wrap: break-word;
 }

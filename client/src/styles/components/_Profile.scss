@@ -7,6 +7,7 @@
   width: 1440px;
   margin: auto;
   top: 0;
+  z-index: -1;
   &>img {
     z-index: 1;
     width: 348px;
@@ -24,6 +25,7 @@
     background-color: $primary-100;
     border-radius: 24px;
     & #logout {
+      z-index: 1;
       position: absolute;
       cursor: pointer;
       top: 20px;

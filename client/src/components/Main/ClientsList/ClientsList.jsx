@@ -1,34 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; // Importa useParams
-import { getAllClientsByUserId } from '../../../services/clients.services';
-import ClientCard from './ClientCard/ClientCard';
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getAllClientsByUserId } from "../../../services/clients.services";
+import ClientCard from "./ClientCard/ClientCard";
 
 const ClientsList = () => {
-  const { userId } = useParams(); // Obtén el ID del usuario de los parámetros
+  const { userId } = useParams();
   const [clients, setClients] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const [sortOrder, setSortOrder] = useState("oldest");
+
+  const sortClients = (clients, order) => {
+    return order === "oldest" ? [...clients] : [...clients].reverse();
+  };
 
   useEffect(() => {
-    // Asegúrate de pasar el ID del usuario a getAllClientsByUserId
     getAllClientsByUserId(userId)
-      .then(data => {
+      .then((data) => {
         console.log(data);
-        setClients(data);
+        const sortedData = sortClients(data, sortOrder);
+        setClients(sortedData);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error al obtener los clientes:", error);
       });
-  }, [userId]); // Añade userId a la lista de dependencias para que useEffect se ejecute cuando cambie el ID del usuario
+  }, [userId, sortOrder]);
+
+  const [filteredClients, setFilteredClients] = useState([]);
+
+  useEffect(() => {
+    if (search) {
+      const filtered = clients.filter((client) =>
+        client.titular.toLowerCase().includes(search.toLowerCase())
+      );
+      setFilteredClients(filtered);
+    } else {
+      setFilteredClients(clients);
+    }
+  }, [search, clients]);
 
   return (
-    <section id='clientsList_section'>
-      <h2 id='h2_input'>Encuentra a tus clientes</h2>
-      <input id='searchClients' type="text" placeholder='Buscar cliente' />
-      <ul id='clientsList'>
-        {clients.map(client => (
-          <li className='clientCard' key={client.client_id}>
-            {/* Renderiza tu componente ClientCard aquí con los datos del cliente */}
-            {/* TODO: Sacar direccion_suministro y CUPS de la tabla CUPS para cada cliente */}
-            <ClientCard titular={client.titular} imagen={client.imagen} direccion={client.direccion_suministro} cups={client.CUPs[0]}/>
+    <section id="clientsList_section">
+      <h2 id="h2_input">Encuentra a tus clientes</h2>
+      <section id="list-filters">
+        <input
+          id="searchClients"
+          type="text"
+          placeholder="Buscar cliente"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <select
+          id="sort-clients"
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="oldest">Más antiguos</option>
+          <option value="newest">Más recientes</option>
+        </select>
+      </section>
+
+      <ul id="clientsList">
+        {filteredClients.map((client) => (
+          <li className="clientCard" key={client.client_id}>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/client-details/${client.client_id}`}
+            >
+              <ClientCard
+                titular={client.titular}
+                imagen={client.imagen}
+                direccion={client.direccion_suministro}
+                cups={client.CUPs[0]}
+              />
+            </Link>
           </li>
         ))}
       </ul>

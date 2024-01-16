@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import placeholder from "../../../../assets/placeholder-graph.png";
+import placeholder from "../../../../assets/placeholder-graph.svg";
 
 const ProposalComponent = () => {
   const [monthlySavings, setMonthlySavings] = useState("12,34");

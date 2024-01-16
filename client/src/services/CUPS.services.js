@@ -10,7 +10,8 @@ async function createCUPS(cupsData) {
           cupsData
         );
         const json = response;
-        resolve(json.data.data);
+        console.log(json);
+        resolve(json.data);
       } catch (error) {
         console.error("Ha ocurrido un error al registrar el CUPS: ", error);
         Swal.fire({

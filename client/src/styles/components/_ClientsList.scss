@@ -1,0 +1,34 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#h2_input {
+    @include h1;
+    color: $primary;
+    // width: 447px;
+    // height: 48px;
+    margin: 50.25px 943px 32px 50px;
+    width: 520px;
+}
+
+#searchClients {
+    display: flex;
+    width: 358px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 181px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    border: 2px solid var(--primario-naranja200, #FFBFA6);
+    background: var(--neutros-blanco, #FAFAFA);
+    @include body1;
+    color: var(--neutros-gris200, #D0CCCB);
+    margin: 32px 1031px 50px 51px;
+}
+
+#searchClients::placeholder {
+    color: $gray3;
+    margin-left: 3px;
+    text-align: left;
+    margin-left: 10px;
+}

@@ -1,9 +1,38 @@
 const { User } = require("../schemas/User");
+const { Client } = require("../schemas/Client");
+const { CUPS } = require("../schemas/CUPS");
+const { Sequelize } = require('sequelize');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const regex = require("../utils/auth_regex");
 const jwt_secret = process.env.ULTRA_SECRET_KEY;
 const saltRounds = 10;
+
+// Get clients by an user ID
+const getAllClientsByUser = async (req, res) => {
+  try {
+    console.log("Prueba1");
+    const user_id = req.params.id;
+    const user = await User.findByPk(user_id);
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    const clients = await Client.findAll({
+      where: { user_id: user_id },
+      include: [
+        {
+          model: CUPS,
+          attributes: ['direccion_suministro', 'CUPS'],
+          required: true
+        }
+      ],
+    });
+    res.status(200).json(clients);
+  } catch (error) {
+    console.error("ERROOOOOOR:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
 
 // Get user by email
 const getUserByEmail = async (req, res) => {
@@ -152,6 +181,7 @@ const deleteUser = async (req, res) => {
 };
 
 module.exports = {
+  getAllClientsByUser,
   getUserByEmail,
   createUser,
   loginUser,

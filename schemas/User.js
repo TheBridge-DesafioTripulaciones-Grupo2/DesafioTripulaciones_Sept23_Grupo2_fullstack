@@ -22,12 +22,6 @@ const User = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    logged: {
-      field: "logged",
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false, // By default, users are not logged in
-    },
     admin: {
       field: "admin",
       type: DataTypes.BOOLEAN,
@@ -56,6 +50,6 @@ const User = db.define(
   }
 );
 
-User.sync({alter:true});
+User.sync();
 
 module.exports = { User };

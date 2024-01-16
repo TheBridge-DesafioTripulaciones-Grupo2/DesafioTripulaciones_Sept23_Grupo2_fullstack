@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
 const { Client } = require('./Client');
+const {Bill} = require("./Bills");
+const { Propuesta } = require('./Propuesta');
 
 
 const CUPS = db.define("CUPS", {
@@ -23,9 +25,9 @@ const CUPS = db.define("CUPS", {
       key: 'client_id',
     }
   },
-  direccionSuministro: {
+  direccion_suministro: {
     field: 'direccion_suministro',
-    type: DataTypes.BIGINT,
+    type: DataTypes.STRING,
     allowNull: false,
   }
 }, {
@@ -34,6 +36,10 @@ const CUPS = db.define("CUPS", {
   timestamps: false,
 });
 
-CUPS.sync();
+CUPS.hasMany(Bill, { foreignKey: 'CUPS_id' });
+CUPS.hasMany(Propuesta, { foreignKey: 'CUPS_id' });
+// Bill.belongsTo(CUPS, { foreignKey: 'CUPS_id' });
+
+CUPS.sync({ alter: true });
 
 module.exports = {CUPS};

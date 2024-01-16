@@ -136,15 +136,15 @@ const Bill = db.define(
       allowNull: true,
     },
     otros_precio: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.FLOAT,
       allowNull: true,
     },
     otros_propuesta: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.FLOAT,
       allowNull: true,
     },
     otros_anual: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.FLOAT,
       allowNull: true,
     },
     alquiler_equipo: {
@@ -274,6 +274,6 @@ const Bill = db.define(
 Bill.hasMany(Propuesta, { foreignKey: "factura_id" });
 // Propuesta.belongsTo(Bill, { foreignKey: "factura_id" });
 
-// Bill.sync({ alter: true });
+//Bill.sync({ alter: true });
 
 module.exports = { Bill };

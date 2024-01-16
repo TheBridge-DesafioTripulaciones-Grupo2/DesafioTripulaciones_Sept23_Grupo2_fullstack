@@ -10,7 +10,7 @@ const getPropuesta = async(req, res) => {
         if (searchPropuesta == "error") {
             res.status(404).json({ message: "Propuesta not found" });
           } else {
-            res.status(200).json({ message: "Propuesta recovered", searchPropuesta });
+            res.status(200).json({ message: "Propuesta recovered", propuesta: searchPropuesta });
           }
     } catch (error) {
         res.status(400).json("error")

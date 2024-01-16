@@ -2,6 +2,7 @@ const { Propuesta } = require("../schemas/Propuesta");
 const { Bill } = require("../schemas/Bills");
 const { CUPS } = require("../schemas/CUPS");
 const { Client } = require("../schemas/Client");
+const { User } = require("../schemas/User");
 const { db } = require('../config/db_pgsql');
 
 const getPropuesta = async (id) => {

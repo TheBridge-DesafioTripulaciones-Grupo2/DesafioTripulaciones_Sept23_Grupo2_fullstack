@@ -33,6 +33,14 @@ const authService = {
       throw error;
     }
   },
+  getPropuesta: async(id) => {
+    try {
+      const response = await api.get(`/propuesta/getPropuesta/${id}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
   
 };
 

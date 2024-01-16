@@ -3,11 +3,9 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { ClientContext } from "./context/clientContext";
 import { userContext } from "./context/authContext";
 
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
 import Router from "./Router";
 import Login from "./components/Login/Login";
+import PDF from "./components/PDF/PDF";
 
 function App() {
   const [clientData, setClientData] = useState({});
@@ -27,7 +25,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             {/* <Route path="/mensual/:id" element={<Login />} />
         <Route path="/anual/:id" element={<Login />} /> */}
-            <Route path="/completa/:id" element={<Login />} />
+            <Route path="/completa/:id" element={<PDF />} />
           </Routes>
         </ClientContext.Provider>
       </userContext.Provider>

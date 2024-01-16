@@ -84,6 +84,7 @@
     }
     button:hover {
       background-color: $primary-600;
+      cursor: pointer;
     }
     button:disabled {
       background-color: $gray3;

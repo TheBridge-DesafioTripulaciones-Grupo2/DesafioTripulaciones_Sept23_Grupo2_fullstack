@@ -82,23 +82,6 @@ const ClientsList = () => {
           <img className="spinner" src={Spinner} alt="Loading..." />
         </>
       )}
-      <ul id="clientsList">
-        {filteredClients.map((client) => (
-          <li className="clientCard" key={client.client_id}>
-            <Link
-              style={{ textDecoration: "none" }}
-              to={`/client-details/${client.client_id}`}
-            >
-              <ClientCard
-                titular={client.titular}
-                imagen={client.imagen}
-                direccion={client.direccion_suministro}
-                cups={client.CUPs[0]}
-              />
-            </Link>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 };

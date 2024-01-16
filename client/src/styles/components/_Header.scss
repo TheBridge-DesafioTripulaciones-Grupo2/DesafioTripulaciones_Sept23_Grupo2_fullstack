@@ -10,20 +10,25 @@ header {
   // margin: 0px 50px;
   // margin-top: 29px;
   width: 1440px;
+  z-index: 20;
+  
   & img {
     // position: relative;
     width: 233.043px;
     height: 134px;
     flex-shrink: 0;
+    z-index: 20;
   }
   & nav {
     display: flex;
     flex-wrap: nowrap;
+    z-index: 20;
     & a {
       text-decoration: none;
       white-space: nowrap;
       @include h5;
       margin-right: 34px;
+      z-index: 20;
     }
     & a:not(.active) {
       color: black;

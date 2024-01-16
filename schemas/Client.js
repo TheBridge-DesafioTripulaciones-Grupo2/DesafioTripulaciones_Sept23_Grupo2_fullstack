@@ -30,11 +30,19 @@ const Client = db.define(
       type: DataTypes.TEXT,
       allowNull: true,
     },
+<<<<<<< HEAD
     // email: {
     //   field: "email",
     //   type: DataTypes.STRING,
     //   allowNull: true,
     // },
+=======
+    email: {
+      field: "email",
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+>>>>>>> feature/front_client_details
     phone_number: {
       field: "phone_number",
       type: DataTypes.STRING,
@@ -52,4 +60,8 @@ Client.hasMany(CUPS, { foreignKey: "client_id" });
 CUPS.belongsTo(Client, { foreignKey: "client_id" });
 Client.sync({ alter: true });
 
+<<<<<<< HEAD
 module.exports = { Client };
+=======
+module.exports = { Client };
+>>>>>>> feature/front_client_details

@@ -37,7 +37,7 @@ const TableComponent = ({ onBillSubmit }) => {
   };
 
   return (
-    <section>
+    <section id="fileComponent">
       <div id="file-details">
         <div id="file-details-titular" className="file-detail">
           <p className="file-detail-title">Titular: </p>

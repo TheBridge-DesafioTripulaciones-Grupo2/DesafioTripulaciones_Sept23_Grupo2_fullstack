@@ -1,9 +1,162 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import placeholder from "../../../../assets/placeholder-graph.png";
 
 const ProposalComponent = () => {
   const [monthlySavings, setMonthlySavings] = useState("12,34");
   const [yearlySavings, setYearlySavings] = useState("12,34");
+
+  const [cia, setCia] = useState("");
+  const [productos, setProductos] = useState([]);
+  const [feeOptions, setFeeOptions] = useState([]);
+
+  useEffect(() => {
+    const feeOptionsByCIA = {
+      ACCIONA: [
+        "Cierzo",
+        "Levante",
+        "Levante+",
+        "Poniente",
+        "Poniente-",
+        "Tramontana",
+        "Tramontana+",
+      ],
+      AEQ: ["3", "6", "8", "10", "15", "20", "25", "30"],
+      CANDELA: [
+        "01 / Bio_0,035",
+        "02 / Bio_0,03",
+        "03 / Bio_0,025",
+        "04 / Bio_0,02",
+        "05 / Bio_0,018",
+        "06 / Bio_0,015",
+        "07 / Bio_0,012",
+        "08 / Bio_0,01",
+        "09 / Bio_0,008",
+        "10 / Bio_0,006",
+        "11 / Bio_0,003",
+      ],
+      FACTOR: [
+        "4",
+        "6",
+        "7.5",
+        "8.5",
+        "9.5",
+        "11.5",
+        "13.5",
+        "15.5",
+        "17.5",
+        "19.5",
+        "21.5",
+        "23.5",
+        "25.5",
+        "29.5",
+      ],
+      GANA: ["-"],
+      IGNIS: [
+        "10 MARE ZEN 1",
+        "15 MARE ZEN 1",
+        "20 MARE PLUS 3",
+        "25 MARE PLUS 2",
+        "30 MARE PLUS 1",
+        "4 MARE KIT 2",
+        "6 MARE KIT 1",
+        "8 MARE ZEN 3",
+        "2.5 MARE KIT 3",
+      ],
+      MAX: [
+        "3",
+        "6",
+        "8",
+        "10",
+        "12",
+        "15",
+        "18",
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+      ],
+      PLENITUDE: ["-"],
+
+      // ... more CIAs
+    };
+    switch (cia) {
+      case "ACCIONA":
+        setProductos([
+          "CIERZO",
+          "LEVANTE+",
+          "LEVANTE",
+          "PONIENTE+",
+          "PONIENTE",
+          "TRAMONTANA+",
+          "TRAMONTANA",
+        ]);
+        setFeeOptions(feeOptionsByCIA["ACCIONA"]);
+        break;
+      case "AEQ":
+        setProductos(["ARMONIA", "EQUILIBRIO", "SIMETRIA"]);
+        setFeeOptions(feeOptionsByCIA["AEQ"]);
+        break;
+      case "CANDELA":
+        setProductos(["AMPERE", "FARAD", "HENRY", "LUMEN", "LUX"]);
+        setFeeOptions(feeOptionsByCIA["CANDELA"]);
+        break;
+      case "FACTOR":
+        setProductos([
+          "DOMESTICO_EXTRA1P",
+          "DOMESTICO_EXTRA3P",
+          "DOMESTICO_MINI",
+          "DOMESTICO_Precio WEB3P",
+          "DOMESTICO_PRIME",
+          "NEGOCIO_AHORRO",
+          "NEGOCIO_AHORRO1P",
+          "NEGOCIO_EXTRA",
+          "NEGOCIO_EXTRA1P",
+          "NEGOCIO_EXTRATOP1P",
+          "NEGOCIO_MINI1P",
+          "NEGOCIO_PROFESIONAL",
+          "NEGOCIO_PROFESIONAL1P",
+          "DOMESTICO_POOLDBOE",
+          "DOMESTICO_POOLEXTRA",
+          "NEGOCIO_POOLAHORRO",
+          "NEGOCIO_POOLEXTRA",
+          "NEGOCIO_POOLPLUS",
+          "NEGOCIO_POOLPROF",
+          "NEGOCIO_POOLSUMMER",
+        ]);
+        setFeeOptions(feeOptionsByCIA["FACTOR"]);
+        break;
+      case "GANA":
+        setProductos(["SIN MAS"]);
+        setFeeOptions(feeOptionsByCIA["GANA"]);
+        break;
+      case "IGNIS":
+        setProductos([
+          "MARE KIT 1",
+          "MARE KIT 2",
+          "MARE KIT 3",
+          "MARE PLUS 1",
+          "MARE PLUS 2",
+          "MARE PLUS 3",
+          "MARE ZEN 1",
+          "MARE ZEN 2",
+          "MARE ZEN 3",
+        ]);
+        setFeeOptions(feeOptionsByCIA["IGNIS"]);
+        break;
+      case "MAX":
+        setProductos(["MAYOR C", "MAYOR B", "MAYOR A"]);
+        setFeeOptions(feeOptionsByCIA["MAX"]);
+        break;
+      case "PLENITUDE":
+        setProductos(["MILAN", "NAPOLES", "ROMA", "VENECIA"]);
+        setFeeOptions(feeOptionsByCIA["PLENITUDE"]);
+        break;
+      default:
+        setProductos([]);
+        break;
+    }
+  }, [cia]);
 
   //Funcion qué generará la propuesta, guarda en la BBDD, y redirige a dicha propuesta
   const handleSubmit = () => {};
@@ -27,11 +180,23 @@ const ProposalComponent = () => {
           </div>
 
           <div>
-            <select name="cia" id="cia" defaultValue="">
+            <select
+              name="Metodo"
+              id="Metodo"
+              defaultValue=""
+              onChange={(e) => setCia(e.target.value)}
+            >
               <option value="" disabled>
                 CIA
               </option>
-              {/* <!-- Add other companies as needed --> */}
+              <option value="ACCIONA">ACCIONA</option>
+              <option value="AEQ">AEQ</option>
+              <option value="CANDELA">CANDELA</option>
+              <option value="FACTOR">FACTOR</option>
+              <option value="GANA">GANA</option>
+              <option value="IGNIS">IGNIS</option>
+              <option value="MAX">MAX</option>
+              <option value="PLENITUDE">PLENITUDE</option>
             </select>
           </div>
 
@@ -57,7 +222,11 @@ const ProposalComponent = () => {
               <option value="" disabled>
                 Producto CIA (POT)
               </option>
-              {/* Add your options here later */}
+              {productos.map((producto) => (
+                <option key={producto} value={producto}>
+                  {producto}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -71,7 +240,14 @@ const ProposalComponent = () => {
               <option value="" disabled>
                 Mes de facturación (indexado)
               </option>
-              {/* Add your options here later */}
+              <option value="2023-08-01">01/08/2023</option>
+              <option value="2023-07-01">01/07/2023</option>
+              <option value="2023-06-01">01/06/2023</option>
+              <option value="2023-05-01">01/05/2023</option>
+              <option value="2023-04-01">01/04/2023</option>
+              <option value="2023-03-01">01/03/2023</option>
+              <option value="2023-02-01">01/02/2023</option>
+              <option value="2023-01-01">01/01/2023</option>
             </select>
           </div>
 
@@ -85,7 +261,11 @@ const ProposalComponent = () => {
               <option value="" disabled>
                 FEE (Energía)
               </option>
-              {/* Add your options here later */}
+              {feeOptions.map((feeOption) => (
+                <option key={feeOption} value={feeOption}>
+                  {feeOption}
+                </option>
+              ))}
             </select>
           </div>
         </section>

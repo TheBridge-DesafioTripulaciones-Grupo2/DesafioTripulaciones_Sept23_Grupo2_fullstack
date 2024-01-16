@@ -3,6 +3,8 @@ const { db } = require('../config/db_pgsql');
 const { Client } = require('./Client');
 const {Bill} = require("./Bills");
 const { Propuesta } = require('./Propuesta');
+const {Bill} = require("./Bills");
+const { Propuesta } = require('./Propuesta');
 
 
 const CUPS = db.define("CUPS", {
@@ -26,7 +28,9 @@ const CUPS = db.define("CUPS", {
     }
   },
   direccion_suministro: {
+  direccion_suministro: {
     field: 'direccion_suministro',
+    type: DataTypes.STRING,
     type: DataTypes.STRING,
     allowNull: false,
   }

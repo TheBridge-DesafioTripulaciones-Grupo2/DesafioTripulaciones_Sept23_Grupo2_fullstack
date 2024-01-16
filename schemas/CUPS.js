@@ -1,7 +1,8 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db_pgsql');
 const { Client } = require('./Client');
-const {Bill} = require("./Bills")
+const {Bill} = require("./Bills");
+const { Propuesta } = require('./Propuesta');
 
 
 const CUPS = db.define("CUPS", {
@@ -36,7 +37,8 @@ const CUPS = db.define("CUPS", {
 });
 
 CUPS.hasMany(Bill, { foreignKey: 'CUPS_id' });
-Bill.belongsTo(CUPS, { foreignKey: 'CUPS_id' });
+CUPS.hasMany(Propuesta, { foreignKey: 'CUPS_id' });
+// Bill.belongsTo(CUPS, { foreignKey: 'CUPS_id' });
 
 CUPS.sync();
 

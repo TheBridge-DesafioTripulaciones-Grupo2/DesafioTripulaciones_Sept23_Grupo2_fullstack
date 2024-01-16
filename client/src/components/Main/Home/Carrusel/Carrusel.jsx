@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { userContext } from "../../../../context/authContext";
 import NextArrow from "./NextArrow/NextArrow";
 import PrevArrow from "./PrevArrow/PrevArrow";
+import Spinner from "../../../../assets/spinner.svg"
 
 const Carrusel = ({ userstate, handleClientsNumber }) => {
   const [clients, setClients] = useState([]);
@@ -73,7 +74,7 @@ const Carrusel = ({ userstate, handleClientsNumber }) => {
   return (
     <>
       <h5>Clientes recientes</h5>
-      <Slider {...settings}>
+      {clients.length > 0 ? <Slider {...settings}>
         {clients.map((client) => (
           <div key={client.client_id}>
             <Link
@@ -89,7 +90,8 @@ const Carrusel = ({ userstate, handleClientsNumber }) => {
             </Link>
           </div>
         ))}
-      </Slider>
+      </Slider> : <img className="spinner" src={Spinner} alt="Loading..." />}
+      
     </>
   );
 };

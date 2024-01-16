@@ -101,6 +101,7 @@ const Login = () => {
         });
       }
     }
+  };
 
   return (
     <>

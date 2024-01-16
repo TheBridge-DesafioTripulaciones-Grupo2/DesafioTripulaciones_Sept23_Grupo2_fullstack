@@ -1,6 +1,6 @@
 {
     "factura_id": 5001,
-    "CIA": "Energy Provider",
+    "CIA": "EnergyCo",
     "tarifa": "Standard",
     "P1_consumo_actual": 1000,
     "P2_consumo_actual": 800,
@@ -46,7 +46,7 @@
     "P5_descuento_potencia": 0.25,
     "P6_descuento_potencia": 0,
     "IVA": 21,
-    "CUPS_id": 102030,
+    "CUPS_id": 2002,
     "fecha_indexada": "2024-01-16",
     "P1_precio_anual": 1800,
     "P2_precio_anual": 1440,

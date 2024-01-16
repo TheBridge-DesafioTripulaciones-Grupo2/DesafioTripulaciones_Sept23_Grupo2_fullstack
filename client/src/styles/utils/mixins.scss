@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 @mixin h1 {
     font-family: 'Lato', sans-serif;
     font-weight: 800; 
@@ -76,5 +78,14 @@
     font-size: 12px;
     line-height: 1.5;
     letter-spacing: 0.02em; 
+  }
+
+  @mixin body3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 500; 
+    font-size: 8px;
+    letter-spacing: 0.025%;
+    padding: 4px 0; 
+    color: $secondary1;
   }
   

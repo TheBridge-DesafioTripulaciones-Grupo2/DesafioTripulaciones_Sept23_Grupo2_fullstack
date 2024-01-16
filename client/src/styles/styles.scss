@@ -13,6 +13,9 @@
 @import "./components//ClientCard";
 @import "./components/ClientDetails";
 @import "./components/ClientDetails";
+@import "./components/Home";
+
+
 
 
 
@@ -43,9 +46,11 @@ main {
 }
 
 h1 {
-    @include h1
+    @include h1;
 }
-
+h5 {
+    @include h5;
+}
 a * {
     text-decoration: none;
     color: inherit;

@@ -2,14 +2,8 @@ const { DataTypes } = require("sequelize");
 const { db } = require("../config/db_pgsql");
 const { CUPS } = require("./CUPS");
 const { Propuesta } = require("./Propuesta");
-const { DataTypes } = require("sequelize");
-const { db } = require("../config/db_pgsql");
-const { CUPS } = require("./CUPS");
-const { Propuesta } = require("./Propuesta");
 
-const Bill = db.define(
-  "facturas",
-  {
+
 const Bill = db.define(
   "facturas",
   {

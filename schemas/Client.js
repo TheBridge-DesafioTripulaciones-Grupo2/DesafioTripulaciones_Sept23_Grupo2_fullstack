@@ -30,11 +30,11 @@ const Client = db.define(
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    // email: {
-    //   field: "email",
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    // },
+    email: {
+      field: "email",
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     phone_number: {
       field: "phone_number",
       type: DataTypes.STRING,

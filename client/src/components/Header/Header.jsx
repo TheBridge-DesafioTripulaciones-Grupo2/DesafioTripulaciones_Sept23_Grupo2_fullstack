@@ -54,10 +54,10 @@ const Header = () => {
   return (
     <>
     {Token != undefined && userstate != null && userstate.acceso ? (
-      <section id="header">
-      <Link to='/home'><img src="/Several.png" alt="Several" /></Link>
+      <header>
+      <Link to='/home'><img src="/Several.svg" alt="Several" /></Link>
       <Nav> </Nav>
-    </section>
+    </header>
     ) : ("")} 
     </>
   );

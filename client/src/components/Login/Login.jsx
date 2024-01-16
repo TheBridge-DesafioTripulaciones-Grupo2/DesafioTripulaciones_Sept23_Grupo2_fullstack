@@ -1,50 +1,50 @@
 import React from "react";
-import Cookies from 'js-cookie';
-import { useContext, useState, useEffect } from 'react';
+import Cookies from "js-cookie";
+import { useContext, useState, useEffect } from "react";
 import { userContext } from "../../context/authContext";
-import authService from '../../services/services';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import authService from "../../services/services";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const { userstate, updateUser } = useContext(userContext);
-    const [Usuario, setUsuario] = useState("");
-    const [Contraseña, setContraseña] = useState("");
-    const navigate = useNavigate();
+  const { userstate, updateUser } = useContext(userContext);
+  const [Usuario, setUsuario] = useState("");
+  const [Contraseña, setContraseña] = useState("");
+  const navigate = useNavigate();
 
-    const Token = Cookies.get('Token');
-    const isFormFilled = Usuario && Contraseña;
+  const Token = Cookies.get("Token");
+  const isFormFilled = Usuario && Contraseña;
 
-    useEffect(() => {
-      if (Token != undefined && userstate == null) {
-        const fetchData = async () => {
-          try {
-            Swal.fire({
-              icon: "success",
-              text: "Se está iniciando sesión"
-            })
-            const response = await authService.loginToken(Token);
-            if (response == "error") {
-              Swal.fire({
-                icon: "error",
-                title: "No se ha podido iniciar sesión",
-                text: "Por favor procede a iniciar sesión manualmente"
-              });
-            } else {
-              updateUser(response);
-              navigate("/home")
-            }
-          } catch (error) {
+  useEffect(() => {
+    if (Token != undefined && userstate == null) {
+      const fetchData = async () => {
+        try {
+          Swal.fire({
+            icon: "success",
+            text: "Se está iniciando sesión",
+          });
+          const response = await authService.loginToken(Token);
+          if (response == "error") {
             Swal.fire({
               icon: "error",
               title: "No se ha podido iniciar sesión",
-              text: "Por favor procede a iniciar sesión manualmente"
+              text: "Por favor procede a iniciar sesión manualmente",
             });
+          } else {
+            updateUser(response);
+            navigate("/home");
           }
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: "No se ha podido iniciar sesión",
+            text: "Por favor procede a iniciar sesión manualmente",
+          });
         }
-        fetchData()
-      }
-    }, []);
+      };
+      fetchData();
+    }
+  }, [userstate]);
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -93,22 +93,35 @@ const Login = () => {
         }
       }
     }
+  };
 
   return (
     <>
-    <section id="loginContainer">
+      <section id="loginContainer">
         <main>
-            <img src="/Several.png" alt="Several" />
-            <form onSubmit={handleSubmit}>
-                <h2>¡Bienvenido!</h2>
-                <input type="text" value={Usuario} placeholder="Usuario" onChange={(e) => setUsuario(e.target.value)}/>
-                <input type="password" value={Contraseña} placeholder="Contraseña" onChange={(e) => setContraseña(e.target.value)}/>
-                <button type="submit" disabled={!isFormFilled}>Entrar</button>
-            </form>
+          <img src="/Several.svg" alt="Several" />
+          <form onSubmit={handleSubmit}>
+            <h2>¡Bienvenido!</h2>
+            <input
+              type="text"
+              value={Usuario}
+              placeholder="Usuario"
+              onChange={(e) => setUsuario(e.target.value)}
+            />
+            <input
+              type="password"
+              value={Contraseña}
+              placeholder="Contraseña"
+              onChange={(e) => setContraseña(e.target.value)}
+            />
+            <button type="submit" disabled={!isFormFilled}>
+              Entrar
+            </button>
+          </form>
         </main>
-    </section>
+      </section>
     </>
-  ); 
+  );
 };
 
 export default Login;

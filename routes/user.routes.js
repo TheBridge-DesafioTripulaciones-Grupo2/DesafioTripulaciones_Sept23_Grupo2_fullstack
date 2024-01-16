@@ -12,6 +12,7 @@ routes.post("/updateUser/:userId", verifyToken, /*checkAccess,*/ checkAdmin, use
 routes.post("/getUser/:id", verifyToken, /*checkAccess,*/ usersController.getUserbyId);
 routes.post("/loginToken", verifyToken, tokenController.loginToken);
 
+routes.get("/:id/clients", usersController.getAllClientsByUser);
 
 module.exports = routes;
 

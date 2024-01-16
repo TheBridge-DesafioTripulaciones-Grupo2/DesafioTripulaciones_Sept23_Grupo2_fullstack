@@ -5,8 +5,8 @@ const session = require("express-session");
 const app = express();
 const PORT = process.env.PORT || 5000;
 var cors = require("cors");
-const morgan = require("./middlewares/morgan");
-const helmet = require('helmet');
+// const morgan = require("./middlewares/morgan");
+// const helmet = require('helmet');
 
 const secret = process.env.ULTRA_SECRET_KEY;
 
@@ -31,7 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
 // Logger
-app.use(morgan(":method :host :status :url :response-time ms :body"));
+// app.use(morgan(":method :host :status :url :response-time ms :body"));
 
 //Routes
 const userRoutes = require("./routes/user.routes.js");
@@ -41,7 +41,7 @@ const billsRoutes = require("./routes/bills.routes.js");
 const propuestaRoutes = require("./routes/propuesta.routes.js");
 
 app.use("/user", userRoutes);
-app.use("/clients", clientsRoutes);
+app.use("/client", clientsRoutes);
 app.use("/CUPS", CUPSRoutes);
 app.use("/propuesta", propuestaRoutes);
 app.use("/bills", billsRoutes);

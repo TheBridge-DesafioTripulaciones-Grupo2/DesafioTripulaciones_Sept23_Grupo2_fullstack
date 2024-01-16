@@ -1,11 +1,6 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
-#fileComponent {
-  position: relative;
-  top: 195px;
-}
-
 /* Reset styles for table and its elements */
 table {
   // border-collapse: ; /* Removes spacing between the borders of the cells */
@@ -136,7 +131,7 @@ td {
     height: 64px;
     flex-shrink: 0;
     border-radius: 32px;
-    background: var(--primario-naranja, #ff8523);
+    background: $primary;
 
     color: #fcfdfd;
     text-align: center;

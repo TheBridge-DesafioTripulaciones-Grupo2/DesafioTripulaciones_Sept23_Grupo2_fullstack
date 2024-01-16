@@ -4,11 +4,23 @@ import { userContext } from "../../../context/authContext";
 
 const Home = () => {
   const { userstate } = useContext(userContext);
+  const [nProposals, setNProposals] = useState(0);
   const [nClients, setNClients] = useState(0);
+  const [nEarnings, setNEarnings] = useState(20);
 
   const handleClientsCount = (count) => {
-    setNClients(count);
+    let currentCount = 0;
+    const interval = 20; // Duration between count increments
+    const increment = () => {
+      setNClients(currentCount);
+      if (currentCount < count) {
+        currentCount++;
+        setTimeout(increment, interval);
+      }
+    };
+    increment();
   };
+
 
   return (
     <>
@@ -24,7 +36,7 @@ const Home = () => {
           <div>
             <div>
               <div>
-                <p>0</p>
+                <p>{nProposals}</p>
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +102,7 @@ const Home = () => {
           <div>
             <div>
               <div>
-                <p>30%</p>
+                <p>{nEarnings}%</p>
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -3,6 +3,7 @@ import bannerImage from "../../../assets/client-details.svg";
 import { useParams } from "react-router";
 import { getClientById } from "../../../services/clients.services.js";
 import PropuestaCard from "../Profile/PropuestaCard/PropuestaCard.jsx";
+import BillCard from "./BillCard/BillCard.jsx";
 
 
 const ClientDetails = () => {
@@ -103,11 +104,35 @@ const ClientDetails = () => {
       </section>
       <section id="client-lists">
         <section id="client-bills">
-          <h3>Factura actual del cliente</h3>
+          <h3 id="factura-actual">Factura actual del cliente</h3>
+          <BillCard
+                    key={1}  
+                    Titular={clientName}
+                    propuesta={"Candela Energía, S.A."}
+                    fecha={"23 enero, 2023"}
+                  />
+                  
         </section>
         <section id="client-proposals">
-          <h3>Propuestas Several</h3>
-          <PropuestaCard></PropuestaCard>
+          <h3 id="propuestas-several">Propuestas Several</h3>
+          <PropuestaCard
+                    key={2}  
+                    Titular={clientName}
+                    propuesta={"Candela Energía, S.A."}
+                    fecha={"10 noviembre, 2023"}
+                  />
+          <PropuestaCard
+                    key={3}  
+                    Titular={clientName}
+                    propuesta={"Candela Energía, S.A."}
+                    fecha={"18 noviembre, 2023"}
+                  />
+          <PropuestaCard
+                    key={4}  
+                    Titular={clientName}
+                    propuesta={"Candela Energía, S.A."}
+                    fecha={"3 diciembre, 2023"}
+                  />
         </section>
       </section>
     </section>

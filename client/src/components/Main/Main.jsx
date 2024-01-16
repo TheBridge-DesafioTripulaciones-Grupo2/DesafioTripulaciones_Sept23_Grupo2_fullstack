@@ -5,6 +5,7 @@ import CreateFileComponent from "./CreateFileComponent";
 import FileComponent from "./FileComponent";
 import Profile from "./Profile/Profile";
 import ClientDetails from "./ClientDetails/ClientDetails";
+import Home from "./Home/Home";
 
 const Main = () => {
   return (
@@ -15,6 +16,7 @@ const Main = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/clients/:userId" element={<ClientsList />} />
         <Route path="/client-details/:id" element={<ClientDetails />} />
+        <Route path="/home" element={<Home />} />
 
         <Route path="/*" element={<Navigate to={"/login"} />} />
         {/* <Route path="/" element={<Home />} /> */}

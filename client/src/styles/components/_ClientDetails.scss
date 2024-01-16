@@ -71,3 +71,72 @@
     -1px -1px 2px 0px rgba(208, 208, 208, 0.5) inset,
     1px 1px 2px 0px rgba(255, 255, 255, 0.3) inset;
 }
+
+#factura-actual{
+  @include h6;
+}
+
+#propuestas-several{
+  @include h6;
+}
+
+#client-bills {
+  & #factura-cliente {
+    width: 632px;
+    height: 118px;
+    border-radius: 8px;
+    border: 1px solid $gray2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 22px;
+    padding-top: 2px;
+    &>h6 {
+      @include caption;
+      color: $gray4;
+      padding-left: 16px;
+    }
+    &>section {
+      width: fit-content;
+      height: 20px;
+      background-color: $secondary1;
+      margin-left: 16px;
+      &>h5 {
+        @include caption;
+        color: $white;
+        padding: 0px 8px;
+      }
+    }
+  }
+  
+}
+
+#client-proposals{
+  & .CardP {
+    width: 632px;
+    height: 118px;
+    border-radius: 8px;
+    border: 1px solid $gray2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 22px;
+    padding-top: 2px;
+    &>h6 {
+      @include caption;
+      color: $gray4;
+      padding-left: 16px;
+    }
+    &>section {
+      width: 115px;
+      height: 20px;
+      background-color: $primary;
+      margin-left: 16px;
+      &>h5 {
+        @include caption;
+        color: $white;
+        padding-left: 8px;
+      }
+    }
+  }
+}

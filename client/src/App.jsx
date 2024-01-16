@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { ClientContext } from "./context/clientContext";
 import { userContext } from "./context/authContext";
+
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 import Router from "./Router";
 import Login from "./components/Login/Login";
 

@@ -13,22 +13,34 @@
 #searchClients {
     display: flex;
     width: 358px;
-    height: 48px;
+    // height: 48px;
     justify-content: center;
     align-items: center;
     gap: 181px;
     flex-shrink: 0;
     border-radius: 32px;
-    border: 2px solid var(--primario-naranja200, #FFBFA6);
+    border: 2px solid #AB2526;
     background: var(--neutros-blanco, #FAFAFA);
     @include body1;
     color: var(--neutros-gris200, #D0CCCB);
-    margin: 32px 1031px 50px 51px;
+    margin-left: 51px;
+    padding: 19px 19px 19px 26px;
+    color: inherit;
+
+    // display: inline-flex;
+    // padding: 19px 19px 19px 26px;
+    // justify-content: center;
+    // align-items: center;
+    // gap: 8px;
+    // border-radius: 32px;
+    // border: 2px solid $gray3;
+    // background: #fcfdfd;
 }
 
 #searchClients::placeholder {
     color: $gray3;
-    margin-left: 3px;
+    // margin-left: 3px;
     text-align: left;
-    margin-left: 10px;
+    // margin-left: 10px;
+    // padding: 18px;
 }

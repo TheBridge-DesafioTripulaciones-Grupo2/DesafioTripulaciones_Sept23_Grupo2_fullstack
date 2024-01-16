@@ -1,0 +1,68 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#clientsList {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.clientCard {
+    display: flex;
+    padding: 48px 58px;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+}
+
+#card_section {
+    width: 318px;
+    height: 368px;
+    display: flex;
+    padding: 48px 58px;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+    border-radius: 24px;
+    background: var(--BLANCO, #FFF);
+    box-shadow: 4px 4px 10px 0px rgba(212, 212, 212, 0.90), -4px -4px 8px 0px rgba(255, 255, 255, 0.90), 4px -4px 8px 0px rgba(212, 212, 212, 0.20), -4px 4px 8px 0px rgba(212, 212, 212, 0.20), -1px -1px 2px 0px rgba(212, 212, 212, 0.50) inset, 1px 1px 2px 0px rgba(255, 255, 255, 0.30) inset;
+}
+
+#card_info {
+    & a {
+        text-decoration: none;
+        color: inherit;
+    }
+    color: $secondary1;
+    text-align: center;
+    width: 202px;
+    height: 104px;
+
+}
+
+#card_image {
+    width: 151px;
+    height: 151px;
+    border-radius: 151px;
+    border: 2px solid var(--neutros-gris100, #F1F0F0);
+    background: url(<path-to-image>), lightgray 0px 0px / 100% 100% no-repeat;
+}
+
+#card_titular{
+    @include h5;
+    width: 193px;
+    margin: 0 auto;
+}
+
+#card_direccion{
+    @include body1;
+    width: 131px;
+    margin: 0 auto;
+}
+
+#card_cups{
+    @include body1;
+    width: 154px;
+    margin: 0 auto;
+}

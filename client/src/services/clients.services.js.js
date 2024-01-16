@@ -42,7 +42,7 @@ async function getClientById(id) {
   return new Promise(async (resolve, reject) => {
     try {
       // Petición HTTP
-      const response = await axios.get(`http://localhost:5000/clients/${id}`);
+      const response = await axios.get(`http://localhost:5000/client/${id}`);
       const json = response;
       console.log(json);
       resolve(json.data);

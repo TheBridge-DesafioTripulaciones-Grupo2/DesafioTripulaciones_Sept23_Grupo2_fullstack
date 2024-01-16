@@ -1,7 +1,10 @@
-import React, { useCallback, useContext } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { userContext } from "../../../context/authContext";
+
 
 const Nav = () => {
+  const { userstate } = useContext(userContext)
   return (
     <>
       <nav>
@@ -13,7 +16,7 @@ const Nav = () => {
         </NavLink>
 
         <NavLink
-          to="/clients"
+          to={`/clients/${userstate.user_id}`}
           className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           Clientes

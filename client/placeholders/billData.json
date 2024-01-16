@@ -1,29 +1,3 @@
-// {
-//     "Tipo_consumo": "mensual",
-//     "Metodo": ,
-//     "cons_P1": ,
-//     "cons_P2": ,
-//     "cons_P3": ,
-//     "precio_P1": ,
-//     "precio_P2": ,
-//     "precio_P3": ,
-//     "descuento": ,
-//     "descuento_potencia": ,
-//     "potencia_contratada_P1": ,
-//     "potencia_contratada_P2": ,
-//     "dias": ,
-//     "precio_potencia_dia_P1": ,
-//     "precio_potencia_dia_P2": ,
-//     "impuesto_electrico": ,
-//     "alquiler_equipo": ,
-//     "otros": ,
-//     "CIA": ,
-//     "productos_CIA": ,
-//     "mes_facturacion": ,
-//     "FEE": ,
-//     "IVA": 
-// }
-
 {
     "Tipo_consumo": "Residencial",
     "Metodo": "Online",
@@ -51,24 +25,3 @@
 }
 
 
-// Tipo_consumo = request.args.get('Tipo_consumo') 
-// Metodo = request.args.get('Metodo') 
-// cons_P1 = float(request.args.get('', 0)) 
-// cons_P2 = float(request.args.get('cons_P2', 0)) 
-// cons_P3 = float(request.args.get('cons_P3', 0)) 
-// precio_P1 = float(request.args.get('', 0)) 
-// precio_P2 = float(request.args.get('precio_P2', 0)) 
-// precio_P3 = float(request.args.get('precio_P3', 0)) 
-// descuento = float(request.args.get('descuento', 0)) 
-// descuento_potencia = float(request.args.get('descuento_potencia', 0)) 
-// potencia_contratada_P1 = float(request.args.get('potencia_contratada_P1', 0)) potencia_contratada_P2 = float(request.args.get('potencia_contratada_P2', 0)) 
-// dias = float(request.args.get('dias', 0)) 
-// precio_potencia_dia_P1 = float(request.args.get('precio_potencia_dia_P1', 0)) precio_potencia_dia_P2 = float(request.args.get('precio_potencia_dia_P2', 0)) 
-// impuesto_electrico = float(request.args.get('impuesto_electrico', 0)) 
-// alquiler_equipo = float(request.args.get('alquiler_equipo', 0)) 
-// otros = float(request.args.get('otros', 0)) 
-// CIA = request.args.get('CIA') 
-// producto_CIA = request.args.get('producto_CIA') 
-// mes_facturacion = request.args.get('mes_facturacion') 
-// FEE = request.args.get('FEE') 
-// IVA = float(request.args.get('IVA', 0))

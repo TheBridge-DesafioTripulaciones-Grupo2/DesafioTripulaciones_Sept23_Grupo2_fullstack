@@ -46,59 +46,51 @@ const Login = () => {
     }
   }, [userstate]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    let alert = "";
-    if (
-      !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        Usuario.toLowerCase()
-      )
-    ) {
-      alert += "Introduce un email valido <br>";
-    }
-    if (
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\_\-])(?=.{8,})/.test(
-        Contraseña
-      )
-    ) {
-      alert +=
-        "La contraseña debe contener al menos una mayuscula una minuscula y un caracter especial y tener al menos 8 caracteres <br>";
-    }
-    if (alert.length > 0) {
-      Swal.fire({
-        icon: "error",
-        html: alert,
-      });
-    } else {
-      try {
-        let emailSignedIn = await authService.login(Usuario, Contraseña);
-        console.log(emailSignedIn);
-        if (emailSignedIn == "error") {
-          Swal.fire({
-            icon: "error",
-            text: "Credenciales incorrectas",
-          });
-        } else if (emailSignedIn.message == "Logged in") {
-          console.log(emailSignedIn);
-          updateUser(emailSignedIn.user);
-          Cookies.set("Token", emailSignedIn.token);
-          Swal.fire({
-            icon: "success",
-            text: "Se ha iniciado sesión con éxito",
-          }).then((result) => {
-            navigate("/createfile");
-          });
-        } else {
-          Swal.fire({
-            icon: "error",
-            text: `No se ha podido iniciar sesión: ${emailSignedIn.message}`,
-          });
-        }
-      } catch (error) {
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      let alert = "";
+      if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(Usuario.toLowerCase())) {
+        alert += "Introduce un email valido <br>";
+      }
+      if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\_\-])(?=.{8,})/.test(Contraseña)) {
+        alert += "La contraseña debe contener al menos una mayuscula una minuscula y un caracter especial y tener al menos 8 caracteres <br>";
+      }
+      if (alert.length > 0) {
         Swal.fire({
           icon: "error",
-          text: `No se ha podido iniciar sesión: ${error}`,
+          html: alert,
         });
+      } else {
+        try {
+          let emailSignedIn = await authService.login(Usuario, Contraseña);
+          console.log(emailSignedIn);
+          if (emailSignedIn == "error") {
+            Swal.fire({
+              icon: "error",
+              text: "Credenciales incorrectas"
+            })
+          } else if (emailSignedIn.message == "Logged in") {
+            console.log(emailSignedIn);
+            updateUser(emailSignedIn.user);
+            Cookies.set("Token", emailSignedIn.token);
+            Swal.fire({
+              icon: "success",
+              text: "Se ha iniciado sesión con éxito"
+            }).then((result) => {
+              navigate("/home")
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              text: `No se ha podido iniciar sesión: ${emailSignedIn.message}`
+            });
+          }
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            text: `No se ha podido iniciar sesión: ${error}` 
+          });
+        }
       }
     }
   };

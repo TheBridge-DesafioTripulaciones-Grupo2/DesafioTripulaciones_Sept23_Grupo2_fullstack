@@ -19,10 +19,8 @@ Bienvenido al repositorio del proyecto Fullstack desarrollado por la vertical de
 ## UI/UX Showcase
 
 <div>
-  <img src="/assets/pantallazos.jpg" alt="capturas de pantalla de la interfaz visual" width=400>
+  <img src="/assets/pantallazos.jpg" alt="capturas de pantalla de la interfaz visual">
 </div>
-
-
 
 
 ## Funciones del Equipo de Programadores

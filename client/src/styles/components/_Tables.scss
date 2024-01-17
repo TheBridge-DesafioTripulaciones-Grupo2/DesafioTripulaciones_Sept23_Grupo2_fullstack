@@ -8,8 +8,12 @@
   gap: 10px;
   min-width: 1340px;
   margin: 0px 50px;
+  & input {
+    text-align: center;
+  }
   .monthly-table,
-  .anual-table, #extra-table {
+  .anual-table,
+  c {
     width: 50%;
     // height: 400px;
     // border-left: 1px solid $gray2;
@@ -100,7 +104,7 @@
   //   overflow: hidden;
 }
 .table-subheader {
-  min-height: 47px ;
+  min-height: 47px;
   // padding: 13px 8px;
   //   padding: 0px 8px;
   padding: 0px;
@@ -174,4 +178,10 @@
   border-top: 1px solid #c2c2c2;
   border-right: 1px solid #c2c2c2;
   border-bottom: 1px solid #c2c2c2;
+}
+
+#extra-table {
+  input {
+    text-align: center;
+  }
 }

@@ -1,29 +1,43 @@
+<div align="center">
+
 # DesafioTripulaciones_Sept23_Grupo2_fullstack
 
-● Crear la arquitectura de la solución, y encargarse de la implementación de la misma.
+  <img src="https://cdni.iconscout.com/illustration/premium/thumb/full-stack-developer-working-on-project-5248497-4403356.png" alt="fullstack developer" width=200><br>
+  
 
-● Decidir las tecnologías a usar con sentido y trabajando de la mano con Ciberseguridad para llegar a un consenso de nivel de 
-seguridad.
+Bienvenido al repositorio del proyecto Fullstack desarrollado por la vertical de FullStack. Aquí encontrarás una descripción general de las funciones y responsabilidades que asumimos durante el proceso de desarrollo de esta aplicación.
 
-● Trabajar en un front y back que permita visualizar los datos de la app y permita la interacción del usuario de la mano de los 
-compañeros de UX.
+<!-- [Click to visit uor quiz page](https://diananospace4bugs.github.io/Quiz-II/pages/home.html) -->
+</div>
 
-● Desarrollar el front de la app con React y backend con node + express. 
+## Funciones del Equipo de Programadores
 
-● La aplicación debe ser mobile-first y SPA (single page application), de manera que no haya en ningún momento recarga de 
-página, y solo se carguen y rendericen aquellos contenidos mínimos necesarios con cada cambio de endpoint.
+### 1. Arquitectura de la Solución
+- Creamos la arquitectura de la solución, definiendo la estructura y organización del proyecto.
 
-● Se valorará la proactividad, originalidad y búsqueda de soluciones a todos los niveles.
+### 2. Elección de Tecnologías
+- Participamos en la decisión de las tecnologías a utilizar, colaborando con el equipo de Ciberseguridad para garantizar un nivel adecuado de seguridad.
 
-● Elegir la bbdd (SQL o NoSQL) adecuada para cada app en función del modelo de datos necesitado compatible con el resultado 
-del trabajo de Data.
+### 3. Desarrollo Frontend y Backend
+- Trabajamos en el desarrollo del frontend y backend para permitir la visualización de datos y la interacción del usuario.
+- Utilizamos React para el frontend y Node.js + Express para el backend.
 
-● Se permite (y recomienda, si con ello se minimiza el tiempo de desarrollo y se acelera así el de entrega) el uso de cualquier 
-recurso de terceros (librerías, paquetes npm, etc.) además del código propio.
+### 4. Proactividad y Originalidad
+- Valoramos la proactividad, la originalidad y la búsqueda de soluciones innovadoras en todos los aspectos del desarrollo.
 
-● Gestionar el control de versiones con GitHub desde el principio del proyecto.
+### 5. Elección de Base de Datos
+- Junto con el equipo de Data Science, seleccionamos una base de datos SQL con Postgresql, ya que consideramos que era la más adecuada según los requisitos del modelo de datos.
 
-● Gestionar la documentación y pruebas del proyecto hasta el punto que el tiempo lo permita y de la mejor manera posible.
+### 6. Uso de Recursos Externos
+- Se permitió y recomendó el uso de recursos de terceros, como librerías y paquetes npm, para optimizar el tiempo de desarrollo y acelerar la entrega.
 
-● Trabajar con los compañeros en la presentación, para exponer el trabajo de desarrollo.
-● Documentación
+### 7. Control de Versiones
+- Gestionamos el control de versiones utilizando GitHub desde el inicio del proyecto, organizando el trabajado en equipo con ramas.
+
+### 8. Documentación y Pruebas
+- Nos encargamos de la documentación y pruebas del proyecto hasta donde el tiempo lo permitió, asegurando la calidad del código.
+
+### 9. Colaboración en la Presentación
+- Trabajamos estrechamente con los compañeros en la presentación del proyecto, exponiendo de manera efectiva el trabajo de desarrollo de la aplicación producto.
+
+Agradecemos tu interés en nuestro proyecto. Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con nosotros. ¡Disfruta explorando la aplicación!

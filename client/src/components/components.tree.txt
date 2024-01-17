@@ -1,0 +1,27 @@
+App
+|-- Header
+|   |-- Nav
+|-- Login
+|-- Main
+|   |-- ClientDetails
+|   |   |-- BillCard
+|   |-- ClientsList
+|   |   |-- ClientCard
+|   |-- CreateFileComponent
+|   |   |-- CreateFileForm
+|   |-- FileComponent
+|   |   |-- ProposalComponent
+|   |   |-- TableComponent
+|   |   |   |-- BillCost
+|   |   |   |-- ExtraTable
+|   |   |   |-- MonthlyTable
+|   |   |   |-- OthersTable
+|   |   |   |-- YearlyTable
+|   |-- Home
+|   |   |-- Carrusel
+|   |   |   |-- NextArrow
+|   |   |   |-- PrevArrow
+|   |-- Profile
+|   |   |-- PropuestaCard
+|-- PDF
+

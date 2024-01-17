@@ -1,6 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const YearlyTable = ({ display }) => {
+  const initialData = {
+    "CUPS": "ES0000000000000000XX",
+    "Municipio": "Jerez de la Frontera",
+    "Provincia": "Cádiz",
+    "Código Postal": 11408,
+    "Tarifa": "2.0TD",
+    "Consumo anual": 3.613,
+    "Consumo anual P1": 834.0,
+    "Consumo anual P2": 955.0,
+    "Consumo anual P3": 1824.0,
+    "Consumo anual P4": "0 KWh",
+    "Consumo anual P5": "0 KWh",
+    "Consumo anual P6": "0 KWh",
+    "P1": 3.45,
+    "P2": 3.45,
+    "P3": "",
+    "P4": "",
+    "P5": "",
+    "P6": "",
+    "Distribuidora": "ENDESA DISTRIBUCION ELECTRICA, S.L.",
+    "Cambio Comercializadora": 1692403200000,
+    "Cambio BIE": 1161734400000,
+    "1X230": "Tensión",
+    "Cambio Contrato": 1622419200000
+  };
+  const [data, setData] = useState(initialData);
+
+
   useEffect(() => {
     console.log(display);
   }, []);
@@ -57,6 +85,7 @@ const YearlyTable = ({ display }) => {
                   type="text"
                   name="P1_consumo_anual"
                   id="P1_consumo_anual"
+                  value={data != null ? (data["Consumo anual P1"]) : ("")}
                 />
               </td>
               <td>
@@ -64,6 +93,7 @@ const YearlyTable = ({ display }) => {
                   type="text"
                   name="P1_precio_anual"
                   id="P1_precio_anual"
+                  value={data != null ? (data.P1) : ("")}
                 />
               </td>
               <td>
@@ -83,6 +113,7 @@ const YearlyTable = ({ display }) => {
                   type="text"
                   name="P2_consumo_anual"
                   id="P2_consumo_anual"
+                  value={data != null ? (data["Consumo anual P2"]) : ("")}
                 />
               </td>
               <td>
@@ -90,6 +121,7 @@ const YearlyTable = ({ display }) => {
                   type="text"
                   name="P2_precio_anual"
                   id="P2_precio_anual"
+                  value={data != null ? (data.P2) : ("")}
                 />
               </td>
               <td>
@@ -109,6 +141,7 @@ const YearlyTable = ({ display }) => {
                   type="text"
                   name="P3_consumo_anual"
                   id="P3_consumo_anual"
+                  value={data != null ? (data["Consumo anual P3"]) : ("")}
                 />
               </td>
               <td>

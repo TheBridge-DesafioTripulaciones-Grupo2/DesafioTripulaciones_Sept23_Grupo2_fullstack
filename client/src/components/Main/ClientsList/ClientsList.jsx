@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getAllClientsByUserId } from "../../../services/clients.services";
 import ClientCard from "./ClientCard/ClientCard";
+import Spinner from "../../../assets/spinner.svg";
 
 const ClientsList = () => {
   const { userId } = useParams();
@@ -58,24 +59,29 @@ const ClientsList = () => {
           <option value="newest">Más recientes</option>
         </select>
       </section>
-
-      <ul id="clientsList">
-        {filteredClients.map((client) => (
-          <li className="clientCard" key={client.client_id}>
-            <Link
-              style={{ textDecoration: "none" }}
-              to={`/client-details/${client.client_id}`}
-            >
-              <ClientCard
-                titular={client.titular}
-                imagen={client.imagen}
-                direccion={client.direccion_suministro}
-                cups={client.CUPs[0]}
-              />
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {clients.length > 0 ? (
+        <ul id="clientsList">
+          {filteredClients.map((client) => (
+            <li className="clientCard" key={client.client_id}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/client-details/${client.client_id}`}
+              >
+                <ClientCard
+                  titular={client.titular}
+                  imagen={client.imagen}
+                  direccion={client.direccion_suministro}
+                  cups={client.CUPs[0]}
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <>
+          <img className="spinner" src={Spinner} alt="Loading..." />
+        </>
+      )}
     </section>
   );
 };

@@ -28,7 +28,7 @@ const PDF = () => {
                                 Bill: result.propuesta.bill,
                                 CUPS: result.propuesta.bill.CUPs,
                                 Client: result.propuesta.bill.CUPs.Client,
-                                User: result.bill.CUPs.Client.User};
+                                User: result.propuesta.bill.CUPs.Client.User};
                 setData(info)
               } else {
                 setData(Proposal);

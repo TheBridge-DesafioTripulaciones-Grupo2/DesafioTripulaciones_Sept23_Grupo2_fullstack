@@ -136,15 +136,15 @@ const Bill = db.define(
       allowNull: true,
     },
     otros_precio: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.ARRAY(DataTypes.FLOAT),
       allowNull: true,
     },
     otros_propuesta: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.ARRAY(DataTypes.BOOLEAN),
       allowNull: true,
     },
     otros_anual: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.ARRAY(DataTypes.BOOLEAN),
       allowNull: true,
     },
     alquiler_equipo: {

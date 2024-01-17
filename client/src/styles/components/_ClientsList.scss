@@ -1,6 +1,10 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
+#clientsList_section {
+  position: relative;
+}
+
 #h2_input {
   @include h1;
   color: $primary;
@@ -36,7 +40,13 @@
   // border: 2px solid $gray3;
   // background: #fcfdfd;
 }
-
+#search-icon {
+  position: absolute;
+left: 386px;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+}
 #searchClients::placeholder {
   color: $gray3;
   // margin-left: 3px;
@@ -52,16 +62,26 @@
 
 #sort-clients {
   margin-right: 50px;
-
   display: flex;
   width: 244px;
+  height: 48px;
   padding: 8px 24px;
+  padding-right: 48px;
   align-items: center;
-  gap: 55px;
+  gap: 91px;
+  flex-shrink: 0;
 
   border-radius: 8px;
-  border: 2px solid $primary;
+border: 2px solid $primary;
 
+appearance: none;
+
+background: url("/dropdown.svg") no-repeat right center;
+background-size: 24px;
+// background-repeat: no-repeat;
+  background-position: right 10px center; 
+  padding-right: 30px;
+ 
   @include caption;
   option {
     @include caption;

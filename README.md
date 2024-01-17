@@ -13,11 +13,16 @@ Bienvenido al repositorio del proyecto Fullstack desarrollado por la vertical de
 
 # Índice
 
-1. [Roles y Responsabilidades del Equipo de Desarrollo](#roles-y-responsabilidades-del-equipo-de-desarrollo)
+1. [Origen de la Propuesta](#origen-de-la-propuesta-colaboracion-con-several-energy)
+1. [Funciones equipo FullStack](#roles-y-responsabilidades-del-equipo-de-desarrollo)
 1. [Tecnologías usadas](#tecnologías-usadas)
 1. [Estructura del Proyecto](#estructura-del-proyecto)
 1. [UI/UX Showcase](#ui-ux-showcase)
 
+
+## Origen de la Propuesta: Colaboración con Several Energy
+
+La concepción y dirección de este proyecto nació a raíz de la colaboración con Several Energy, una empresa líder en el sector energético. Identificaron la necesidad de una aplicación web que optimizara y simplificara las labores de sus trabajadores, los asesores energéticos, con la gestión de clientes dentro de su entorno empresarial. Como equipo de desarrolladores, asumimos el desafío de crear una solución tecnológica efectiva que se alinee con los objetivos y requerimientos específicos de Several Energy.
 
 ## Roles y Responsabilidades del Equipo de Desarrollo
 

@@ -1,6 +1,6 @@
 {
-    "Tipo_consumo": "Residencial",
-    "Metodo": "Online",
+    "Tipo_consumo": "Consumo mensual",
+    "Metodo": "Indexado",
     "cons_P1": 120.5,
     "cons_P2": 80.2,
     "cons_P3": 50.8,

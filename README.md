@@ -10,6 +10,11 @@ Bienvenido al repositorio del proyecto Fullstack desarrollado por la vertical de
 <!-- [Click to visit uor quiz page](https://diananospace4bugs.github.io/Quiz-II/pages/home.html) -->
 </div>
 
+
+## Tecnologías usadas
+
+![](/assets/tecnologías.jpg)
+
 ## Funciones del Equipo de Programadores
 
 ### 1. Arquitectura de la Solución

@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { Worker, Viewer } from '@react-pdf-viewer/core';
-// import '@react-pdf-viewer/core/lib/styles/index.css';
-// import { pdfjs } from 'react-pdf';
-// import ReactPDF, { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import { pdfjs } from 'react-pdf';
 import { useParams } from "react-router";
 import authService from '../../services/services';
 import bill from '../../../placeholders/bill.json';
@@ -11,6 +8,7 @@ import cups from '../../../placeholders/CUPS.json';
 import client from '../../../placeholders/client.json';
 import user from '../../../placeholders/user.json';
 import Swal from 'sweetalert2';
+import MyDocument from './MyDocument';
   
 
 const PDF = () => {
@@ -53,28 +51,28 @@ const PDF = () => {
             confirmButtonText: "Si",
             denyButtonText: `No`
           }).then((result) => {
-            // if (result.isConfirmed) {
-            //     const generatePDF = async () => {
-            //         try {
-            //             const pdfBlob = await fetch(MyDocument).then((res) => res.blob());
-            //             const blobUrl = URL.createObjectURL(pdfBlob);
+            if (result.isConfirmed) {
+                const generatePDF = async () => {
+                    try {
+                        const pdfBlob = await fetch(MyDocument).then((res) => res.blob());
+                        const blobUrl = URL.createObjectURL(pdfBlob);
                   
-            //             const link = document.createElement('a');
-            //             link.href = blobUrl;
-            //             link.download = `PropuestaCompleta${id}.pdf`;
-            //             document.body.appendChild(link);
-            //             link.click();
-            //             document.body.removeChild(link);
-            //         } catch (error) {
-            //             console.error('Error al descargar el PDF', error);
-            //             Swal.fire({
-            //                 icon: "error",
-            //                 title: "No se ha podido descargar el PDF"
-            //               })
-            //         }
-            //     };
-            //     generatePDF();
-            //}
+                        const link = document.createElement('a');
+                        link.href = blobUrl;
+                        link.download = `PropuestaCompleta${id}.pdf`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    } catch (error) {
+                        console.error('Error al descargar el PDF', error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "No se ha podido descargar el PDF"
+                          })
+                    }
+                };
+                generatePDF();
+            }
         });
     }
 
@@ -119,13 +117,13 @@ const PDF = () => {
                 <th>Precios potencia (€/kw/dia)</th>
                 <td>{data != null ? (data.Bill.P1_precios_potencia) : ("")}</td> 
                 <td>{data != null ? (data.Bill.P2_precios_potencia) : ("")}</td>
-                <td>{data != null ? (data.Bill.P2_precios_potencia) : ("")}</td>
+                <td>{data != null ? (data.Bill.P3_precios_potencia) : ("")}</td>
             </tr>
             <tr>
                 <th>Precios energía media anual (€/kwh)</th>
-                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P2_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P3_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Bill.P1_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Bill.P2_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Bill.P3_precio_anual) : ("")}</td>
             </tr>
             <tr>
                 <th>Precios energia (€/kwh)</th>
@@ -265,7 +263,7 @@ const PDF = () => {
                 <th>Precios potencia (€/kw/dia)</th>
                 <td>{data != null ? (data.Propuesta.P1_precio_potencia) : ("")}</td> 
                 <td>{data != null ? (data.Propuesta.P2_precio_potencia) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P2_precio_potencia) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P3_precio_potencia) : ("")}</td>
             </tr>
             <tr>
                 <th>Precios energía(mes de factura)</th>
@@ -276,8 +274,8 @@ const PDF = () => {
             <tr>
                 <th>Precios energía (media último año)</th>
                 <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P2_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P3_precio_anual) : ("")}</td>
             </tr>
             </tbody>
         </table>

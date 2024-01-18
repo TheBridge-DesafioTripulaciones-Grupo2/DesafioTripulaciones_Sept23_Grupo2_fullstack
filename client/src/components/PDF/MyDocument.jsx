@@ -1,5 +1,5 @@
 import React from 'react';
-import { Document, Page, Text, StyleSheet } from '@react-pdf-viewer/core';
+import { Document, Page, Text, Image, View,  StyleSheet } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 const MyDocument = ({ data }) => {
@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
         width: 595,
         height: 842,
     },
+    imagen: {
+        height: '100%',
+        width: '100%',
+      },
     imgPropuestaPDF: {
         position: 'absolute',
         top: 0,
@@ -224,8 +228,17 @@ const styles = StyleSheet.create({
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        <Text style={styles.text}>Nombre: {data.nombre}</Text>
-        <Text style={styles.text}>Edad: {data.edad}</Text>
+        <Image style={styles.imagen} src="/portada-pdf.svg" />
+      </Page>
+      <Page size="A4" style={styles.page}>
+        <Image style={styles.imgPropuestaPDF} src="/Several.svg" />
+        <View style={styles.datosHeaderPropuestaPDF}>
+            <View style={styles.headerSectionPropuestaPDF}>
+                <p style={styles.pHeaderSectionPropuestaPDF}>Nombre: The Bridge</p>
+                <Image style={styles.imgHeaderSectionPropuestaPDF} src="/puntos.png" />
+            </View>
+        </View>
+
       </Page>
     </Document>
   );

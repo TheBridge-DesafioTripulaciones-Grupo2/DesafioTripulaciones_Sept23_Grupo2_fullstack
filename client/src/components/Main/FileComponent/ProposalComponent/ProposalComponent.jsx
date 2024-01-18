@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import placeholder from "../../../../assets/placeholder-graph.svg";
+import Plot from 'react-plotly.js';
 
 const ProposalComponent = () => {
   const [monthlySavings, setMonthlySavings] = useState("12,34");
@@ -8,6 +9,234 @@ const ProposalComponent = () => {
   const [cia, setCia] = useState("");
   const [productos, setProductos] = useState([]);
   const [feeOptions, setFeeOptions] = useState([]);
+
+  const mensualFijo = [
+    {
+      cia: "NATURGY",
+      fee: "-",
+      producto_cia: "RESIDENCIAL POR USO LUZ LOYAL",
+      costototal: 59.15,
+      ahorro: 2.39,
+      porcentajeahorro: 3.88,
+      p1_e: 0.1922,
+      p2_e: 0.1373,
+      p3_e: 0.09,
+      p1_p: 0.094086,
+      p2_p: 0.028222,
+      precioactual: 61.54,
+    },
+    {
+      cia: "ENDESA",
+      fee: "-",
+      producto_cia: "OPEN(<15) PLANA",
+      costototal: 61.56,
+      ahorro: -0.02,
+      porcentajeahorro: -0.03,
+      p1_e: 0.12948,
+      p2_e: 0.12948,
+      p3_e: 0.12948,
+      p1_p: 0.0978039032,
+      p2_p: 0.0331793226,
+      precioactual: 61.54,
+    },
+    {
+      cia: "IBERDROLA",
+      fee: "-",
+      producto_cia: "2.0<10kW PLAN ESTABLE",
+      costototal: 64.05,
+      ahorro: -2.51,
+      porcentajeahorro: -4.08,
+      p1_e: 0.146745,
+      p2_e: 0.146745,
+      p3_e: 0.146745,
+      p1_p: 0.0889827863,
+      p2_p: 0.0145016192,
+      precioactual: 61.54,
+    },
+    {
+      cia: "GANA",
+      fee: "-",
+      producto_cia: "ONLINE TG",
+      costototal: 65.86,
+      ahorro: -4.32,
+      porcentajeahorro: -7.02,
+      p1_e: 0.176,
+      p2_e: 0.129,
+      p3_e: 0.105,
+      p1_p: 0.123,
+      p2_p: 0.05,
+      precioactual: 61.54,
+    },
+    {
+      cia: "TOTAL",
+      fee: "-",
+      producto_cia: "CLASICA",
+      costototal: 70.24,
+      ahorro: -8.7,
+      porcentajeahorro: -14.14,
+      p1_e: 0.228117,
+      p2_e: 0.17533,
+      p3_e: 0.153505,
+      p1_p: 0.0695427397,
+      p2_p: 0.0036786301,
+      precioactual: 61.54,
+    },
+  ];
+
+  // Extracting data for the bar chart
+  const dataMensual = {
+    cia: mensualFijo.map((item) => item.cia),
+    ahorro: mensualFijo.map((item) => item.ahorro),
+    customdata: mensualFijo.map((item) => [
+      item.fee,
+      item.producto_cia,
+      item.ahorro,
+      item.porcentajeahorro,
+    ]),
+  };
+
+  const anualFijo = [
+    {
+      cia: "NATURGY",
+      fee: "-",
+      producto_cia: "RESIDENCIAL POR USO LUZ LOYAL",
+      costototal: 661.75,
+      ahorro: 23.8,
+      porcentajeahorro: 3.47,
+      p1_e: 0.1922,
+      p2_e: 0.1373,
+      p3_e: 0.09,
+      p1_p: 0.094086,
+      p2_p: 0.028222,
+      precioactual: 685.55,
+    },
+    {
+      cia: "ENDESA",
+      fee: "-",
+      producto_cia: "OPEN(<15) PLANA",
+      costototal: 685.81,
+      ahorro: -0.26,
+      porcentajeahorro: -0.04,
+      p1_e: 0.12948,
+      p2_e: 0.12948,
+      p3_e: 0.12948,
+      p1_p: 0.0978039032,
+      p2_p: 0.0331793226,
+      precioactual: 685.55,
+    },
+    {
+      cia: "IBERDROLA",
+      fee: "-",
+      producto_cia: "2.0<10kW PLAN ESTABLE",
+      costototal: 713.64,
+      ahorro: -28.09,
+      porcentajeahorro: -4.1,
+      p1_e: 0.146745,
+      p2_e: 0.146745,
+      p3_e: 0.146745,
+      p1_p: 0.0889827863,
+      p2_p: 0.0145016192,
+      precioactual: 685.55,
+    },
+    {
+      cia: "GANA",
+      fee: "-",
+      producto_cia: "ONLINE TG",
+      costototal: 734.87,
+      ahorro: -49.32,
+      porcentajeahorro: -7.19,
+      p1_e: 0.176,
+      p2_e: 0.129,
+      p3_e: 0.105,
+      p1_p: 0.123,
+      p2_p: 0.05,
+      precioactual: 685.55,
+    },
+    {
+      cia: "TOTAL",
+      fee: "-",
+      producto_cia: "CLASICA",
+      costototal: 784.24,
+      ahorro: -98.69,
+      porcentajeahorro: -14.4,
+      p1_e: 0.228117,
+      p2_e: 0.17533,
+      p3_e: 0.153505,
+      p1_p: 0.0695427397,
+      p2_p: 0.0036786301,
+      precioactual: 685.55,
+    },
+  ];
+
+  const dataAnual = {
+    cia: anualFijo.map((item) => item.cia),
+    ahorro: anualFijo.map((item) => item.ahorro),
+    customdata: anualFijo.map((item) => [
+      item.fee,
+      item.producto_cia,
+      item.ahorro,
+      item.porcentajeahorro,
+    ]),
+  };
+
+  const traceMensual = {
+    x: dataMensual.cia,
+    y: dataMensual.customdata.map(data => data[3]),
+    type: "bar",
+    name: "Mensual",
+    marker: { color: "#1F1D1C" },
+    customdata: dataMensual.customdata,
+    hovertemplate:
+      "<b>FEE: %{customdata[0]}</b><br>" +
+      "<b>PRODUCTO_CIA:</b> %{customdata[1]}<br>" +
+      "<b>Ahorro en euros:</b> %{customdata[2]:,.2f}" +
+      "<b>Porcentaje de ahorro:</b> %{customdata[3]}<br>",
+    hoverlabel: { bgcolor: "#FAFAFA" },
+  };
+
+  const traceAnual = {
+    x: dataAnual.cia,
+    y: dataAnual.customdata.map(data => data[3]),
+    type: "bar",
+    name: "Anual",
+    marker: { color: "#AB2526" },
+    customdata: dataAnual.customdata,
+    hovertemplate:
+      "<b>FEE: %{customdata[0]}</b><br>" +
+      "<b>PRODUCTO_CIA:</b> %{customdata[1]}<br>" +
+      "<b>Ahorro en euros:</b> %{customdata[2]:,.2f}" +
+      "<b>Porcentaje de ahorro:</b> %{customdata[3]}<br>",
+    hoverlabel: { bgcolor: "#FAFAFA" },
+  };
+
+  // Chart layout
+  const layout = {
+    barmode: "group",
+    width: 800,
+    legend: {
+      title: "",
+      orientation: "h",
+      y: -0.14,
+      x: 0,
+    },
+    hoverlabel: { bgcolor: "#FAFAFA" },
+    yaxis: {
+      range: [-25, 25],
+      tickvals: [-25, -20 , -15, -10, -5, 0, 5, 10, 15, 20, 25],
+      ticktext: ["-25%", "-20%", "-15%", "-10%", "-5%", "0%", "5%", "10%", "15%", "20%", "25%"],
+      showgrid: true,
+    },
+    margin: { l: 50, // left margin
+    r: 10, // right margin
+    b: 10, // bottom margin
+    t: 10, // top margin
+    pad: 4 },
+    xaxis: { showgrid: true },
+    plot_bgcolor: "#FAFAFA",
+    paper_bgcolor: "#FAFAFA",
+    grid: { xside: "top", yside: "right" },
+    bargap: 0.45,
+  };
 
   useEffect(() => {
     const feeOptionsByCIA = {
@@ -271,7 +500,12 @@ const ProposalComponent = () => {
         </section>
         <section id="proposal-results">
           <section id="proposal-graph">
-            <img src={placeholder} alt="Placeholder Graph" />
+            {/* <img src={placeholder} alt="Placeholder Graph" /> */}
+            <Plot
+            data={[traceMensual, traceAnual]}
+            layout={layout}
+            config={{ displayModeBar: false }}
+        />
           </section>
           <section id="proposal-savings">
             <article id="proposal-savings-month">

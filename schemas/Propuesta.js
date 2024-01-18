@@ -150,6 +150,22 @@ const Propuesta = db.define(
     porcentaje_ahorro_anual: {
       type: DataTypes.BIGINT,
       allowNull: false,
+    },
+    otros_precio_propuesta: {
+      type: DataTypes.ARRAY(DataTypes.FLOAT),
+      allowNull: true,
+    },
+    alquiler_equipo_propuesta: {
+      type: DataTypes.BIGINT,
+      allowNull: true,
+    },
+    energia_reactiva_propuesta: {
+      type: DataTypes.BIGINT,
+      allowNull: true,
+    },
+    impuesto_electrico_propuesta: {
+      type: DataTypes.DOUBLE,
+      allowNull: true,
     }
   },
   {
@@ -159,6 +175,6 @@ const Propuesta = db.define(
   }
 );
 
-// Propuesta.sync({alter:true});
+Propuesta.sync({alter:true});
 
 module.exports = { Propuesta };

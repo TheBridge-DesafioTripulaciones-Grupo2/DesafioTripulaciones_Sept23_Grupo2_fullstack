@@ -18,6 +18,7 @@ td {
   margin: 0; /* Removes margins */
   padding: 0; /* Removes padding */
   // background-color: #e0e0e0;
+  text-align: center;
 }
 
 th,
@@ -145,7 +146,7 @@ td {
     letter-spacing: 0.05px;
   }
   button:hover {
-    background-color: $primary-400;
+    background-color: $primary-600;
     cursor: pointer;
   }
   button:disabled {

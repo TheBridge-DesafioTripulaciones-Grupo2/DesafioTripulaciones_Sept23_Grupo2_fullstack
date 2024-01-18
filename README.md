@@ -1,29 +1,84 @@
+<div align="center">
+
 # DesafioTripulaciones_Sept23_Grupo2_fullstack
 
-● Crear la arquitectura de la solución, y encargarse de la implementación de la misma.
+  <img src="https://cdni.iconscout.com/illustration/premium/thumb/full-stack-developer-working-on-project-5248497-4403356.png" alt="fullstack developer" width=200><br>
+  
 
-● Decidir las tecnologías a usar con sentido y trabajando de la mano con Ciberseguridad para llegar a un consenso de nivel de 
-seguridad.
+Bienvenido al repositorio del proyecto Fullstack desarrollado por la vertical de FullStack. Aquí encontrarás una descripción general de las funciones y responsabilidades que asumimos durante el proceso de desarrollo de esta aplicación.
 
-● Trabajar en un front y back que permita visualizar los datos de la app y permita la interacción del usuario de la mano de los 
-compañeros de UX.
+<!-- [Click to visit uor quiz page](https://diananospace4bugs.github.io/Quiz-II/pages/home.html) -->
+</div>
 
-● Desarrollar el front de la app con React y backend con node + express. 
 
-● La aplicación debe ser mobile-first y SPA (single page application), de manera que no haya en ningún momento recarga de 
-página, y solo se carguen y rendericen aquellos contenidos mínimos necesarios con cada cambio de endpoint.
+# Índice
 
-● Se valorará la proactividad, originalidad y búsqueda de soluciones a todos los niveles.
+1. [Origen de la Propuesta](#origen-de-la-propuesta-colaboracion-con-several-energy)
+1. [Funciones equipo FullStack](#roles-y-responsabilidades-del-equipo-de-desarrollo)
+1. [Tecnologías usadas](#tecnologías-usadas)
+1. [Estructura del Proyecto](#estructura-del-proyecto)
+1. [UI/UX Showcase](#ui-ux-showcase)
 
-● Elegir la bbdd (SQL o NoSQL) adecuada para cada app en función del modelo de datos necesitado compatible con el resultado 
-del trabajo de Data.
 
-● Se permite (y recomienda, si con ello se minimiza el tiempo de desarrollo y se acelera así el de entrega) el uso de cualquier 
-recurso de terceros (librerías, paquetes npm, etc.) además del código propio.
+## Origen de la Propuesta: Colaboración con Several Energy
 
-● Gestionar el control de versiones con GitHub desde el principio del proyecto.
+La concepción y dirección de este proyecto nació a raíz de la colaboración con Several Energy, una empresa líder en el sector energético. Identificaron la necesidad de una aplicación web que optimizara y simplificara las labores de sus trabajadores, los asesores energéticos, con la gestión de clientes dentro de su entorno empresarial. Como equipo de desarrolladores, asumimos el desafío de crear una solución tecnológica efectiva que se alinee con los objetivos y requerimientos específicos de Several Energy.
 
-● Gestionar la documentación y pruebas del proyecto hasta el punto que el tiempo lo permita y de la mejor manera posible.
+## Roles y Responsabilidades del Equipo de Desarrollo
 
-● Trabajar con los compañeros en la presentación, para exponer el trabajo de desarrollo.
-● Documentación
+### 1. Elección de Tecnologías
+Participamos en la decisión de las tecnologías a utilizar, colaborando con el equipo de Ciberseguridad para garantizar un nivel adecuado de seguridad.
+
+### 2. Desarrollo Frontend y Backend
+- Trabajamos en el desarrollo del frontend y backend para permitir la visualización de datos y la interacción del usuario.
+- Utilizamos React para el frontend y Node.js + Express para el backend.
+
+### 3. Proactividad y Originalidad
+Valoramos la proactividad, la originalidad y la búsqueda de soluciones innovadoras en todos los aspectos del desarrollo.
+
+### 4. Elección de Base de Datos
+Junto con el equipo de Data Science, seleccionamos una base de datos SQL con Postgresql, ya que consideramos que era la más adecuada según los requisitos del modelo de datos.
+
+### 5. Uso de Recursos Externos
+Se permitió y recomendó el uso de recursos de terceros, como librerías y paquetes npm, para optimizar el tiempo de desarrollo y acelerar la entrega.
+
+### 6. Control de Versiones
+Gestionamos el control de versiones utilizando GitHub desde el inicio del proyecto, organizando el trabajado en equipo con ramas.
+
+### 7. Documentación y Pruebas
+Nos encargamos de la documentación y pruebas del proyecto hasta donde el tiempo lo permitió, asegurando la calidad del código.
+
+### 8. Colaboración en la Presentación
+Trabajamos estrechamente con los compañeros en la presentación del proyecto, exponiendo de manera efectiva el trabajo de desarrollo de la aplicación producto.
+
+
+## Tecnologías usadas
+
+![](/assets/tecnologías.jpg)
+
+
+## Estructura del Proyecto
+
+Este directorio se organiza de manera específica para facilitar la comprensión y gestión del código fuente. A continuación, se presenta una descripción concisa de la estructura del proyecto:
+
+- **`/servidor`:** Almacena los archivos relacionados con el desarrollo del backend.
+  - **`/routes`:** Contiene las rutas y controladores que manejan las solicitudes del cliente.
+  - **`/controllers`:** Define los modelos de datos utilizados en la aplicación.
+  - **`/config`:** Contiene archivos de configuración para la base de datos u otras configuraciones del servidor.
+  - **`/client`:** Incluye los archivos relacionados con el desarrollo del frontend. 
+    - **`/src`:** Contiene el código frontend relacionado con el desarrollo del frontend con React.
+      - **`/components`:** En este archivo se encuentran los componentes de React reutilizables utilizados en la interfaz de usuario.
+      - **`/styles`:** Este archivo contiene los archivos de estilos con SASS.
+      - **`/services`:** Esta carpeta almacena archivos encargados de albergar las llamadas con fetch a la BBDD.
+      - **`/context`:** Aquí se guarda el contexto referido a algunos componentes de React.
+    - **`/public`:** Aquí se almacenan archivos estáticos que serán accesibles públicamente, como imágenes o documentos.
+    - **`/placeholders`:** Aquí se almacenan aquellos archivos json destinados a proporcionar un backup en caso de que alguna petición fallase.
+
+Esta estructura proporciona una organización clara, permitiendo una fácil navegación y comprensión del código fuente del proyecto.
+
+
+## UI/UX Showcase
+
+<div>
+  <img src="/assets/pantallazos.jpg" alt="capturas de pantalla de la interfaz visual">
+</div>

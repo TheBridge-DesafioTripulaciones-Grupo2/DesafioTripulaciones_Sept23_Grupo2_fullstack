@@ -515,7 +515,7 @@ const ProposalComponent = () => {
               <div>
                 <div>
                   <div>
-                    <p>{monthlySavings}</p>
+                    <p>4,63</p>
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -539,7 +539,7 @@ const ProposalComponent = () => {
               <div>
                 <div>
                   <div>
-                    <p>{yearlySavings}</p>
+                    <p>71,71</p>
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

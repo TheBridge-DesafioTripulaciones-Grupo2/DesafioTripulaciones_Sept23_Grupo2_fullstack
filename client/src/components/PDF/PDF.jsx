@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { pdfjs } from 'react-pdf';
 import { useParams } from "react-router";
 import authService from '../../services/services';
 import bill from '../../../placeholders/bill.json';
@@ -6,7 +7,9 @@ import proposal from '../../../placeholders/proposal.json';
 import cups from '../../../placeholders/CUPS.json';
 import client from '../../../placeholders/client.json';
 import user from '../../../placeholders/user.json';
-
+import Swal from 'sweetalert2';
+import MyDocument from './MyDocument';
+  
 
 const PDF = () => {
     const [data, setData] = useState(null);
@@ -42,15 +45,43 @@ const PDF = () => {
       }, []);
 
     const DescargarPDF = () => {
-        
+        Swal.fire({
+            title: "¿Seguro que quieres descargar el PDF?",
+            showDenyButton: true,
+            confirmButtonText: "Si",
+            denyButtonText: `No`
+          }).then((result) => {
+            if (result.isConfirmed) {
+                const generatePDF = async () => {
+                    try {
+                        const pdfBlob = await fetch(MyDocument).then((res) => res.blob());
+                        const blobUrl = URL.createObjectURL(pdfBlob);
+                  
+                        const link = document.createElement('a');
+                        link.href = blobUrl;
+                        link.download = `PropuestaCompleta${id}.pdf`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    } catch (error) {
+                        console.error('Error al descargar el PDF', error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "No se ha podido descargar el PDF"
+                          })
+                    }
+                };
+                generatePDF();
+            }
+        });
     }
 
   return (
     <main>
-      <img src="/portada-pdf.svg" alt="Portada" id="portada"/>
+      <img src="/portada-pdf.svg" alt="Portada" id="portada" />
       <section id="border"></section>
       <section id="propuestaPDF">
-        <img src="/Several.svg" alt="Several" />
+        <img src="/Several.svg" alt="Several"/>
         <section id="datosHeader">
             <section className="headerSection">
                 <p>Nombre: {data != null ? (data.Client.titular) : ("")}</p>
@@ -86,13 +117,13 @@ const PDF = () => {
                 <th>Precios potencia (€/kw/dia)</th>
                 <td>{data != null ? (data.Bill.P1_precios_potencia) : ("")}</td> 
                 <td>{data != null ? (data.Bill.P2_precios_potencia) : ("")}</td>
-                <td>{data != null ? (data.Bill.P2_precios_potencia) : ("")}</td>
+                <td>{data != null ? (data.Bill.P3_precios_potencia) : ("")}</td>
             </tr>
             <tr>
                 <th>Precios energía media anual (€/kwh)</th>
-                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P2_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P3_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Bill.P1_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Bill.P2_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Bill.P3_precio_anual) : ("")}</td>
             </tr>
             <tr>
                 <th>Precios energia (€/kwh)</th>
@@ -232,7 +263,7 @@ const PDF = () => {
                 <th>Precios potencia (€/kw/dia)</th>
                 <td>{data != null ? (data.Propuesta.P1_precio_potencia) : ("")}</td> 
                 <td>{data != null ? (data.Propuesta.P2_precio_potencia) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P2_precio_potencia) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P3_precio_potencia) : ("")}</td>
             </tr>
             <tr>
                 <th>Precios energía(mes de factura)</th>
@@ -243,8 +274,8 @@ const PDF = () => {
             <tr>
                 <th>Precios energía (media último año)</th>
                 <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P2_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P3_precio_anual) : ("")}</td>
             </tr>
             </tbody>
         </table>
@@ -401,7 +432,7 @@ const PDF = () => {
             </article>
         </section>
         <section id="imgCIAPDF">
-            <img src={data != null ? (`/companies/${data.Propuesta.CIA}.svg`) : ("/companies/©CANDELA.svg")} alt="imagen" />
+            <img src={data != null ? (`/companies/${data.Propuesta.CIA}.svg`) : ("/companies/CANDELA.svg")} alt="imagen" />
         </section>
       </section>
       <button id="descargarPDF" onClick={DescargarPDF}>Descargar</button>

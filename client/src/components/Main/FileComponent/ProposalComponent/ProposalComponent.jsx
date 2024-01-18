@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import placeholder from "../../../../assets/placeholder-graph.svg";
 import Plot from 'react-plotly.js';
+import { Link } from "react-router-dom";
 
 const ProposalComponent = () => {
   const [monthlySavings, setMonthlySavings] = useState("12,34");
@@ -222,15 +223,17 @@ const ProposalComponent = () => {
     hoverlabel: { bgcolor: "#FAFAFA" },
     yaxis: {
       range: [-25, 25],
-      tickvals: [-25, -20 , -15, -10, -5, 0, 5, 10, 15, 20, 25],
+      tickvals: [-25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25],
       ticktext: ["-25%", "-20%", "-15%", "-10%", "-5%", "0%", "5%", "10%", "15%", "20%", "25%"],
       showgrid: true,
     },
-    margin: { l: 50, // left margin
-    r: 10, // right margin
-    b: 10, // bottom margin
-    t: 10, // top margin
-    pad: 4 },
+    margin: {
+      l: 50, // left margin
+      r: 10, // right margin
+      b: 10, // bottom margin
+      t: 10, // top margin
+      pad: 4
+    },
     xaxis: { showgrid: true },
     plot_bgcolor: "#FAFAFA",
     paper_bgcolor: "#FAFAFA",
@@ -388,7 +391,7 @@ const ProposalComponent = () => {
   }, [cia]);
 
   //Funcion qué generará la propuesta, guarda en la BBDD, y redirige a dicha propuesta
-  const handleSubmit = () => {};
+  const handleSubmit = () => { };
   return (
     <>
       <form id="proposal-form">
@@ -502,10 +505,10 @@ const ProposalComponent = () => {
           <section id="proposal-graph">
             {/* <img src={placeholder} alt="Placeholder Graph" /> */}
             <Plot
-            data={[traceMensual, traceAnual]}
-            layout={layout}
-            config={{ displayModeBar: false }}
-        />
+              data={[traceMensual, traceAnual]}
+              layout={layout}
+              config={{ displayModeBar: false }}
+            />
           </section>
           <section id="proposal-savings">
             <article id="proposal-savings-month">
@@ -556,13 +559,14 @@ const ProposalComponent = () => {
                 <p>Ahorro anual</p>
               </div>
             </article>
-            <button
-              type="submit"
-              id="generate-proposal-button"
-              onClick={handleSubmit}
-            >
-              Generar propuesta
-            </button>
+
+            <Link to={`/completa/1`}>
+              <button type="submit"
+                id="generate-proposal-button"
+                onClick={handleSubmit}>
+                Generar propuesta
+              </button>
+            </Link>
           </section>
         </section>
       </form>

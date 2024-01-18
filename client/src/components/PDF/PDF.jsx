@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+// import { Worker, Viewer } from '@react-pdf-viewer/core';
+// import '@react-pdf-viewer/core/lib/styles/index.css';
+// import { pdfjs } from 'react-pdf';
+// import ReactPDF, { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import { useParams } from "react-router";
 import authService from '../../services/services';
 import bill from '../../../placeholders/bill.json';
@@ -6,7 +10,8 @@ import proposal from '../../../placeholders/proposal.json';
 import cups from '../../../placeholders/CUPS.json';
 import client from '../../../placeholders/client.json';
 import user from '../../../placeholders/user.json';
-
+import Swal from 'sweetalert2';
+  
 
 const PDF = () => {
     const [data, setData] = useState(null);
@@ -42,15 +47,43 @@ const PDF = () => {
       }, []);
 
     const DescargarPDF = () => {
-        
+        Swal.fire({
+            title: "¿Seguro que quieres descargar el PDF?",
+            showDenyButton: true,
+            confirmButtonText: "Si",
+            denyButtonText: `No`
+          }).then((result) => {
+            // if (result.isConfirmed) {
+            //     const generatePDF = async () => {
+            //         try {
+            //             const pdfBlob = await fetch(MyDocument).then((res) => res.blob());
+            //             const blobUrl = URL.createObjectURL(pdfBlob);
+                  
+            //             const link = document.createElement('a');
+            //             link.href = blobUrl;
+            //             link.download = `PropuestaCompleta${id}.pdf`;
+            //             document.body.appendChild(link);
+            //             link.click();
+            //             document.body.removeChild(link);
+            //         } catch (error) {
+            //             console.error('Error al descargar el PDF', error);
+            //             Swal.fire({
+            //                 icon: "error",
+            //                 title: "No se ha podido descargar el PDF"
+            //               })
+            //         }
+            //     };
+            //     generatePDF();
+            //}
+        });
     }
 
   return (
     <main>
-      <img src="/portada-pdf.svg" alt="Portada" id="portada"/>
+      <img src="/portada-pdf.svg" alt="Portada" id="portada" />
       <section id="border"></section>
       <section id="propuestaPDF">
-        <img src="/Several.svg" alt="Several" />
+        <img src="/Several.svg" alt="Several"/>
         <section id="datosHeader">
             <section className="headerSection">
                 <p>Nombre: {data != null ? (data.Client.titular) : ("")}</p>
@@ -401,7 +434,7 @@ const PDF = () => {
             </article>
         </section>
         <section id="imgCIAPDF">
-            <img src={data != null ? (`/companies/${data.Propuesta.CIA}.svg`) : ("/companies/©CANDELA.svg")} alt="imagen" />
+            <img src={data != null ? (`/companies/${data.Propuesta.CIA}.svg`) : ("/companies/CANDELA.svg")} alt="imagen" />
         </section>
       </section>
       <button id="descargarPDF" onClick={DescargarPDF}>Descargar</button>

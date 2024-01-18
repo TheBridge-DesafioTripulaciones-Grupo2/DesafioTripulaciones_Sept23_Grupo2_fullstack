@@ -44,5 +44,10 @@
   "total_energia_propuesta_actual": 10500,
   "total_energia_propuesta_anual": 126000,
   "porcentaje_ahorro_actual": 5,
-  "porcentaje_ahorro_anual": 3
+  "porcentaje_ahorro_anual": 3,
+  "energia_reactiva_propuesta": null,
+  "impuesto_electrico_propuesta": 0.20,
+  "otros_precio_propuesta": [8.55],
+  "alquiler_equipo_propuesta": 18.6
+
 }

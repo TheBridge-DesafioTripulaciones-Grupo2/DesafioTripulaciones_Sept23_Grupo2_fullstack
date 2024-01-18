@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getAllClientsByUserId } from "../../../services/clients.services";
 import ClientCard from "./ClientCard/ClientCard";
 import Spinner from "../../../assets/spinner.svg";
+import lupa from "../../../assets/lupa.svg";
 
 const ClientsList = () => {
   const { userId } = useParams();
@@ -50,6 +51,7 @@ const ClientsList = () => {
           placeholder="Buscar cliente"
           onChange={(e) => setSearch(e.target.value)}
         />
+        <img id="search-icon" src={lupa} alt="Search Icon" />
         <select
           id="sort-clients"
           value={sortOrder}

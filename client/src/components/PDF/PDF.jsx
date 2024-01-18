@@ -230,9 +230,9 @@ const PDF = () => {
             <tbody>
             <tr>
                 <th>Precios potencia (€/kw/dia)</th>
-                <td>{data != null ? (data.Bill.P1_precios_potencia) : ("")}</td> 
-                <td>{data != null ? (data.Bill.P2_precios_potencia) : ("")}</td>
-                <td>{data != null ? (data.Bill.P2_precios_potencia) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P1_precio_potencia) : ("")}</td> 
+                <td>{data != null ? (data.Propuesta.P2_precio_potencia) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P2_precio_potencia) : ("")}</td>
             </tr>
             <tr>
                 <th>Precios energía(mes de factura)</th>
@@ -242,9 +242,9 @@ const PDF = () => {
             </tr>
             <tr>
                 <th>Precios energía (media último año)</th>
-                <td>{data != null ? (data.Bill.P1_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Bill.P1_precio_anual) : ("")}</td>
-                <td>{data != null ? (data.Bill.P1_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
+                <td>{data != null ? (data.Propuesta.P1_precio_anual) : ("")}</td>
             </tr>
             </tbody>
         </table>
@@ -252,19 +252,19 @@ const PDF = () => {
             <tbody>
             <tr>
                 <td>Energia reactiva</td>
-                <td>{data != null ? (data.Bill.energia_reactiva) : ("")}</td> 
+                <td>{data != null ? (data.Propuesta.energia_reactiva_propuesta) : ("")}</td> 
             </tr>
             <tr>
                 <td>Impuesto eléctrico</td>
-                <td>{data != null ? (data.Bill.impuesto_electrico) : ("")}</td> 
+                <td>{data != null ? (data.Propuesta.impuesto_electrico_propuesta) : ("")}</td> 
             </tr>
             <tr>
                 <td>Alquiler de equipo</td>
-                <td>{data != null ? (data.Bill.alquiler_equipo) : ("")}</td> 
+                <td>{data != null ? (data.Propuesta.alquiler_equipo_propuesta) : ("")}</td> 
             </tr>
             <tr>
                 <td>Otros conceptos</td>
-                <td>{data != null ? (data.Bill.otros_precio.reduce((total, numero) => total + numero, 0)) : ("")}</td> 
+                <td>{data != null ? (data.Propuesta.otros_precio_propuesta.reduce((total, numero) => total + numero, 0)) : ("")}</td> 
             </tr>
             </tbody>
         </table>

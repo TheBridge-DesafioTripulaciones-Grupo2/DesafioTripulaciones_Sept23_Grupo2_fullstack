@@ -1,0 +1,27 @@
+{
+    "Tipo_consumo": "Consumo mensual",
+    "Metodo": "Indexado",
+    "cons_P1": 120.5,
+    "cons_P2": 80.2,
+    "cons_P3": 50.8,
+    "precio_P1": 0.15,
+    "precio_P2": 0.12,
+    "precio_P3": 0.10,
+    "descuento": 5.0,
+    "descuento_potencia": 2.0,
+    "potencia_contratada_P1": 4.5,
+    "potencia_contratada_P2": 3.0,
+    "dias": 30,
+    "precio_potencia_dia_P1": 0.20,
+    "precio_potencia_dia_P2": 0.15,
+    "impuesto_electrico": 3.5,
+    "alquiler_equipo": 2.0,
+    "otros": 1.5,
+    "CIA": "Energía Verde S.A.",
+    "productos_CIA": "Tarifa ECO",
+    "mes_facturacion": "Enero 2023",
+    "FEE": "Mensual",
+    "IVA": 21.0
+}
+
+

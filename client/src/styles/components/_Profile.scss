@@ -1,0 +1,126 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+
+#ProfileContainer {
+  position: absolute;
+  width: 1440px;
+  margin: auto;
+  top: 0;
+  z-index: 1;
+  &>img {
+    z-index: 1;
+    width: 348px;
+    height: 329px;
+    position: absolute;
+    top: 171px;
+    left: 145px;
+  }
+  & #datosPerfil {
+    position: absolute;
+    top: 246px;
+    left: 50px;
+    width: 1340px;
+    height: 244px;
+    background-color: $primary-100;
+    border-radius: 24px;
+    & #logout {
+      z-index: 100;
+      position: absolute;
+      cursor: pointer;
+      top: 20px;
+      left: 1211px;
+      @include body1;
+      color: $gray4;
+    }
+    &>section {
+      z-index: 1;
+      position: relative;
+      top: 52px;
+      left: 541px;
+      height: 136px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      & h1 {
+        @include h1;
+      }
+      & h4 {
+        @include h4;
+      }
+      & section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &>img {
+          height: 24px;
+          width: 24px;
+          margin-right: 6px;
+        }
+        h5 {
+          @include h5;
+        }
+      }
+    }
+  }
+  & #Propuestas {
+    position: absolute;
+    left: 48px;
+  }
+  & #PropuestasAceptadas {
+    position: absolute;
+    left: 501px;
+  }
+  & #PropuestasPendientes {
+    position: absolute;
+    left: 955px;
+  }
+}
+
+.PropuestaSection {
+  position: absolute;
+  top: 563px;
+  width: 437px;
+  height: 492px;
+  border-radius: 16px;
+  background-color: $white;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1), -2px -2px 2px rgba(0, 0, 0, 0.1);
+  &>section {
+    margin: 24px 16px;
+    &>h6 {
+      @include h6;
+      padding-bottom: 22px;
+    }
+    & .CardP {
+      width: 405px;
+      height: 118px;
+      border-radius: 8px;
+      border: 1px solid $gray2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-bottom: 22px;
+      &>h6 {
+        @include caption;
+        color: $gray4;
+        padding-left: 16px;
+      }
+      &>section {
+        width: 115px;
+        height: 20px;
+        background-color: $primary;
+        margin-left: 16px;
+        &>h5 {
+          @include caption;
+          color: $white;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

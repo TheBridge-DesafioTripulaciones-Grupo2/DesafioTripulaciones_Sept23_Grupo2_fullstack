@@ -1,0 +1,120 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#home-header {
+  margin-top: 33px;
+
+  color: var(--primario-rojo, #ab2526);
+  /* Heading/H1 */
+  font-family: Lato;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 104.348% */
+  letter-spacing: -0.46px;
+}
+
+#achievements {
+  margin-top: 51px;
+  margin-left: 50px;
+  width: 1341px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(101px / 2);
+  > svg {
+    // width: 1px;
+    height: 89px;
+    flex-shrink: 0;
+
+    stroke-width: 2px;
+    stroke: var(--neutros-gris300, #ada4a2);
+  }
+}
+
+.achievement {
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+
+  border-radius: 24px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 38px;
+        > p {
+          width: 197px;
+
+          color: var(--primario-rojo, #ab2526);
+          font-family: Lato;
+          font-size: 96px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 48px; /* 50% */
+          letter-spacing: -0.96px;
+        }
+        > div {
+          display: flex;
+          padding: 12.182px;
+          align-items: flex-start;
+          gap: 12.182px;
+
+          border-radius: 152.273px;
+          background: var(--neutros-gris300, #ada4a2);
+          svg {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+    p {
+      width: 245px;
+
+      color: var(--neutros-gris400, #877f7d);
+
+      /* Heading/H6 */
+      font-family: Lato;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px; /* 120% */
+      letter-spacing: 0.05px;
+    }
+  }
+}
+
+#recent-clients {
+  margin-top: 62px;
+  #card_section {
+    margin: 12px;
+    transition: all 0.25s;
+  }
+  #card_section:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.25s;
+  }
+  #card_section:not(:hover) {
+    transform: scale(0.95);
+  }
+}
+
+.slick-prev,
+.slick-next {
+  /* your styles for arrows */
+  z-index: 1;
+}

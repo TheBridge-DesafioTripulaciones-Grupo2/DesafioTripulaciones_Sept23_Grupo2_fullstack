@@ -1,0 +1,150 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#extra-table {
+  display: flex;
+  //   width: 504px;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  th {
+    width: 168px;
+    height: 40px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    border-radius: 8px 0px 0px 0px;
+    // border-bottom: 1px solid #c2c2c2;
+    background: $primary-100;
+
+    color: var(--secundario-negro, #1f1d1c);
+    text-align: center;
+    text-wrap: nowrap;
+
+    /* Caption/caption */
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 114.286% */
+    letter-spacing: 0.035px;
+    min-height: 47px;
+    // padding: 13px 8px;
+    //   padding: 0px 8px;
+    padding: 8px 0px;
+    padding: 0px 8px;
+    text-align: center;
+    align-items: center;
+    // gap: 8px;
+    align-self: stretch;
+
+    //   border-right: 1px solid #c2c2c2;
+    //   border-bottom: 1px solid #c2c2c2;
+    background: $primary-100;
+    height: fit-content;
+    text-align: center;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 114.286% */
+    letter-spacing: 0.035px;
+
+    flex: 1 0 0;
+    color: #1d2433;
+    text-align: center;
+
+    //   border-right: 1px solid $gray2;
+    //   border-bottom: 1px solid $gray2;
+  }
+  td {
+    width: 168px;
+    height: 40px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    // gap: 8px;
+    flex-shrink: 0;
+
+    // border-bottom: 1px solid #c2c2c2;
+    // border-left: 1px solid #c2c2c2;
+
+    background: var(--BLANCO, #fff);
+    background: none; /* Removes the default background */
+    border: none; /* Removes the default border */
+    outline: none; /* Removes the focus outline */
+    padding: 0; /* Resets padding */
+    margin: 0; /* Resets margin */
+    font-family: inherit; /* Inherits font from parent element */
+    font-size: inherit; /* Inherits font size from parent element */
+    color: inherit;
+    // min-width: 120px;
+    width: 168px;
+    min-height: 20px;
+    max-height: 20px;
+
+    //   display: flex;
+    //   height: 40px;
+    //   padding: 10px 8px;
+    //   align-items: center;
+    //   gap: 8px;
+    //   align-self: stretch;
+
+    //   border: 1px solid $gray2;
+    //   border-bottom: 1px solid $gray2;
+
+    > input,
+    select {
+      background: none; /* Removes the default background */
+      border: none; /* Removes the default border */
+      outline: none; /* Removes the focus outline */
+      padding: 0; /* Resets padding */
+      margin: 0; /* Resets margin */
+      font-family: inherit; /* Inherits font from parent element */
+      font-size: inherit; /* Inherits font size from parent element */
+      color: inherit;
+
+      display: flex;
+      width: calc(100% - 8px);
+      height: 40px;
+      // padding: 10px 8px;
+      padding: 10px 0px;
+      padding-left: 8px;
+      align-items: center;
+      gap: 8px;
+      align-self: stretch;
+      height: 20px;
+      border: 1px solid #c2c2c2;
+
+      //   border-right: 1px solid $gray2;
+      // border-bottom: 1px solid $gray2;
+      // border-right: 1px solid $gray2;
+      // border-bottom: 1px solid $gray2;
+      background: #fff;
+    }
+    select {
+      width: 72px;
+      height: 42px;
+      padding: 8px;
+      justify-content: center;
+      align-items: center;
+      //   gap: 8px;
+      flex-shrink: 0;
+      // border-right: none;
+    }
+  }
+  .iva-input {
+    width: 72px;
+    height: 42px;
+    // padding: 8px;
+    justify-content: center;
+    align-items: center;
+    // gap: 8px;
+    flex-shrink: 0;
+    // border-right: none;
+    border-radius: 0px 8px 0px 0px;
+  }
+}

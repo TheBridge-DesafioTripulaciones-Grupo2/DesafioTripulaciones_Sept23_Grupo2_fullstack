@@ -1,0 +1,303 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#portada {
+  position: absolute;
+  width: 595px;
+  height: 842px;
+  top: 77px;
+  left: 50px;
+}
+
+#border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 720px;
+  height: 1024px;
+  border-right: 2px solid $gray2;
+}
+
+#propuestaPDF {
+  position: absolute;
+  width: 595px;
+  height: 842px;
+  top: 77px;
+  left: 795px;
+  &>img {
+    position: absolute;
+    top: 0px;
+    padding-left: 7px;
+    width: 112px;
+    height: 64px;
+  }
+  & #datosHeader {
+    padding-top: 74px;
+    width: 595px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    & .headerSection {
+      position: relative;
+      width: 275px;
+      height: 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      & p {
+        @include body3;
+      }
+      & img {
+        width: 100%;
+        height: 2px;
+      }
+      & .img1 {
+        position: absolute;
+        top: 18px;
+        left: 0;
+      }
+      & .img2 {
+        position: absolute;
+        top: 36px;
+        left: 0;
+      }
+      & .img3 {
+        position: absolute;
+        top: 52px;
+        left: 0;
+      }
+    }
+  }
+  & #separador1, #separador2, #separador3 {
+    width: 595px;
+    height: 17px;
+    background-color: $primary-200;
+    & p {
+      @include caption;
+      text-align: center;
+    }
+  }
+  & #separador1 {
+    margin-top: 21px;
+    margin-bottom: 23px;
+  }
+  & #separador2 {
+    margin-bottom: 22px;
+  }
+  & #tarifasPDF, #tarifasOfertaPDF {
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & thead th:not(.vacia) {
+      width: 84px;
+      height: 10px;
+      background-color: $primary-100;
+    }
+    & thead th {
+      border-bottom: 1px solid $gray2;
+    }
+    & tbody th {
+      width: 147px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+    & tbody td {
+      width: 84px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & #otrosActualPDF {
+    position: absolute;
+    top: 197px;
+    left: 433px;
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & td {
+      width: 74px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & #otrosOfertaPDF {
+    position: absolute;
+    top: 517px;
+    left: 432px;
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & td {
+      width: 74px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & #totalActualPDF {
+    position: absolute;
+    top: 307px;
+    left: 432px;
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & thead th:not(.vacia) {
+      width: 40px;
+      height: 15px;
+      background-color: $primary-100;
+    }
+    & thead th {
+      border-bottom: 1px solid $gray2;
+    }
+    & tbody th {
+      width: 67px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+    & tbody td {
+      width: 40px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & #totalOfertaPDF {
+    position: absolute;
+    top: 627px;
+    left: 431px;
+    border-collapse: collapse;
+    text-align: center;
+    @include body3;
+    & thead th:not(.vacia) {
+      width: 40px;
+      height: 15px;
+      background-color: $primary-100;
+    }
+    & thead th {
+      border-bottom: 1px solid $gray2;
+    }
+    & tbody th {
+      width: 67px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+    & tbody td {
+      width: 40px;
+      height: 24px;
+      border: 1px solid $gray2;
+    }
+  }
+  & .TotalCard {
+    > div {
+      margin-right: 21px;
+      display: inline-flex;
+      flex-direction: column;
+      padding: 10px;
+      align-items: flex-start;
+      gap: 10px;
+      width: 127px;
+      height: 44px;
+  
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 4px 4px 10px 0px rgba(212, 212, 212, 0.9),
+        -4px -4px 8px 0px rgba(255, 255, 255, 0.9),
+        4px -4px 8px 0px rgba(212, 212, 212, 0.2),
+        -4px 4px 8px 0px rgba(212, 212, 212, 0.2),
+        -1px -1px 2px 0px rgba(212, 212, 212, 0.5) inset,
+        1px 1px 2px 0px rgba(255, 255, 255, 0.3) inset;
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        > div {
+          display: flex;
+          align-items: center;
+          gap: -58px;
+          > .price {
+            width: 97px;
+            margin: 0;
+            color: $primary;
+            @include h5;
+          }
+          > div {
+            display: flex;
+            padding: 4px;
+            align-items: flex-start;
+            gap: 8.06px;
+  
+            border-radius: 100.752px;
+            background: var(--neutros-gris300, #ada4a2);
+            > svg {
+              width: 21px;
+              height: 21px;
+            }
+          }
+        }
+      }
+    }
+  }
+  & .CardContainerPDF {
+    margin-top: 35px;
+    margin-left: 16px;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  & #porcentajesPDF {
+    margin-top: 21px;
+  }
+  & #imgCIAPDF {
+    position: absolute;
+    top: 746px;
+    left: 421px;
+    width: 147px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+      width: 147px;
+      height: auto;
+    }
+  }
+}
+
+.labelPDF {
+  @include body3;
+  color: $gray4;
+  width: 125px;
+}
+
+#descargarPDF {
+  position: absolute;
+  top: 912px;
+  left: 937px;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font: inherit;
+  border-radius: 0;
+  appearance: none;
+  width: 452px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 32px;
+  background: $primary;
+
+  color: #fcfdfd;
+  text-align: center;
+
+  /* Botón/Botón */
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 120% */
+  letter-spacing: 0.05px;
+}
+#descargarPDF:hover {
+  background-color: $primary-600;
+}
+

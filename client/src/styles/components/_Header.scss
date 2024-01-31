@@ -3,6 +3,7 @@
 
 header {
   display: flex;
+  position: fixed;
   align-items: center;
   justify-content: space-between;
   gap: 612px;
@@ -11,6 +12,8 @@ header {
   // margin-top: 29px;
   width: 1440px;
   z-index: 20;
+  // margin-left: 50px;
+  background-color: #fafafa;
   
   & img {
     // position: relative;
@@ -21,6 +24,7 @@ header {
   }
   & nav {
     display: flex;
+    position: sticky;
     flex-wrap: nowrap;
     z-index: 20;
     & a {

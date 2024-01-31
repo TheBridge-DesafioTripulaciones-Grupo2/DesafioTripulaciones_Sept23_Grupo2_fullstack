@@ -23,19 +23,23 @@
 @import "./utils/mixins.scss";
 
 body {
+  display: flex;
+  justify-content: center;
   background-color: #fafafa;
   font-family: "Lato", sans-serif;
 }
 
-header,
+
 main {
   width: 1440px;
   // height: 1024px;
   margin: auto;
   // position: relative;
+
 }
 
 main {
+  padding-top: calc(134px + 29px);
   min-height: 100vh;
 }
 
